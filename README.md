@@ -83,9 +83,9 @@ To run Sky-Critique locally, you must have the following installed:
 This project was contributed to by:
 
 - [Malcolm Githuka](https://github.com/Malcolm-G)
-- [Kennedy Icika](https://github.com/Malcolm-G)
-- [Louis Okwaro](https://github.com/Malcolm-G)
-- [Mark Njogu](https://github.com/Malcolm-G)
+- [Kennedy Icika](https://github.com/Icika-max)
+- [Louis Okwaro](https://github.com/LouisOkwaro)
+- [Mark Njogu](https://github.com/treva556)
 
 Contributions to Sky-Critique are welcome! If you find a bug or have an idea for a new feature, please create an issue or submit a pull request.
 
