@@ -1,6 +1,6 @@
 import React, { Component, Fragment } from 'react'
 import './App.css'
-import { Route, Switch } from 'react-router-dom'
+import { Route, Routes } from 'react-router-dom'
 import Login from './Auth/Login'
 import Register from './Auth/Register'
 import Forgot from './Auth/Password/Forgot'
@@ -17,14 +17,14 @@ class App extends Component {
     return(
       <AuthProvider>
         <Navbar/>
-        <Switch>
+        <Routes>
           <Route exact path="/" component={Airlines} />
           <Route exact path="/airlines/:slug" component={Airline} />
           <UnprotectedRoute path="/login" component={Login}/>
           <UnprotectedRoute exact path="/register" component={Register} />
           <UnprotectedRoute path="/forgot-password" component={Forgot}/>
           <UnprotectedRoute path="/reset-password" component={Reset}/>
-        </Switch>
+        </Routes>
       </AuthProvider>
     )
   }
