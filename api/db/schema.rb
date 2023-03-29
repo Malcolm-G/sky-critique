@@ -10,13 +10,48 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_03_29_084005) do
-  create_table "bookings", force: :cascade do |t|
+ActiveRecord::Schema[7.0].define(version: 2023_03_29_055455) do
+  create_table "airports", force: :cascade do |t|
+    t.string "code"
+    t.string "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.integer "flight_id"
-    t.string "passenger_name"
-    t.string "passenger_email"
   end
 
+  create_table "flights", force: :cascade do |t|
+    t.string "name"
+    t.integer "origin_id"
+    t.integer "destination_id"
+    t.datetime "departure_time"
+    t.integer "duration"
+    t.string "image_url"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["destination_id"], name: "index_flights_on_destination_id"
+    t.index ["origin_id"], name: "index_flights_on_origin_id"
+  end
+
+  create_table "reviews", force: :cascade do |t|
+    t.integer "flight_id", null: false
+    t.integer "user_id", null: false
+    t.integer "rating"
+    t.text "comment"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["flight_id"], name: "index_reviews_on_flight_id"
+    t.index ["user_id"], name: "index_reviews_on_user_id"
+  end
+
+  create_table "users", force: :cascade do |t|
+    t.string "name"
+    t.string "email"
+    t.string "password_digest"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  add_foreign_key "flights", "airports", column: "destination_id"
+  add_foreign_key "flights", "airports", column: "origin_id"
+  add_foreign_key "reviews", "flights"
+  add_foreign_key "reviews", "users"
 end
