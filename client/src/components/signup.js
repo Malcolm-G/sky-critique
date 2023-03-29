@@ -26,7 +26,7 @@ function Signup() {
 //   };
 
   return (
-    <div>
+    <div className='form'> 
       <h1>Sign Up</h1>
       <form >
         <label>

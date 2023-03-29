@@ -26,22 +26,24 @@ function Login() {
 //   };
 
   return (
-    <div >
-      <h1 className='log-header'>Log In</h1>
-      <form className=''>
+    <div className='card'>
+      <h1>Log In</h1>
+      <form className='form-control'>
         <label>
           Email:
-          <input type="email"   />
+          <input type="text" placeholder='Enter Email...' />
         </label>
-        <br />
+        <br/>
         <label>
           Password:
-          <input type="password"  
+          <input type="password" placeholder='Enter Password...'  
            />
         </label>
         <br />
         <button type="submit">Log In</button>
-      </form>
+        </form>
+        
+      
     </div>
   );
 }
