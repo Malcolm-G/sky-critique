@@ -3,7 +3,7 @@ import React from 'react';
 function Home() {
   return (
     <div>
-      <h1>Welcome to our flight booking website!</h1>
+      <h1>Always Flying High</h1>
       <h2>Available Flights:</h2>
       <ul>
         <li>
