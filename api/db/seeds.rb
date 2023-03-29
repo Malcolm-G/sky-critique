@@ -9,9 +9,9 @@
 
 puts "Creating seed..."
 #create some users
-user1=User.create(email: 'user1@example.com', password: 'password1')
-user2=User.create(email: 'user2@example.com', password: 'password2')
-user3=User.create(email: 'user3@example.com', password: 'password3')
+user1=User.create(name: 'Kennedy',email: 'user1@example.com', password: 'password1')
+user2=User.create(name: 'Allan',email: 'user2@example.com', password: 'password2')
+user3=User.create(name: 'Jack',email: 'user3@example.com', password: 'password3')
 
 
 # Create origin and destination airports
