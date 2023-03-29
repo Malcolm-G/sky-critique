@@ -1,13 +1,15 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
-import { BrowserRouter as Router, Route } from 'react-router-dom'
-import App from '../src/components/App'
+import App from './App'
 
-document.addEventListener('DOMContentLoaded', () => {
-  ReactDOM.render(
-    <Router>
-      <Route path="/" component={App}/>
-    </Router>,
-    document.body.appendChild(document.createElement('div')),
-  )
-})
+
+import { createRoot } from "react-dom/client";
+
+const rootElement = document.getElementById("root");
+const root = createRoot(rootElement);
+root.render(
+  <React.StrictMode>
+    <App />
+  </React.StrictMode>
+);
+
