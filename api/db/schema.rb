@@ -19,11 +19,14 @@ ActiveRecord::Schema[7.0].define(version: 2023_03_29_115046) do
   end
 
   create_table "bookings", force: :cascade do |t|
+    t.integer "flight_id", null: false
+    t.integer "user_id", null: false
+    t.string "passenger_email"
+    t.string "passenger_name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.integer "flight_id"
-    t.string "passenger_name"
-    t.string "passenger_email"
+    t.index ["flight_id"], name: "index_bookings_on_flight_id"
+    t.index ["user_id"], name: "index_bookings_on_user_id"
   end
 
   create_table "flights", force: :cascade do |t|
@@ -63,6 +66,8 @@ ActiveRecord::Schema[7.0].define(version: 2023_03_29_115046) do
     t.datetime "updated_at", null: false
   end
 
+  add_foreign_key "bookings", "flights"
+  add_foreign_key "bookings", "users"
   add_foreign_key "flights", "airports", column: "destination_id"
   add_foreign_key "flights", "airports", column: "origin_id"
   add_foreign_key "reviews", "flights"

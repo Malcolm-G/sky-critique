@@ -2546,3 +2546,616 @@ FOREIGN KEY ("user_id")
   [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mrollback transaction[0m
   [1m[36mActiveRecord::SchemaMigration Pluck (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
   [1m[36mActiveRecord::SchemaMigration Pluck (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (11.0ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" varchar NOT NULL PRIMARY KEY)[0m
+  [1m[35m (9.3ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" varchar NOT NULL PRIMARY KEY, "value" varchar, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to CreateUsers (20230329055233)
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.4ms)[0m  [1m[35mCREATE TABLE "users" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar, "email" varchar, "password_digest" varchar, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.4ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20230329055233"]]
+  [1m[36mTRANSACTION (9.5ms)[0m  [1m[36mcommit transaction[0m
+Migrating to CreateFlights (20230329055302)
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (1.8ms)[0m  [1m[35mCREATE TABLE "flights" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar, "origin_id" integer, "destination_id" integer, "departure_time" datetime(6), "duration" integer, "image_url" varchar, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL, CONSTRAINT "fk_rails_b1cc9638ed"
+FOREIGN KEY ("origin_id")
+  REFERENCES "airports" ("id")
+, CONSTRAINT "fk_rails_17532769c7"
+FOREIGN KEY ("destination_id")
+  REFERENCES "airports" ("id")
+)[0m
+  [1m[35m (0.6ms)[0m  [1m[35mCREATE INDEX "index_flights_on_origin_id" ON "flights" ("origin_id")[0m
+  [1m[35m (0.7ms)[0m  [1m[35mCREATE INDEX "index_flights_on_destination_id" ON "flights" ("destination_id")[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.7ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20230329055302"]]
+  [1m[36mTRANSACTION (11.3ms)[0m  [1m[36mcommit transaction[0m
+Migrating to CreateReviews (20230329055336)
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (1.7ms)[0m  [1m[35mCREATE TABLE "reviews" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "flight_id" integer NOT NULL, "user_id" integer NOT NULL, "rating" integer, "comment" text, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL, CONSTRAINT "fk_rails_5bbf97fba9"
+FOREIGN KEY ("flight_id")
+  REFERENCES "flights" ("id")
+, CONSTRAINT "fk_rails_74a66bd6c5"
+FOREIGN KEY ("user_id")
+  REFERENCES "users" ("id")
+)[0m
+  [1m[35m (0.4ms)[0m  [1m[35mCREATE INDEX "index_reviews_on_flight_id" ON "reviews" ("flight_id")[0m
+  [1m[35m (0.6ms)[0m  [1m[35mCREATE INDEX "index_reviews_on_user_id" ON "reviews" ("user_id")[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.7ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20230329055336"]]
+  [1m[36mTRANSACTION (11.4ms)[0m  [1m[36mcommit transaction[0m
+Migrating to CreateAirports (20230329055455)
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (1.5ms)[0m  [1m[35mCREATE TABLE "airports" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "code" varchar, "name" varchar, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[36mActiveRecord::SchemaMigration Create (1.0ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20230329055455"]]
+  [1m[36mTRANSACTION (11.4ms)[0m  [1m[36mcommit transaction[0m
+Migrating to CreateBookings (20230329071537)
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (1.9ms)[0m  [1m[35mCREATE TABLE "bookings" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "flight_id" integer NOT NULL, "user_id" integer NOT NULL, "passenger_email" varchar, "passenger_name" varchar, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL, CONSTRAINT "fk_rails_fa1078b72f"
+FOREIGN KEY ("flight_id")
+  REFERENCES "flights" ("id")
+, CONSTRAINT "fk_rails_ef0571f117"
+FOREIGN KEY ("user_id")
+  REFERENCES "users" ("id")
+)[0m
+  [1m[35m (0.4ms)[0m  [1m[35mCREATE INDEX "index_bookings_on_flight_id" ON "bookings" ("flight_id")[0m
+  [1m[35m (0.4ms)[0m  [1m[35mCREATE INDEX "index_bookings_on_user_id" ON "bookings" ("user_id")[0m
+  [1m[36mActiveRecord::SchemaMigration Create (1.0ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20230329071537"]]
+  [1m[36mTRANSACTION (11.1ms)[0m  [1m[36mcommit transaction[0m
+Migrating to AddFlightIdToBooking (20230329083625)
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.7ms)[0m  [1m[35mALTER TABLE "bookings" ADD "flight_id" integer[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to AddPassengerNameToBooking (20230329083805)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.3ms)[0m  [1m[35mALTER TABLE "bookings" ADD "passenger_name" varchar[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to CreateSessions (20230329115046)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.4ms)[0m  [1m[35mCREATE TABLE "sessions" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.4ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20230329115046"]]
+  [1m[36mTRANSACTION (10.2ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mActiveRecord::InternalMetadata Load (29.0ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mActiveRecord::InternalMetadata Create (0.5ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["key", "environment"], ["value", "development"], ["created_at", "2023-03-30 14:25:49.123787"], ["updated_at", "2023-03-30 14:25:49.123787"]]
+  [1m[36mTRANSACTION (8.0ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "user1@example.com"], ["LIMIT", 1]]
+  [1m[36mUser Create (0.2ms)[0m  [1m[32mINSERT INTO "users" ("name", "email", "password_digest", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["name", "Kennedy"], ["email", "user1@example.com"], ["password_digest", "[FILTERED]"], ["created_at", "2023-03-30 14:25:49.560821"], ["updated_at", "2023-03-30 14:25:49.560821"]]
+  [1m[36mTRANSACTION (8.4ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "user2@example.com"], ["LIMIT", 1]]
+  [1m[36mUser Create (0.2ms)[0m  [1m[32mINSERT INTO "users" ("name", "email", "password_digest", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["name", "Allan"], ["email", "user2@example.com"], ["password_digest", "[FILTERED]"], ["created_at", "2023-03-30 14:25:49.894661"], ["updated_at", "2023-03-30 14:25:49.894661"]]
+  [1m[36mTRANSACTION (8.6ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "user3@example.com"], ["LIMIT", 1]]
+  [1m[36mUser Create (0.3ms)[0m  [1m[32mINSERT INTO "users" ("name", "email", "password_digest", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["name", "Jack"], ["email", "user3@example.com"], ["password_digest", "[FILTERED]"], ["created_at", "2023-03-30 14:25:50.239173"], ["updated_at", "2023-03-30 14:25:50.239173"]]
+  [1m[36mTRANSACTION (8.4ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mAirport Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "airports" WHERE "airports"."code" = ? LIMIT ?[0m  [["code", "LAX"], ["LIMIT", 1]]
+  [1m[36mAirport Create (0.3ms)[0m  [1m[32mINSERT INTO "airports" ("code", "name", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["code", "LAX"], ["name", "Los Angeles International Airport"], ["created_at", "2023-03-30 14:25:50.264302"], ["updated_at", "2023-03-30 14:25:50.264302"]]
+  [1m[36mTRANSACTION (7.4ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mAirport Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "airports" WHERE "airports"."code" = ? LIMIT ?[0m  [["code", "JFK"], ["LIMIT", 1]]
+  [1m[36mAirport Create (0.3ms)[0m  [1m[32mINSERT INTO "airports" ("code", "name", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["code", "JFK"], ["name", "John F. Kennedy International Airport"], ["created_at", "2023-03-30 14:25:50.276374"], ["updated_at", "2023-03-30 14:25:50.276374"]]
+  [1m[36mTRANSACTION (7.4ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mAirport Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "airports" WHERE "airports"."code" = ? LIMIT ?[0m  [["code", "SFO"], ["LIMIT", 1]]
+  [1m[36mAirport Create (0.2ms)[0m  [1m[32mINSERT INTO "airports" ("code", "name", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["code", "SFO"], ["name", "San Francisco International Airport"], ["created_at", "2023-03-30 14:25:50.289216"], ["updated_at", "2023-03-30 14:25:50.289216"]]
+  [1m[36mTRANSACTION (7.3ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mAirport Exists? (0.4ms)[0m  [1m[34mSELECT 1 AS one FROM "airports" WHERE "airports"."code" = ? LIMIT ?[0m  [["code", "ORD"], ["LIMIT", 1]]
+  [1m[36mAirport Create (0.7ms)[0m  [1m[32mINSERT INTO "airports" ("code", "name", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["code", "ORD"], ["name", "O'Hare International Airport"], ["created_at", "2023-03-30 14:25:50.307283"], ["updated_at", "2023-03-30 14:25:50.307283"]]
+  [1m[36mTRANSACTION (7.9ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mAirport Exists? (0.4ms)[0m  [1m[34mSELECT 1 AS one FROM "airports" WHERE "airports"."code" = ? LIMIT ?[0m  [["code", "DFW"], ["LIMIT", 1]]
+  [1m[36mAirport Create (0.8ms)[0m  [1m[32mINSERT INTO "airports" ("code", "name", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["code", "DFW"], ["name", "Dallas/Fort Worth International Airport"], ["created_at", "2023-03-30 14:25:50.329137"], ["updated_at", "2023-03-30 14:25:50.329137"]]
+  [1m[36mTRANSACTION (7.3ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mAirport Exists? (0.3ms)[0m  [1m[34mSELECT 1 AS one FROM "airports" WHERE "airports"."code" = ? LIMIT ?[0m  [["code", "DEN"], ["LIMIT", 1]]
+  [1m[36mAirport Create (0.3ms)[0m  [1m[32mINSERT INTO "airports" ("code", "name", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["code", "DEN"], ["name", "Denver International Airport"], ["created_at", "2023-03-30 14:25:50.346619"], ["updated_at", "2023-03-30 14:25:50.346619"]]
+  [1m[36mTRANSACTION (7.4ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mAirport Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "airports" WHERE "airports"."code" = ? LIMIT ?[0m  [["code", "LAS"], ["LIMIT", 1]]
+  [1m[36mAirport Create (0.3ms)[0m  [1m[32mINSERT INTO "airports" ("code", "name", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["code", "LAS"], ["name", "McCarran International Airport"], ["created_at", "2023-03-30 14:25:50.361131"], ["updated_at", "2023-03-30 14:25:50.361131"]]
+  [1m[36mTRANSACTION (7.6ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mAirport Exists? (0.3ms)[0m  [1m[34mSELECT 1 AS one FROM "airports" WHERE "airports"."code" = ? LIMIT ?[0m  [["code", "ATL"], ["LIMIT", 1]]
+  [1m[36mAirport Create (0.4ms)[0m  [1m[32mINSERT INTO "airports" ("code", "name", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["code", "ATL"], ["name", "Hartsfield-Jackson Atlanta International Airport"], ["created_at", "2023-03-30 14:25:50.378616"], ["updated_at", "2023-03-30 14:25:50.378616"]]
+  [1m[36mTRANSACTION (7.0ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mAirport Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "airports" WHERE "airports"."code" = ? LIMIT ?[0m  [["code", "LGA"], ["LIMIT", 1]]
+  [1m[36mAirport Create (0.2ms)[0m  [1m[32mINSERT INTO "airports" ("code", "name", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["code", "LGA"], ["name", "LaGuardia Airport"], ["created_at", "2023-03-30 14:25:50.393233"], ["updated_at", "2023-03-30 14:25:50.393233"]]
+  [1m[36mTRANSACTION (7.1ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mAirport Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "airports" WHERE "airports"."code" = ? LIMIT ?[0m  [["code", "SEA"], ["LIMIT", 1]]
+  [1m[36mAirport Create (0.3ms)[0m  [1m[32mINSERT INTO "airports" ("code", "name", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["code", "SEA"], ["name", "Seattle-Tacoma International Airport"], ["created_at", "2023-03-30 14:25:50.405298"], ["updated_at", "2023-03-30 14:25:50.405298"]]
+  [1m[36mTRANSACTION (7.5ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mAirport Load (0.2ms)[0m  [1m[34mSELECT "airports".* FROM "airports" WHERE "airports"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mAirport Load (0.1ms)[0m  [1m[34mSELECT "airports".* FROM "airports" WHERE "airports"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mFlight Create (0.3ms)[0m  [1m[32mINSERT INTO "flights" ("name", "origin_id", "destination_id", "departure_time", "duration", "image_url", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?)[0m  [["name", "Flight 101"], ["origin_id", 1], ["destination_id", 2], ["departure_time", "2023-04-01 08:00:00"], ["duration", 360], ["image_url", "https://via.placeholder.com/150"], ["created_at", "2023-03-30 14:25:50.471366"], ["updated_at", "2023-03-30 14:25:50.471366"]]
+  [1m[36mTRANSACTION (8.2ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mAirport Load (0.3ms)[0m  [1m[34mSELECT "airports".* FROM "airports" WHERE "airports"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mAirport Load (0.2ms)[0m  [1m[34mSELECT "airports".* FROM "airports" WHERE "airports"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mFlight Create (0.9ms)[0m  [1m[32mINSERT INTO "flights" ("name", "origin_id", "destination_id", "departure_time", "duration", "image_url", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?)[0m  [["name", "Flight 102"], ["origin_id", 2], ["destination_id", 1], ["departure_time", "2023-04-02 09:00:00"], ["duration", 360], ["image_url", "https://via.placeholder.com/150"], ["created_at", "2023-03-30 14:25:50.497771"], ["updated_at", "2023-03-30 14:25:50.497771"]]
+  [1m[36mTRANSACTION (8.6ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mAirport Load (0.3ms)[0m  [1m[34mSELECT "airports".* FROM "airports" WHERE "airports"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mAirport Load (0.1ms)[0m  [1m[34mSELECT "airports".* FROM "airports" WHERE "airports"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mFlight Create (0.5ms)[0m  [1m[32mINSERT INTO "flights" ("name", "origin_id", "destination_id", "departure_time", "duration", "image_url", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?)[0m  [["name", "Flight 103"], ["origin_id", 1], ["destination_id", 3], ["departure_time", "2023-04-03 10:00:00"], ["duration", 300], ["image_url", "https://via.placeholder.com/150"], ["created_at", "2023-03-30 14:25:50.525963"], ["updated_at", "2023-03-30 14:25:50.525963"]]
+  [1m[36mTRANSACTION (7.7ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mAirport Load (0.1ms)[0m  [1m[34mSELECT "airports".* FROM "airports" WHERE "airports"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mAirport Load (0.1ms)[0m  [1m[34mSELECT "airports".* FROM "airports" WHERE "airports"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mFlight Create (0.5ms)[0m  [1m[32mINSERT INTO "flights" ("name", "origin_id", "destination_id", "departure_time", "duration", "image_url", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?)[0m  [["name", "Flight 104"], ["origin_id", 3], ["destination_id", 1], ["departure_time", "2023-04-04 11:00:00"], ["duration", 300], ["image_url", "https://via.placeholder.com/150"], ["created_at", "2023-03-30 14:25:50.544236"], ["updated_at", "2023-03-30 14:25:50.544236"]]
+  [1m[36mTRANSACTION (7.6ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mAirport Load (0.1ms)[0m  [1m[34mSELECT "airports".* FROM "airports" WHERE "airports"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mAirport Load (0.0ms)[0m  [1m[34mSELECT "airports".* FROM "airports" WHERE "airports"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  [1m[36mFlight Create (0.3ms)[0m  [1m[32mINSERT INTO "flights" ("name", "origin_id", "destination_id", "departure_time", "duration", "image_url", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?)[0m  [["name", "Flight 105"], ["origin_id", 1], ["destination_id", 4], ["departure_time", "2023-04-05 12:00:00"], ["duration", 240], ["image_url", "https://via.placeholder.com/150"], ["created_at", "2023-03-30 14:25:50.559366"], ["updated_at", "2023-03-30 14:25:50.559366"]]
+  [1m[36mTRANSACTION (8.0ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mAirport Load (0.1ms)[0m  [1m[34mSELECT "airports".* FROM "airports" WHERE "airports"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  [1m[36mAirport Load (0.0ms)[0m  [1m[34mSELECT "airports".* FROM "airports" WHERE "airports"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mFlight Create (0.5ms)[0m  [1m[32mINSERT INTO "flights" ("name", "origin_id", "destination_id", "departure_time", "duration", "image_url", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?)[0m  [["name", "Flight 106"], ["origin_id", 4], ["destination_id", 1], ["departure_time", "2023-04-06 13:00:00"], ["duration", 240], ["image_url", "https://via.placeholder.com/150"], ["created_at", "2023-03-30 14:25:50.574444"], ["updated_at", "2023-03-30 14:25:50.574444"]]
+  [1m[36mTRANSACTION (7.5ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mAirport Load (0.2ms)[0m  [1m[34mSELECT "airports".* FROM "airports" WHERE "airports"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mAirport Load (0.1ms)[0m  [1m[34mSELECT "airports".* FROM "airports" WHERE "airports"."id" = ? LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  [1m[36mFlight Create (0.3ms)[0m  [1m[32mINSERT INTO "flights" ("name", "origin_id", "destination_id", "departure_time", "duration", "image_url", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?)[0m  [["name", "Flight 107"], ["origin_id", 1], ["destination_id", 5], ["departure_time", "2023-04-07 14:00:00"], ["duration", 180], ["image_url", "https://via.placeholder.com/150"], ["created_at", "2023-03-30 14:25:50.592608"], ["updated_at", "2023-03-30 14:25:50.592608"]]
+  [1m[36mTRANSACTION (7.5ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mAirport Load (0.2ms)[0m  [1m[34mSELECT "airports".* FROM "airports" WHERE "airports"."id" = ? LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  [1m[36mAirport Load (0.1ms)[0m  [1m[34mSELECT "airports".* FROM "airports" WHERE "airports"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mFlight Create (0.4ms)[0m  [1m[32mINSERT INTO "flights" ("name", "origin_id", "destination_id", "departure_time", "duration", "image_url", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?)[0m  [["name", "Flight 108"], ["origin_id", 5], ["destination_id", 1], ["departure_time", "2023-04-08 15:00:00"], ["duration", 180], ["image_url", "https://via.placeholder.com/150"], ["created_at", "2023-03-30 14:25:50.614961"], ["updated_at", "2023-03-30 14:25:50.614961"]]
+  [1m[36mTRANSACTION (7.4ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mAirport Load (0.1ms)[0m  [1m[34mSELECT "airports".* FROM "airports" WHERE "airports"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mAirport Load (0.1ms)[0m  [1m[34mSELECT "airports".* FROM "airports" WHERE "airports"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mFlight Create (0.3ms)[0m  [1m[32mINSERT INTO "flights" ("name", "origin_id", "destination_id", "departure_time", "duration", "image_url", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?)[0m  [["name", "Flight 109"], ["origin_id", 2], ["destination_id", 3], ["departure_time", "2023-04-09 16:00:00"], ["duration", 240], ["image_url", "https://via.placeholder.com/150"], ["created_at", "2023-03-30 14:25:50.631031"], ["updated_at", "2023-03-30 14:25:50.631031"]]
+  [1m[36mTRANSACTION (7.9ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mFlight Load (0.1ms)[0m  [1m[34mSELECT "flights".* FROM "flights" WHERE "flights"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mReview Create (0.3ms)[0m  [1m[32mINSERT INTO "reviews" ("flight_id", "user_id", "rating", "comment", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["flight_id", 1], ["user_id", 1], ["rating", 4], ["comment", "Great flight!"], ["created_at", "2023-03-30 14:25:50.739852"], ["updated_at", "2023-03-30 14:25:50.739852"]]
+  [1m[36mTRANSACTION (8.7ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mFlight Load (0.5ms)[0m  [1m[34mSELECT "flights".* FROM "flights" WHERE "flights"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mReview Create (0.7ms)[0m  [1m[32mINSERT INTO "reviews" ("flight_id", "user_id", "rating", "comment", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["flight_id", 1], ["user_id", 2], ["rating", 2], ["comment", "Bad experience."], ["created_at", "2023-03-30 14:25:50.765866"], ["updated_at", "2023-03-30 14:25:50.765866"]]
+  [1m[36mTRANSACTION (7.9ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mFlight Load (0.1ms)[0m  [1m[34mSELECT "flights".* FROM "flights" WHERE "flights"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mReview Create (0.5ms)[0m  [1m[32mINSERT INTO "reviews" ("flight_id", "user_id", "rating", "comment", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["flight_id", 2], ["user_id", 1], ["rating", 3], ["comment", "Average flight."], ["created_at", "2023-03-30 14:25:50.793149"], ["updated_at", "2023-03-30 14:25:50.793149"]]
+  [1m[36mTRANSACTION (7.5ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mFlight Load (0.2ms)[0m  [1m[34mSELECT "flights".* FROM "flights" WHERE "flights"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mReview Create (0.4ms)[0m  [1m[32mINSERT INTO "reviews" ("flight_id", "user_id", "rating", "comment", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["flight_id", 2], ["user_id", 2], ["rating", 5], ["comment", "Amazing!"], ["created_at", "2023-03-30 14:25:50.813498"], ["updated_at", "2023-03-30 14:25:50.813498"]]
+  [1m[36mTRANSACTION (7.5ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mFlight Load (0.1ms)[0m  [1m[34mSELECT "flights".* FROM "flights" WHERE "flights"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mReview Create (0.4ms)[0m  [1m[32mINSERT INTO "reviews" ("flight_id", "user_id", "rating", "comment", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["flight_id", 3], ["user_id", 1], ["rating", 1], ["comment", "Terrible."], ["created_at", "2023-03-30 14:25:50.830096"], ["updated_at", "2023-03-30 14:25:50.830096"]]
+  [1m[36mTRANSACTION (8.0ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mFlight Load (0.1ms)[0m  [1m[34mSELECT "flights".* FROM "flights" WHERE "flights"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mReview Create (0.3ms)[0m  [1m[32mINSERT INTO "reviews" ("flight_id", "user_id", "rating", "comment", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["flight_id", 3], ["user_id", 2], ["rating", 4], ["comment", "Good service."], ["created_at", "2023-03-30 14:25:50.845622"], ["updated_at", "2023-03-30 14:25:50.845622"]]
+  [1m[36mTRANSACTION (7.8ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mFlight Load (0.1ms)[0m  [1m[34mSELECT "flights".* FROM "flights" WHERE "flights"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mFlight Load (0.1ms)[0m  [1m[34mSELECT "flights".* FROM "flights" WHERE "flights"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mFlight Load (0.1ms)[0m  [1m[34mSELECT "flights".* FROM "flights" WHERE "flights"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (10.6ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" varchar NOT NULL PRIMARY KEY)[0m
+  [1m[35m (8.5ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" varchar NOT NULL PRIMARY KEY, "value" varchar, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to CreateUsers (20230329055233)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.5ms)[0m  [1m[35mCREATE TABLE "users" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar, "email" varchar, "password_digest" varchar, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.4ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20230329055233"]]
+  [1m[36mTRANSACTION (15.1ms)[0m  [1m[36mcommit transaction[0m
+Migrating to CreateFlights (20230329055302)
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (1.9ms)[0m  [1m[35mCREATE TABLE "flights" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar, "origin_id" integer, "destination_id" integer, "departure_time" datetime(6), "duration" integer, "image_url" varchar, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL, CONSTRAINT "fk_rails_b1cc9638ed"
+FOREIGN KEY ("origin_id")
+  REFERENCES "airports" ("id")
+, CONSTRAINT "fk_rails_17532769c7"
+FOREIGN KEY ("destination_id")
+  REFERENCES "airports" ("id")
+)[0m
+  [1m[35m (0.5ms)[0m  [1m[35mCREATE INDEX "index_flights_on_origin_id" ON "flights" ("origin_id")[0m
+  [1m[35m (0.5ms)[0m  [1m[35mCREATE INDEX "index_flights_on_destination_id" ON "flights" ("destination_id")[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.6ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20230329055302"]]
+  [1m[36mTRANSACTION (13.3ms)[0m  [1m[36mcommit transaction[0m
+Migrating to CreateReviews (20230329055336)
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (1.3ms)[0m  [1m[35mCREATE TABLE "reviews" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "flight_id" integer NOT NULL, "user_id" integer NOT NULL, "rating" integer, "comment" text, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL, CONSTRAINT "fk_rails_5bbf97fba9"
+FOREIGN KEY ("flight_id")
+  REFERENCES "flights" ("id")
+, CONSTRAINT "fk_rails_74a66bd6c5"
+FOREIGN KEY ("user_id")
+  REFERENCES "users" ("id")
+)[0m
+  [1m[35m (1.0ms)[0m  [1m[35mCREATE INDEX "index_reviews_on_flight_id" ON "reviews" ("flight_id")[0m
+  [1m[35m (0.7ms)[0m  [1m[35mCREATE INDEX "index_reviews_on_user_id" ON "reviews" ("user_id")[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.5ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20230329055336"]]
+  [1m[36mTRANSACTION (16.1ms)[0m  [1m[36mcommit transaction[0m
+Migrating to CreateAirports (20230329055455)
+  [1m[36mTRANSACTION (0.5ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (1.3ms)[0m  [1m[35mCREATE TABLE "airports" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "code" varchar, "name" varchar, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[36mActiveRecord::SchemaMigration Create (1.1ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20230329055455"]]
+  [1m[36mTRANSACTION (12.5ms)[0m  [1m[36mcommit transaction[0m
+Migrating to CreateBookings (20230329071537)
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (1.5ms)[0m  [1m[35mCREATE TABLE "bookings" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "flight_id" integer NOT NULL, "user_id" integer NOT NULL, "passenger_email" varchar, "passenger_name" varchar, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL, CONSTRAINT "fk_rails_fa1078b72f"
+FOREIGN KEY ("flight_id")
+  REFERENCES "flights" ("id")
+, CONSTRAINT "fk_rails_ef0571f117"
+FOREIGN KEY ("user_id")
+  REFERENCES "users" ("id")
+)[0m
+  [1m[35m (0.7ms)[0m  [1m[35mCREATE INDEX "index_bookings_on_flight_id" ON "bookings" ("flight_id")[0m
+  [1m[35m (1.0ms)[0m  [1m[35mCREATE INDEX "index_bookings_on_user_id" ON "bookings" ("user_id")[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.5ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20230329071537"]]
+  [1m[36mTRANSACTION (15.2ms)[0m  [1m[36mcommit transaction[0m
+Migrating to CreateSessions (20230329115046)
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (1.6ms)[0m  [1m[35mCREATE TABLE "sessions" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.6ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20230329115046"]]
+  [1m[36mTRANSACTION (15.6ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.7ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mActiveRecord::InternalMetadata Create (0.7ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["key", "environment"], ["value", "development"], ["created_at", "2023-03-30 14:27:18.237848"], ["updated_at", "2023-03-30 14:27:18.237848"]]
+  [1m[36mTRANSACTION (9.9ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "user1@example.com"], ["LIMIT", 1]]
+  [1m[36mUser Create (0.3ms)[0m  [1m[32mINSERT INTO "users" ("name", "email", "password_digest", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["name", "Kennedy"], ["email", "user1@example.com"], ["password_digest", "[FILTERED]"], ["created_at", "2023-03-30 14:27:18.816454"], ["updated_at", "2023-03-30 14:27:18.816454"]]
+  [1m[36mTRANSACTION (8.6ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Exists? (0.6ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "user2@example.com"], ["LIMIT", 1]]
+  [1m[36mUser Create (1.3ms)[0m  [1m[32mINSERT INTO "users" ("name", "email", "password_digest", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["name", "Allan"], ["email", "user2@example.com"], ["password_digest", "[FILTERED]"], ["created_at", "2023-03-30 14:27:19.734299"], ["updated_at", "2023-03-30 14:27:19.734299"]]
+  [1m[36mTRANSACTION (9.7ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "user3@example.com"], ["LIMIT", 1]]
+  [1m[36mUser Create (0.3ms)[0m  [1m[32mINSERT INTO "users" ("name", "email", "password_digest", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["name", "Jack"], ["email", "user3@example.com"], ["password_digest", "[FILTERED]"], ["created_at", "2023-03-30 14:27:20.128070"], ["updated_at", "2023-03-30 14:27:20.128070"]]
+  [1m[36mTRANSACTION (8.7ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mAirport Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "airports" WHERE "airports"."code" = ? LIMIT ?[0m  [["code", "LAX"], ["LIMIT", 1]]
+  [1m[36mAirport Create (0.2ms)[0m  [1m[32mINSERT INTO "airports" ("code", "name", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["code", "LAX"], ["name", "Los Angeles International Airport"], ["created_at", "2023-03-30 14:27:20.153610"], ["updated_at", "2023-03-30 14:27:20.153610"]]
+  [1m[36mTRANSACTION (8.0ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mAirport Exists? (0.3ms)[0m  [1m[34mSELECT 1 AS one FROM "airports" WHERE "airports"."code" = ? LIMIT ?[0m  [["code", "JFK"], ["LIMIT", 1]]
+  [1m[36mAirport Create (0.4ms)[0m  [1m[32mINSERT INTO "airports" ("code", "name", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["code", "JFK"], ["name", "John F. Kennedy International Airport"], ["created_at", "2023-03-30 14:27:20.169117"], ["updated_at", "2023-03-30 14:27:20.169117"]]
+  [1m[36mTRANSACTION (9.1ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mAirport Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "airports" WHERE "airports"."code" = ? LIMIT ?[0m  [["code", "SFO"], ["LIMIT", 1]]
+  [1m[36mAirport Create (0.2ms)[0m  [1m[32mINSERT INTO "airports" ("code", "name", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["code", "SFO"], ["name", "San Francisco International Airport"], ["created_at", "2023-03-30 14:27:20.184795"], ["updated_at", "2023-03-30 14:27:20.184795"]]
+  [1m[36mTRANSACTION (8.0ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mAirport Exists? (0.4ms)[0m  [1m[34mSELECT 1 AS one FROM "airports" WHERE "airports"."code" = ? LIMIT ?[0m  [["code", "ORD"], ["LIMIT", 1]]
+  [1m[36mAirport Create (0.7ms)[0m  [1m[32mINSERT INTO "airports" ("code", "name", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["code", "ORD"], ["name", "O'Hare International Airport"], ["created_at", "2023-03-30 14:27:20.203762"], ["updated_at", "2023-03-30 14:27:20.203762"]]
+  [1m[36mTRANSACTION (7.7ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mAirport Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "airports" WHERE "airports"."code" = ? LIMIT ?[0m  [["code", "DFW"], ["LIMIT", 1]]
+  [1m[36mAirport Create (0.3ms)[0m  [1m[32mINSERT INTO "airports" ("code", "name", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["code", "DFW"], ["name", "Dallas/Fort Worth International Airport"], ["created_at", "2023-03-30 14:27:20.236342"], ["updated_at", "2023-03-30 14:27:20.236342"]]
+  [1m[36mTRANSACTION (8.0ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mAirport Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "airports" WHERE "airports"."code" = ? LIMIT ?[0m  [["code", "DEN"], ["LIMIT", 1]]
+  [1m[36mAirport Create (0.3ms)[0m  [1m[32mINSERT INTO "airports" ("code", "name", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["code", "DEN"], ["name", "Denver International Airport"], ["created_at", "2023-03-30 14:27:20.251963"], ["updated_at", "2023-03-30 14:27:20.251963"]]
+  [1m[36mTRANSACTION (7.5ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mAirport Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "airports" WHERE "airports"."code" = ? LIMIT ?[0m  [["code", "LAS"], ["LIMIT", 1]]
+  [1m[36mAirport Create (0.3ms)[0m  [1m[32mINSERT INTO "airports" ("code", "name", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["code", "LAS"], ["name", "McCarran International Airport"], ["created_at", "2023-03-30 14:27:20.266512"], ["updated_at", "2023-03-30 14:27:20.266512"]]
+  [1m[36mTRANSACTION (7.8ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mAirport Exists? (0.5ms)[0m  [1m[34mSELECT 1 AS one FROM "airports" WHERE "airports"."code" = ? LIMIT ?[0m  [["code", "ATL"], ["LIMIT", 1]]
+  [1m[36mAirport Create (0.5ms)[0m  [1m[32mINSERT INTO "airports" ("code", "name", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["code", "ATL"], ["name", "Hartsfield-Jackson Atlanta International Airport"], ["created_at", "2023-03-30 14:27:20.289082"], ["updated_at", "2023-03-30 14:27:20.289082"]]
+  [1m[36mTRANSACTION (7.5ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mAirport Exists? (0.3ms)[0m  [1m[34mSELECT 1 AS one FROM "airports" WHERE "airports"."code" = ? LIMIT ?[0m  [["code", "LGA"], ["LIMIT", 1]]
+  [1m[36mAirport Create (0.4ms)[0m  [1m[32mINSERT INTO "airports" ("code", "name", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["code", "LGA"], ["name", "LaGuardia Airport"], ["created_at", "2023-03-30 14:27:20.306159"], ["updated_at", "2023-03-30 14:27:20.306159"]]
+  [1m[36mTRANSACTION (8.3ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.5ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mAirport Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "airports" WHERE "airports"."code" = ? LIMIT ?[0m  [["code", "SEA"], ["LIMIT", 1]]
+  [1m[36mAirport Create (0.5ms)[0m  [1m[32mINSERT INTO "airports" ("code", "name", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["code", "SEA"], ["name", "Seattle-Tacoma International Airport"], ["created_at", "2023-03-30 14:27:20.324291"], ["updated_at", "2023-03-30 14:27:20.324291"]]
+  [1m[36mTRANSACTION (8.2ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mAirport Load (0.3ms)[0m  [1m[34mSELECT "airports".* FROM "airports" WHERE "airports"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mAirport Load (0.1ms)[0m  [1m[34mSELECT "airports".* FROM "airports" WHERE "airports"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mFlight Create (0.6ms)[0m  [1m[32mINSERT INTO "flights" ("name", "origin_id", "destination_id", "departure_time", "duration", "image_url", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?)[0m  [["name", "Flight 101"], ["origin_id", 1], ["destination_id", 2], ["departure_time", "2023-04-01 08:00:00"], ["duration", 360], ["image_url", "https://via.placeholder.com/150"], ["created_at", "2023-03-30 14:27:20.389517"], ["updated_at", "2023-03-30 14:27:20.389517"]]
+  [1m[36mTRANSACTION (7.3ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mAirport Load (0.1ms)[0m  [1m[34mSELECT "airports".* FROM "airports" WHERE "airports"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mAirport Load (0.2ms)[0m  [1m[34mSELECT "airports".* FROM "airports" WHERE "airports"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mFlight Create (0.4ms)[0m  [1m[32mINSERT INTO "flights" ("name", "origin_id", "destination_id", "departure_time", "duration", "image_url", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?)[0m  [["name", "Flight 102"], ["origin_id", 2], ["destination_id", 1], ["departure_time", "2023-04-02 09:00:00"], ["duration", 360], ["image_url", "https://via.placeholder.com/150"], ["created_at", "2023-03-30 14:27:20.409180"], ["updated_at", "2023-03-30 14:27:20.409180"]]
+  [1m[36mTRANSACTION (7.8ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mAirport Load (0.1ms)[0m  [1m[34mSELECT "airports".* FROM "airports" WHERE "airports"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mAirport Load (0.2ms)[0m  [1m[34mSELECT "airports".* FROM "airports" WHERE "airports"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mFlight Create (0.6ms)[0m  [1m[32mINSERT INTO "flights" ("name", "origin_id", "destination_id", "departure_time", "duration", "image_url", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?)[0m  [["name", "Flight 103"], ["origin_id", 1], ["destination_id", 3], ["departure_time", "2023-04-03 10:00:00"], ["duration", 300], ["image_url", "https://via.placeholder.com/150"], ["created_at", "2023-03-30 14:27:20.428431"], ["updated_at", "2023-03-30 14:27:20.428431"]]
+  [1m[36mTRANSACTION (8.0ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mAirport Load (0.2ms)[0m  [1m[34mSELECT "airports".* FROM "airports" WHERE "airports"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mAirport Load (0.2ms)[0m  [1m[34mSELECT "airports".* FROM "airports" WHERE "airports"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mFlight Create (0.5ms)[0m  [1m[32mINSERT INTO "flights" ("name", "origin_id", "destination_id", "departure_time", "duration", "image_url", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?)[0m  [["name", "Flight 104"], ["origin_id", 3], ["destination_id", 1], ["departure_time", "2023-04-04 11:00:00"], ["duration", 300], ["image_url", "https://via.placeholder.com/150"], ["created_at", "2023-03-30 14:27:20.460964"], ["updated_at", "2023-03-30 14:27:20.460964"]]
+  [1m[36mTRANSACTION (8.5ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mAirport Load (0.2ms)[0m  [1m[34mSELECT "airports".* FROM "airports" WHERE "airports"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mAirport Load (0.1ms)[0m  [1m[34mSELECT "airports".* FROM "airports" WHERE "airports"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  [1m[36mFlight Create (0.5ms)[0m  [1m[32mINSERT INTO "flights" ("name", "origin_id", "destination_id", "departure_time", "duration", "image_url", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?)[0m  [["name", "Flight 105"], ["origin_id", 1], ["destination_id", 4], ["departure_time", "2023-04-05 12:00:00"], ["duration", 240], ["image_url", "https://via.placeholder.com/150"], ["created_at", "2023-03-30 14:27:20.482398"], ["updated_at", "2023-03-30 14:27:20.482398"]]
+  [1m[36mTRANSACTION (7.4ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mAirport Load (0.2ms)[0m  [1m[34mSELECT "airports".* FROM "airports" WHERE "airports"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  [1m[36mAirport Load (0.1ms)[0m  [1m[34mSELECT "airports".* FROM "airports" WHERE "airports"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mFlight Create (0.4ms)[0m  [1m[32mINSERT INTO "flights" ("name", "origin_id", "destination_id", "departure_time", "duration", "image_url", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?)[0m  [["name", "Flight 106"], ["origin_id", 4], ["destination_id", 1], ["departure_time", "2023-04-06 13:00:00"], ["duration", 240], ["image_url", "https://via.placeholder.com/150"], ["created_at", "2023-03-30 14:27:20.502445"], ["updated_at", "2023-03-30 14:27:20.502445"]]
+  [1m[36mTRANSACTION (7.7ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mAirport Load (0.2ms)[0m  [1m[34mSELECT "airports".* FROM "airports" WHERE "airports"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mAirport Load (0.1ms)[0m  [1m[34mSELECT "airports".* FROM "airports" WHERE "airports"."id" = ? LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  [1m[36mFlight Create (0.5ms)[0m  [1m[32mINSERT INTO "flights" ("name", "origin_id", "destination_id", "departure_time", "duration", "image_url", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?)[0m  [["name", "Flight 107"], ["origin_id", 1], ["destination_id", 5], ["departure_time", "2023-04-07 14:00:00"], ["duration", 180], ["image_url", "https://via.placeholder.com/150"], ["created_at", "2023-03-30 14:27:20.535659"], ["updated_at", "2023-03-30 14:27:20.535659"]]
+  [1m[36mTRANSACTION (7.8ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mAirport Load (0.1ms)[0m  [1m[34mSELECT "airports".* FROM "airports" WHERE "airports"."id" = ? LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  [1m[36mAirport Load (0.1ms)[0m  [1m[34mSELECT "airports".* FROM "airports" WHERE "airports"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mFlight Create (0.3ms)[0m  [1m[32mINSERT INTO "flights" ("name", "origin_id", "destination_id", "departure_time", "duration", "image_url", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?)[0m  [["name", "Flight 108"], ["origin_id", 5], ["destination_id", 1], ["departure_time", "2023-04-08 15:00:00"], ["duration", 180], ["image_url", "https://via.placeholder.com/150"], ["created_at", "2023-03-30 14:27:20.583620"], ["updated_at", "2023-03-30 14:27:20.583620"]]
+  [1m[36mTRANSACTION (7.4ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mAirport Load (0.1ms)[0m  [1m[34mSELECT "airports".* FROM "airports" WHERE "airports"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mAirport Load (0.1ms)[0m  [1m[34mSELECT "airports".* FROM "airports" WHERE "airports"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mFlight Create (0.4ms)[0m  [1m[32mINSERT INTO "flights" ("name", "origin_id", "destination_id", "departure_time", "duration", "image_url", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?)[0m  [["name", "Flight 109"], ["origin_id", 2], ["destination_id", 3], ["departure_time", "2023-04-09 16:00:00"], ["duration", 240], ["image_url", "https://via.placeholder.com/150"], ["created_at", "2023-03-30 14:27:20.627453"], ["updated_at", "2023-03-30 14:27:20.627453"]]
+  [1m[36mTRANSACTION (7.7ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mFlight Load (0.2ms)[0m  [1m[34mSELECT "flights".* FROM "flights" WHERE "flights"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mFlight Load (0.2ms)[0m  [1m[34mSELECT "flights".* FROM "flights" WHERE "flights"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mFlight Load (0.2ms)[0m  [1m[34mSELECT "flights".* FROM "flights" WHERE "flights"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mFlight Load (0.1ms)[0m  [1m[34mSELECT "flights".* FROM "flights" WHERE "flights"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mReview Create (0.4ms)[0m  [1m[32mINSERT INTO "reviews" ("flight_id", "user_id", "rating", "comment", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["flight_id", 1], ["user_id", 1], ["rating", 4], ["comment", "Great flight!"], ["created_at", "2023-03-30 14:27:20.725285"], ["updated_at", "2023-03-30 14:27:20.725285"]]
+  [1m[36mTRANSACTION (9.5ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mFlight Load (0.1ms)[0m  [1m[34mSELECT "flights".* FROM "flights" WHERE "flights"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mReview Create (0.3ms)[0m  [1m[32mINSERT INTO "reviews" ("flight_id", "user_id", "rating", "comment", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["flight_id", 1], ["user_id", 2], ["rating", 2], ["comment", "Bad experience."], ["created_at", "2023-03-30 14:27:20.743600"], ["updated_at", "2023-03-30 14:27:20.743600"]]
+  [1m[36mTRANSACTION (7.6ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mFlight Load (0.1ms)[0m  [1m[34mSELECT "flights".* FROM "flights" WHERE "flights"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mReview Create (0.5ms)[0m  [1m[32mINSERT INTO "reviews" ("flight_id", "user_id", "rating", "comment", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["flight_id", 2], ["user_id", 1], ["rating", 3], ["comment", "Average flight."], ["created_at", "2023-03-30 14:27:20.761464"], ["updated_at", "2023-03-30 14:27:20.761464"]]
+  [1m[36mTRANSACTION (11.8ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mFlight Load (0.1ms)[0m  [1m[34mSELECT "flights".* FROM "flights" WHERE "flights"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mReview Create (0.5ms)[0m  [1m[32mINSERT INTO "reviews" ("flight_id", "user_id", "rating", "comment", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["flight_id", 2], ["user_id", 2], ["rating", 5], ["comment", "Amazing!"], ["created_at", "2023-03-30 14:27:20.786229"], ["updated_at", "2023-03-30 14:27:20.786229"]]
+  [1m[36mTRANSACTION (7.4ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mFlight Load (0.1ms)[0m  [1m[34mSELECT "flights".* FROM "flights" WHERE "flights"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mReview Create (0.5ms)[0m  [1m[32mINSERT INTO "reviews" ("flight_id", "user_id", "rating", "comment", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["flight_id", 3], ["user_id", 1], ["rating", 1], ["comment", "Terrible."], ["created_at", "2023-03-30 14:27:20.804784"], ["updated_at", "2023-03-30 14:27:20.804784"]]
+  [1m[36mTRANSACTION (8.6ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mFlight Load (0.1ms)[0m  [1m[34mSELECT "flights".* FROM "flights" WHERE "flights"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mReview Create (0.5ms)[0m  [1m[32mINSERT INTO "reviews" ("flight_id", "user_id", "rating", "comment", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["flight_id", 3], ["user_id", 2], ["rating", 4], ["comment", "Good service."], ["created_at", "2023-03-30 14:27:20.826451"], ["updated_at", "2023-03-30 14:27:20.826451"]]
+  [1m[36mTRANSACTION (7.4ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (10.6ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" varchar NOT NULL PRIMARY KEY)[0m
+  [1m[35m (10.0ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" varchar NOT NULL PRIMARY KEY, "value" varchar, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to CreateUsers (20230329055233)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.3ms)[0m  [1m[35mCREATE TABLE "users" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar, "email" varchar, "password_digest" varchar, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.4ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20230329055233"]]
+  [1m[36mTRANSACTION (9.6ms)[0m  [1m[36mcommit transaction[0m
+Migrating to CreateFlights (20230329055302)
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (1.3ms)[0m  [1m[35mCREATE TABLE "flights" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar, "origin_id" integer, "destination_id" integer, "departure_time" datetime(6), "duration" integer, "image_url" varchar, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL, CONSTRAINT "fk_rails_b1cc9638ed"
+FOREIGN KEY ("origin_id")
+  REFERENCES "airports" ("id")
+, CONSTRAINT "fk_rails_17532769c7"
+FOREIGN KEY ("destination_id")
+  REFERENCES "airports" ("id")
+)[0m
+  [1m[35m (0.6ms)[0m  [1m[35mCREATE INDEX "index_flights_on_origin_id" ON "flights" ("origin_id")[0m
+  [1m[35m (0.8ms)[0m  [1m[35mCREATE INDEX "index_flights_on_destination_id" ON "flights" ("destination_id")[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.6ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20230329055302"]]
+  [1m[36mTRANSACTION (11.1ms)[0m  [1m[36mcommit transaction[0m
+Migrating to CreateReviews (20230329055336)
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (1.3ms)[0m  [1m[35mCREATE TABLE "reviews" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "flight_id" integer NOT NULL, "user_id" integer NOT NULL, "rating" integer, "comment" text, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL, CONSTRAINT "fk_rails_5bbf97fba9"
+FOREIGN KEY ("flight_id")
+  REFERENCES "flights" ("id")
+, CONSTRAINT "fk_rails_74a66bd6c5"
+FOREIGN KEY ("user_id")
+  REFERENCES "users" ("id")
+)[0m
+  [1m[35m (0.5ms)[0m  [1m[35mCREATE INDEX "index_reviews_on_flight_id" ON "reviews" ("flight_id")[0m
+  [1m[35m (1.0ms)[0m  [1m[35mCREATE INDEX "index_reviews_on_user_id" ON "reviews" ("user_id")[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.7ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20230329055336"]]
+  [1m[36mTRANSACTION (11.7ms)[0m  [1m[36mcommit transaction[0m
+Migrating to CreateAirports (20230329055455)
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.9ms)[0m  [1m[35mCREATE TABLE "airports" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "code" varchar, "name" varchar, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.5ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20230329055455"]]
+  [1m[36mTRANSACTION (18.7ms)[0m  [1m[36mcommit transaction[0m
+Migrating to CreateBookings (20230329071537)
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (1.5ms)[0m  [1m[35mCREATE TABLE "bookings" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "flight_id" integer NOT NULL, "user_id" integer NOT NULL, "passenger_email" varchar, "passenger_name" varchar, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL, CONSTRAINT "fk_rails_fa1078b72f"
+FOREIGN KEY ("flight_id")
+  REFERENCES "flights" ("id")
+, CONSTRAINT "fk_rails_ef0571f117"
+FOREIGN KEY ("user_id")
+  REFERENCES "users" ("id")
+)[0m
+  [1m[35m (1.0ms)[0m  [1m[35mCREATE INDEX "index_bookings_on_flight_id" ON "bookings" ("flight_id")[0m
+  [1m[35m (0.7ms)[0m  [1m[35mCREATE INDEX "index_bookings_on_user_id" ON "bookings" ("user_id")[0m
+  [1m[36mActiveRecord::SchemaMigration Create (1.5ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20230329071537"]]
+  [1m[36mTRANSACTION (10.7ms)[0m  [1m[36mcommit transaction[0m
+Migrating to CreateSessions (20230329115046)
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.5ms)[0m  [1m[35mCREATE TABLE "sessions" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.8ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20230329115046"]]
+  [1m[36mTRANSACTION (10.1ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.7ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mActiveRecord::InternalMetadata Create (1.1ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["key", "environment"], ["value", "development"], ["created_at", "2023-03-30 14:31:00.732291"], ["updated_at", "2023-03-30 14:31:00.732291"]]
+  [1m[36mTRANSACTION (15.1ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "user1@example.com"], ["LIMIT", 1]]
+  [1m[36mUser Create (0.3ms)[0m  [1m[32mINSERT INTO "users" ("name", "email", "password_digest", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["name", "Kennedy"], ["email", "user1@example.com"], ["password_digest", "[FILTERED]"], ["created_at", "2023-03-30 14:31:01.338145"], ["updated_at", "2023-03-30 14:31:01.338145"]]
+  [1m[36mTRANSACTION (7.6ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Exists? (0.5ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "user2@example.com"], ["LIMIT", 1]]
+  [1m[36mUser Create (1.0ms)[0m  [1m[32mINSERT INTO "users" ("name", "email", "password_digest", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["name", "Allan"], ["email", "user2@example.com"], ["password_digest", "[FILTERED]"], ["created_at", "2023-03-30 14:31:02.122407"], ["updated_at", "2023-03-30 14:31:02.122407"]]
+  [1m[36mTRANSACTION (8.7ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "user3@example.com"], ["LIMIT", 1]]
+  [1m[36mUser Create (0.3ms)[0m  [1m[32mINSERT INTO "users" ("name", "email", "password_digest", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["name", "Jack"], ["email", "user3@example.com"], ["password_digest", "[FILTERED]"], ["created_at", "2023-03-30 14:31:02.569509"], ["updated_at", "2023-03-30 14:31:02.569509"]]
+  [1m[36mTRANSACTION (8.5ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mAirport Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "airports" WHERE "airports"."code" = ? LIMIT ?[0m  [["code", "LAX"], ["LIMIT", 1]]
+  [1m[36mAirport Create (0.2ms)[0m  [1m[32mINSERT INTO "airports" ("code", "name", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["code", "LAX"], ["name", "Los Angeles International Airport"], ["created_at", "2023-03-30 14:31:02.594058"], ["updated_at", "2023-03-30 14:31:02.594058"]]
+  [1m[36mTRANSACTION (7.1ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mAirport Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "airports" WHERE "airports"."code" = ? LIMIT ?[0m  [["code", "JFK"], ["LIMIT", 1]]
+  [1m[36mAirport Create (0.3ms)[0m  [1m[32mINSERT INTO "airports" ("code", "name", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["code", "JFK"], ["name", "John F. Kennedy International Airport"], ["created_at", "2023-03-30 14:31:02.606200"], ["updated_at", "2023-03-30 14:31:02.606200"]]
+  [1m[36mTRANSACTION (7.3ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mAirport Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "airports" WHERE "airports"."code" = ? LIMIT ?[0m  [["code", "SFO"], ["LIMIT", 1]]
+  [1m[36mAirport Create (0.4ms)[0m  [1m[32mINSERT INTO "airports" ("code", "name", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["code", "SFO"], ["name", "San Francisco International Airport"], ["created_at", "2023-03-30 14:31:02.619208"], ["updated_at", "2023-03-30 14:31:02.619208"]]
+  [1m[36mTRANSACTION (7.3ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mAirport Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "airports" WHERE "airports"."code" = ? LIMIT ?[0m  [["code", "ORD"], ["LIMIT", 1]]
+  [1m[36mAirport Create (0.9ms)[0m  [1m[32mINSERT INTO "airports" ("code", "name", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["code", "ORD"], ["name", "O'Hare International Airport"], ["created_at", "2023-03-30 14:31:02.640579"], ["updated_at", "2023-03-30 14:31:02.640579"]]
+  [1m[36mTRANSACTION (6.8ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mAirport Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "airports" WHERE "airports"."code" = ? LIMIT ?[0m  [["code", "DFW"], ["LIMIT", 1]]
+  [1m[36mAirport Create (0.2ms)[0m  [1m[32mINSERT INTO "airports" ("code", "name", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["code", "DFW"], ["name", "Dallas/Fort Worth International Airport"], ["created_at", "2023-03-30 14:31:02.655768"], ["updated_at", "2023-03-30 14:31:02.655768"]]
+  [1m[36mTRANSACTION (6.9ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mAirport Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "airports" WHERE "airports"."code" = ? LIMIT ?[0m  [["code", "DEN"], ["LIMIT", 1]]
+  [1m[36mAirport Create (0.2ms)[0m  [1m[32mINSERT INTO "airports" ("code", "name", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["code", "DEN"], ["name", "Denver International Airport"], ["created_at", "2023-03-30 14:31:02.668579"], ["updated_at", "2023-03-30 14:31:02.668579"]]
+  [1m[36mTRANSACTION (7.2ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mAirport Exists? (0.4ms)[0m  [1m[34mSELECT 1 AS one FROM "airports" WHERE "airports"."code" = ? LIMIT ?[0m  [["code", "LAS"], ["LIMIT", 1]]
+  [1m[36mAirport Create (0.6ms)[0m  [1m[32mINSERT INTO "airports" ("code", "name", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["code", "LAS"], ["name", "McCarran International Airport"], ["created_at", "2023-03-30 14:31:02.686746"], ["updated_at", "2023-03-30 14:31:02.686746"]]
+  [1m[36mTRANSACTION (7.9ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mAirport Exists? (0.4ms)[0m  [1m[34mSELECT 1 AS one FROM "airports" WHERE "airports"."code" = ? LIMIT ?[0m  [["code", "ATL"], ["LIMIT", 1]]
+  [1m[36mAirport Create (0.5ms)[0m  [1m[32mINSERT INTO "airports" ("code", "name", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["code", "ATL"], ["name", "Hartsfield-Jackson Atlanta International Airport"], ["created_at", "2023-03-30 14:31:02.709562"], ["updated_at", "2023-03-30 14:31:02.709562"]]
+  [1m[36mTRANSACTION (7.3ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mAirport Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "airports" WHERE "airports"."code" = ? LIMIT ?[0m  [["code", "LGA"], ["LIMIT", 1]]
+  [1m[36mAirport Create (0.2ms)[0m  [1m[32mINSERT INTO "airports" ("code", "name", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["code", "LGA"], ["name", "LaGuardia Airport"], ["created_at", "2023-03-30 14:31:02.724792"], ["updated_at", "2023-03-30 14:31:02.724792"]]
+  [1m[36mTRANSACTION (7.3ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mAirport Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "airports" WHERE "airports"."code" = ? LIMIT ?[0m  [["code", "SEA"], ["LIMIT", 1]]
+  [1m[36mAirport Create (0.2ms)[0m  [1m[32mINSERT INTO "airports" ("code", "name", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["code", "SEA"], ["name", "Seattle-Tacoma International Airport"], ["created_at", "2023-03-30 14:31:02.737763"], ["updated_at", "2023-03-30 14:31:02.737763"]]
+  [1m[36mTRANSACTION (7.1ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mAirport Load (0.1ms)[0m  [1m[34mSELECT "airports".* FROM "airports" WHERE "airports"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mAirport Load (0.2ms)[0m  [1m[34mSELECT "airports".* FROM "airports" WHERE "airports"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mFlight Create (0.3ms)[0m  [1m[32mINSERT INTO "flights" ("name", "origin_id", "destination_id", "departure_time", "duration", "image_url", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?)[0m  [["name", "Flight 101"], ["origin_id", 1], ["destination_id", 2], ["departure_time", "2023-04-01 08:00:00"], ["duration", 360], ["image_url", "https://via.placeholder.com/150"], ["created_at", "2023-03-30 14:31:02.786243"], ["updated_at", "2023-03-30 14:31:02.786243"]]
+  [1m[36mTRANSACTION (37.2ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mAirport Load (0.3ms)[0m  [1m[34mSELECT "airports".* FROM "airports" WHERE "airports"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mAirport Load (0.2ms)[0m  [1m[34mSELECT "airports".* FROM "airports" WHERE "airports"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mFlight Create (1.1ms)[0m  [1m[32mINSERT INTO "flights" ("name", "origin_id", "destination_id", "departure_time", "duration", "image_url", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?)[0m  [["name", "Flight 102"], ["origin_id", 2], ["destination_id", 1], ["departure_time", "2023-04-02 09:00:00"], ["duration", 360], ["image_url", "https://via.placeholder.com/150"], ["created_at", "2023-03-30 14:31:02.847347"], ["updated_at", "2023-03-30 14:31:02.847347"]]
+  [1m[36mTRANSACTION (9.2ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mAirport Load (0.1ms)[0m  [1m[34mSELECT "airports".* FROM "airports" WHERE "airports"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mAirport Load (0.1ms)[0m  [1m[34mSELECT "airports".* FROM "airports" WHERE "airports"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mFlight Create (0.4ms)[0m  [1m[32mINSERT INTO "flights" ("name", "origin_id", "destination_id", "departure_time", "duration", "image_url", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?)[0m  [["name", "Flight 103"], ["origin_id", 1], ["destination_id", 3], ["departure_time", "2023-04-03 10:00:00"], ["duration", 300], ["image_url", "https://via.placeholder.com/150"], ["created_at", "2023-03-30 14:31:02.870311"], ["updated_at", "2023-03-30 14:31:02.870311"]]
+  [1m[36mTRANSACTION (7.3ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mAirport Load (0.2ms)[0m  [1m[34mSELECT "airports".* FROM "airports" WHERE "airports"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mAirport Load (0.1ms)[0m  [1m[34mSELECT "airports".* FROM "airports" WHERE "airports"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mFlight Create (0.4ms)[0m  [1m[32mINSERT INTO "flights" ("name", "origin_id", "destination_id", "departure_time", "duration", "image_url", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?)[0m  [["name", "Flight 104"], ["origin_id", 3], ["destination_id", 1], ["departure_time", "2023-04-04 11:00:00"], ["duration", 300], ["image_url", "https://via.placeholder.com/150"], ["created_at", "2023-03-30 14:31:02.886518"], ["updated_at", "2023-03-30 14:31:02.886518"]]
+  [1m[36mTRANSACTION (7.3ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mAirport Load (0.1ms)[0m  [1m[34mSELECT "airports".* FROM "airports" WHERE "airports"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mAirport Load (0.1ms)[0m  [1m[34mSELECT "airports".* FROM "airports" WHERE "airports"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  [1m[36mFlight Create (0.5ms)[0m  [1m[32mINSERT INTO "flights" ("name", "origin_id", "destination_id", "departure_time", "duration", "image_url", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?)[0m  [["name", "Flight 105"], ["origin_id", 1], ["destination_id", 4], ["departure_time", "2023-04-05 12:00:00"], ["duration", 240], ["image_url", "https://via.placeholder.com/150"], ["created_at", "2023-03-30 14:31:02.905743"], ["updated_at", "2023-03-30 14:31:02.905743"]]
+  [1m[36mTRANSACTION (7.8ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mAirport Load (0.3ms)[0m  [1m[34mSELECT "airports".* FROM "airports" WHERE "airports"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  [1m[36mAirport Load (0.1ms)[0m  [1m[34mSELECT "airports".* FROM "airports" WHERE "airports"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mFlight Create (0.6ms)[0m  [1m[32mINSERT INTO "flights" ("name", "origin_id", "destination_id", "departure_time", "duration", "image_url", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?)[0m  [["name", "Flight 106"], ["origin_id", 4], ["destination_id", 1], ["departure_time", "2023-04-06 13:00:00"], ["duration", 240], ["image_url", "https://via.placeholder.com/150"], ["created_at", "2023-03-30 14:31:02.928865"], ["updated_at", "2023-03-30 14:31:02.928865"]]
+  [1m[36mTRANSACTION (7.5ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mAirport Load (0.1ms)[0m  [1m[34mSELECT "airports".* FROM "airports" WHERE "airports"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mAirport Load (0.2ms)[0m  [1m[34mSELECT "airports".* FROM "airports" WHERE "airports"."id" = ? LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  [1m[36mFlight Create (0.4ms)[0m  [1m[32mINSERT INTO "flights" ("name", "origin_id", "destination_id", "departure_time", "duration", "image_url", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?)[0m  [["name", "Flight 107"], ["origin_id", 1], ["destination_id", 5], ["departure_time", "2023-04-07 14:00:00"], ["duration", 180], ["image_url", "https://via.placeholder.com/150"], ["created_at", "2023-03-30 14:31:02.975631"], ["updated_at", "2023-03-30 14:31:02.975631"]]
+  [1m[36mTRANSACTION (7.4ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mAirport Load (0.2ms)[0m  [1m[34mSELECT "airports".* FROM "airports" WHERE "airports"."id" = ? LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  [1m[36mAirport Load (0.1ms)[0m  [1m[34mSELECT "airports".* FROM "airports" WHERE "airports"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mFlight Create (0.4ms)[0m  [1m[32mINSERT INTO "flights" ("name", "origin_id", "destination_id", "departure_time", "duration", "image_url", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?)[0m  [["name", "Flight 108"], ["origin_id", 5], ["destination_id", 1], ["departure_time", "2023-04-08 15:00:00"], ["duration", 180], ["image_url", "https://via.placeholder.com/150"], ["created_at", "2023-03-30 14:31:03.039430"], ["updated_at", "2023-03-30 14:31:03.039430"]]
+  [1m[36mTRANSACTION (8.1ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mAirport Load (0.3ms)[0m  [1m[34mSELECT "airports".* FROM "airports" WHERE "airports"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mAirport Load (0.2ms)[0m  [1m[34mSELECT "airports".* FROM "airports" WHERE "airports"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mFlight Create (0.5ms)[0m  [1m[32mINSERT INTO "flights" ("name", "origin_id", "destination_id", "departure_time", "duration", "image_url", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?)[0m  [["name", "Flight 109"], ["origin_id", 2], ["destination_id", 3], ["departure_time", "2023-04-09 16:00:00"], ["duration", 240], ["image_url", "https://via.placeholder.com/150"], ["created_at", "2023-03-30 14:31:03.063749"], ["updated_at", "2023-03-30 14:31:03.063749"]]
+  [1m[36mTRANSACTION (8.1ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mFlight Load (0.2ms)[0m  [1m[34mSELECT "flights".* FROM "flights" WHERE "flights"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mBooking Create (0.4ms)[0m  [1m[32mINSERT INTO "bookings" ("flight_id", "user_id", "passenger_email", "passenger_name", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["flight_id", 1], ["user_id", 1], ["passenger_email", "john.doe@example.com"], ["passenger_name", "John Doe"], ["created_at", "2023-03-30 14:31:03.112308"], ["updated_at", "2023-03-30 14:31:03.112308"]]
+  [1m[36mTRANSACTION (7.5ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mFlight Load (0.1ms)[0m  [1m[34mSELECT "flights".* FROM "flights" WHERE "flights"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mBooking Create (0.4ms)[0m  [1m[32mINSERT INTO "bookings" ("flight_id", "user_id", "passenger_email", "passenger_name", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["flight_id", 2], ["user_id", 2], ["passenger_email", "jane.smith@example.com"], ["passenger_name", "Jane Smith"], ["created_at", "2023-03-30 14:31:03.127776"], ["updated_at", "2023-03-30 14:31:03.127776"]]
+  [1m[36mTRANSACTION (7.4ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mFlight Load (0.1ms)[0m  [1m[34mSELECT "flights".* FROM "flights" WHERE "flights"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mBooking Create (0.4ms)[0m  [1m[32mINSERT INTO "bookings" ("flight_id", "user_id", "passenger_email", "passenger_name", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["flight_id", 3], ["user_id", 3], ["passenger_email", "bob.johnson@example.com"], ["passenger_name", "Bob Johnson"], ["created_at", "2023-03-30 14:31:03.144037"], ["updated_at", "2023-03-30 14:31:03.144037"]]
+  [1m[36mTRANSACTION (7.6ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mFlight Load (0.1ms)[0m  [1m[34mSELECT "flights".* FROM "flights" WHERE "flights"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mReview Create (0.3ms)[0m  [1m[32mINSERT INTO "reviews" ("flight_id", "user_id", "rating", "comment", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["flight_id", 1], ["user_id", 1], ["rating", 4], ["comment", "Great flight!"], ["created_at", "2023-03-30 14:31:03.180530"], ["updated_at", "2023-03-30 14:31:03.180530"]]
+  [1m[36mTRANSACTION (7.7ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mFlight Load (0.1ms)[0m  [1m[34mSELECT "flights".* FROM "flights" WHERE "flights"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mReview Create (0.3ms)[0m  [1m[32mINSERT INTO "reviews" ("flight_id", "user_id", "rating", "comment", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["flight_id", 1], ["user_id", 2], ["rating", 2], ["comment", "Bad experience."], ["created_at", "2023-03-30 14:31:03.196374"], ["updated_at", "2023-03-30 14:31:03.196374"]]
+  [1m[36mTRANSACTION (7.2ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mFlight Load (0.1ms)[0m  [1m[34mSELECT "flights".* FROM "flights" WHERE "flights"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mReview Create (0.4ms)[0m  [1m[32mINSERT INTO "reviews" ("flight_id", "user_id", "rating", "comment", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["flight_id", 2], ["user_id", 1], ["rating", 3], ["comment", "Average flight."], ["created_at", "2023-03-30 14:31:03.210620"], ["updated_at", "2023-03-30 14:31:03.210620"]]
+  [1m[36mTRANSACTION (8.0ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mFlight Load (0.1ms)[0m  [1m[34mSELECT "flights".* FROM "flights" WHERE "flights"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mReview Create (0.4ms)[0m  [1m[32mINSERT INTO "reviews" ("flight_id", "user_id", "rating", "comment", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["flight_id", 2], ["user_id", 2], ["rating", 5], ["comment", "Amazing!"], ["created_at", "2023-03-30 14:31:03.226194"], ["updated_at", "2023-03-30 14:31:03.226194"]]
+  [1m[36mTRANSACTION (8.0ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mFlight Load (0.2ms)[0m  [1m[34mSELECT "flights".* FROM "flights" WHERE "flights"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mReview Create (0.7ms)[0m  [1m[32mINSERT INTO "reviews" ("flight_id", "user_id", "rating", "comment", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["flight_id", 3], ["user_id", 1], ["rating", 1], ["comment", "Terrible."], ["created_at", "2023-03-30 14:31:03.251344"], ["updated_at", "2023-03-30 14:31:03.251344"]]
+  [1m[36mTRANSACTION (7.5ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mFlight Load (0.1ms)[0m  [1m[34mSELECT "flights".* FROM "flights" WHERE "flights"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mReview Create (0.5ms)[0m  [1m[32mINSERT INTO "reviews" ("flight_id", "user_id", "rating", "comment", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["flight_id", 3], ["user_id", 2], ["rating", 4], ["comment", "Good service."], ["created_at", "2023-03-30 14:31:03.274148"], ["updated_at", "2023-03-30 14:31:03.274148"]]
+  [1m[36mTRANSACTION (7.4ms)[0m  [1m[36mcommit transaction[0m
