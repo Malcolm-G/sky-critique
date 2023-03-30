@@ -5,6 +5,7 @@ import Home from './components/home';
 import LandingPage from './components/landingpage';
 import MyBookings from './components/MyBookings';
 import Flights from './components/Flights';
+import FlightInfo from './components/FlightInfo';
 import './App.css'
 import ReactDOM from 'react-dom'
 
@@ -18,6 +19,7 @@ function App() {
             <Home />
             <MyBookings />
             <Flights />
+            <FlightInfo />
           </div>
   );
 }
