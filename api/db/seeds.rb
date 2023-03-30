@@ -60,5 +60,7 @@ Review.create(rating: 5, comment: 'Amazing!', user_id: 2, flight_id: 2)
 Review.create(rating: 1, comment: 'Terrible.', user_id: 1, flight_id: 3)
 Review.create(rating: 4, comment: 'Good service.', user_id: 2, flight_id: 3)
 
+Booking.create([{flight_id: 1, passenger_name: "John Doe", passenger_email: "john.doe@example.com"}, {flight_id: 2, passenger_name: "Jane Smith", passenger_email: "jane.smith@example.com"}, {flight_id: 3, passenger_name: "Bob Johnson", passenger_email: "bob.johnson@example.com"}])
+
 
 puts "seed created successfully!"

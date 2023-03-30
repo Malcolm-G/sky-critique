@@ -4,10 +4,7 @@ Rails.application.routes.draw do
   # resources :bookings, only: []
   resources :flights, only: [:index, :show]
   # resources :users
-  # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
-
-  # Defines the root path route ("/")
-  # root "articles#index"
+  resources :bookings, only: [:index, :create, :destroy]
   # get '/flights', to: 'flights#index'
   # get '/flights/:id', to: 'flights#show'
   get '/bookings', to: 'bookings#index'
@@ -25,4 +22,3 @@ Rails.application.routes.draw do
   
 
 end
-
