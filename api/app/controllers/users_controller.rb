@@ -7,7 +7,8 @@ class UsersController < ApplicationController
         @user = User.create(create_param)
             if @user.save
                UserMailer.welcome_email(@user).deliver_now
-        render json: user
+               render json: user
+            end
     end
 
     private

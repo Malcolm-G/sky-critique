@@ -3159,3 +3159,42 @@ Migrating to CreateSessions (20230329115046)
   [1m[36mFlight Load (0.1ms)[0m  [1m[34mSELECT "flights".* FROM "flights" WHERE "flights"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
   [1m[36mReview Create (0.5ms)[0m  [1m[32mINSERT INTO "reviews" ("flight_id", "user_id", "rating", "comment", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["flight_id", 3], ["user_id", 2], ["rating", 4], ["comment", "Good service."], ["created_at", "2023-03-30 14:31:03.274148"], ["updated_at", "2023-03-30 14:31:03.274148"]]
   [1m[36mTRANSACTION (7.4ms)[0m  [1m[36mcommit transaction[0m
+Started GET "/flights" for 127.0.0.1 at 2023-03-30 17:39:16 +0300
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by FlightsController#index as */*
+  [1m[36mFlight Load (0.5ms)[0m  [1m[34mSELECT "flights".* FROM "flights"[0m
+  ↳ app/controllers/flights_controller.rb:4:in `index'
+Completed 200 OK in 280ms (Views: 132.2ms | ActiveRecord: 3.7ms | Allocations: 49445)
+
+
+Started GET "/flights/1/reviews" for 127.0.0.1 at 2023-03-30 17:41:51 +0300
+  
+ActionController::RoutingError (No route matches [GET] "/flights/1/reviews"):
+  
+Started GET "/flights" for 127.0.0.1 at 2023-03-30 17:44:03 +0300
+Processing by FlightsController#index as */*
+  [1m[36mFlight Load (0.3ms)[0m  [1m[34mSELECT "flights".* FROM "flights"[0m
+  ↳ app/controllers/flights_controller.rb:4:in `index'
+Completed 200 OK in 8ms (Views: 6.7ms | ActiveRecord: 0.3ms | Allocations: 2185)
+
+
+Started GET "/users" for 127.0.0.1 at 2023-03-30 17:44:47 +0300
+  
+SyntaxError (/home/icika/projec5/sky-critique/api/app/controllers/users_controller.rb:18: syntax error, unexpected end-of-input, expecting `end'):
+  
+app/controllers/users_controller.rb:18: syntax error, unexpected end-of-input, expecting `end'
+app/controllers/users_controller.rb:18: syntax error, unexpected end-of-input, expecting `end'
+Started GET "/flights" for 127.0.0.1 at 2023-03-30 17:46:03 +0300
+Processing by FlightsController#index as */*
+  [1m[36mFlight Load (1.3ms)[0m  [1m[34mSELECT "flights".* FROM "flights"[0m
+  ↳ app/controllers/flights_controller.rb:4:in `index'
+Completed 200 OK in 183ms (Views: 127.8ms | ActiveRecord: 10.0ms | Allocations: 11814)
+
+
+Started GET "/users" for 127.0.0.1 at 2023-03-30 17:46:09 +0300
+Processing by UsersController#index as */*
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/controllers/users_controller.rb:4:in `index'
+Completed 200 OK in 247ms (Views: 58.3ms | ActiveRecord: 2.5ms | Allocations: 20788)
+
+
