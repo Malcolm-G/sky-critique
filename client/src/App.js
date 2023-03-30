@@ -8,6 +8,7 @@ import Flights from './components/Flights';
 import FlightInfo from './components/FlightInfo';
 import './App.css'
 import ReactDOM from 'react-dom'
+import CreateReview from './components/CreateReview';
 
 
 function App() {
@@ -20,6 +21,7 @@ function App() {
             <MyBookings />
             <Flights />
             <FlightInfo />
+            <CreateReview />
           </div>
   );
 }
