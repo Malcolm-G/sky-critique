@@ -1,29 +1,17 @@
 import React, { useState } from 'react';
-//import {  useNavigate} from 'react-router-dom';
+import {  useNavigate} from 'react-router-dom';
 
 function Signup() {
-    // const [email, setEmail] = useState('');
-    // const [password, setPassword] = useState('');
-    // const [confirmPassword, setConfirmPassword] = useState('');
-    // const history = useNavigate();
+    const [email, setEmail] = useState('');
+    const [password, setPassword] = useState('');
+    const [confirmPassword, setConfirmPassword] = useState('');
+    // const navigate = useNavigate();
 
-//   const handleEmailChange = (event) => {
-//     setEmail(event.target.value);
-//   };
-
-//   const handlePasswordChange = (event) => {
-//     setPassword(event.target.value);
-//   };
-
-//   const handleConfirmPasswordChange = (event) => {
-//     setConfirmPassword(event.target.value);
-//   };
-
-//   const handleSubmit = (event) => {
-//     event.preventDefault();
-//     // Your signup logic goes here
-//     history.push('/home');
-//   };
+  const handleSubmit = (event) => {
+    event.preventDefault();
+    // Your signup logic goes here
+    // navigate('/home');
+  };
 
   return (
     <div className='form'> 
@@ -31,17 +19,23 @@ function Signup() {
       <form >
         <label>
           Email:
-          <input type="email"  />
+          <input type="email" 
+          onChange={(e)=>setEmail(e.target.value)}
+          value={email}/>
         </label>
         <br />
         <label>
           Password:
-          <input type="password"  />
+          <input type="password"
+          onChange={(e)=>setConfirmPassword(e.target.value)}
+          value={confirmPassword}/>
         </label>
         <br />
         <label>
           Confirm Password:
-          <input type="password" />
+          <input type="password"
+          onChange={(e)=>setPassword(e.target.value)}
+          value={password}/>
         </label>
         <br />
         <button type="submit">Sign Up</button>
