@@ -4,7 +4,6 @@ import NavBar from './navbar';
 function Home() {
   return (
     <div>
-      <NavBar/>
       <h1>Always Flying High</h1>
       <h2>Why Fly With Us</h2>
       <ul>
