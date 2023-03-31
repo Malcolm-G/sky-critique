@@ -14,19 +14,7 @@ function ReviewForm({ onSubmit }) {
   };
 
   return (
-    <form onSubmit={handleSubmit}>
-      <div className="mb-3">
-        <label htmlFor="username" className="form-label">
-          Username
-        </label>
-        <input
-          type="text"
-          className="form-control"
-          id="username"
-          value={username}
-          onChange={(event) => setUsername(event.target.value)}
-        />
-      </div>
+    <form className='my-5 container' onSubmit={handleSubmit}>
       <div className="mb-3">
         <label htmlFor="comment" className="form-label">
           Comment
