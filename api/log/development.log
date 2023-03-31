@@ -4380,3 +4380,15 @@ Filter chain halted as :authorize rendered or redirected
 Completed 401 Unauthorized in 1ms (Views: 0.4ms | ActiveRecord: 0.0ms | Allocations: 341)
 
 
+Started GET "/users" for 127.0.0.1 at 2023-03-31 15:53:56 +0300
+Processing by UsersController#index as HTML
+Filter chain halted as :authorize rendered or redirected
+Completed 401 Unauthorized in 20ms (Views: 2.7ms | Allocations: 169)
+
+
+Started GET "/users" for 127.0.0.1 at 2023-03-31 15:53:58 +0300
+Processing by UsersController#index as HTML
+Filter chain halted as :authorize rendered or redirected
+Completed 401 Unauthorized in 0ms (Views: 0.1ms | Allocations: 169)
+
+
