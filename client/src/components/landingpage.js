@@ -21,17 +21,6 @@ const CustomBox = styled(Box)(({ theme }) => ({
 }));
 
 
-const Title = styled(Typography)(({ theme }) => ({
-  fontSize: "64px",
-  color: "blue",
-  fontWeight: "bold",
-  margin: theme.spacing(4, 0, 4, 0),
-  [theme.breakpoints.down("sm")]: {
-    fontSize: "40px",
-  },
-}));
-
-
     return(
         <div className="landing">
          <Box sx={{ backgroundColor: "#1d1e23", minHeight: "100vh" }}>
@@ -50,30 +39,44 @@ const Title = styled(Typography)(({ theme }) => ({
             >
               Welcome to SkyCritique
             </Typography>
-            <Title variant="h1">
-           wwwww
-            </Title>
             <Typography
               variant="body2"
-              sx={{ fontSize: "18px", color: "#687690", my: 4 }}
+              sx={{ fontSize: "33px", color: "#687690", my: 4 }}
             >
               
-              Enjoy our premium quality services when travelling 
+              Where We Defy Gravity Together
             </Typography>
-            <CustomButton
+            <Typography
+              variant="body2"
+              sx={{ fontSize: "40px", color: "#687690", my: 4 }}
+            >
+              
+             Enjoy our premium quality services when travelling 
+            </Typography>
+           
+           < CustomButton
               backgroundColor="#0F1B4C"
               color="#fff"
               buttonText="Login"
               heroBtn={true}
             />
 
-          </Box>
+              <CustomButton
+              backgroundColor="#0F1B4C"
+              color="#fff"
+              buttonText="Signup"
+              heroBtn={true}
+              padding="70px"
+            />
+            </Box>
 
+      
+      
           <Box sx={{ flex: "1.25" }}>
             <img
               src={heroImg}
               alt="heroImg"
-              style={{ maxWidth: "100%", marginBottom: "2rem" }}
+              style={{ maxWidth: "200%", maxHeight:"100%", marginBottom: "2rem" }}
             />
           </Box>
         </CustomBox>
