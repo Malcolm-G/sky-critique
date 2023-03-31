@@ -3,7 +3,7 @@ import Booking from './Booking';
 
 function MyBookings() {
   return (
-    <div>
+    <div className='my-5 container'>
       <h2 className="text-center">My Bookings</h2>
       <table className="table table-striped table-bordered table-hover">
         <thead>

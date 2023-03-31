@@ -26,7 +26,7 @@ function Login() {
   };
 
   return (
-    <div className='card'>
+    <div className='card my-5'>
       <h1>Log In</h1>
       <form className='form-control'
       onSubmit={(e)=>handleSubmit(e)}>
