@@ -3931,3 +3931,17 @@ Processing by FlightsController#index as */*
 Completed 200 OK in 2ms (Views: 2.1ms | ActiveRecord: 0.1ms | Allocations: 2091)
 
 
+Started GET "/flights" for 127.0.0.1 at 2023-03-31 10:31:45 +0300
+Processing by FlightsController#index as */*
+  [1m[36mFlight Load (0.1ms)[0m  [1m[34mSELECT "flights".* FROM "flights"[0m
+  ↳ app/controllers/flights_controller.rb:4:in `index'
+Completed 200 OK in 3ms (Views: 3.1ms | ActiveRecord: 0.4ms | Allocations: 2245)
+
+
+Started GET "/flights" for 127.0.0.1 at 2023-03-31 10:31:45 +0300
+Processing by FlightsController#index as */*
+  [1m[36mFlight Load (0.1ms)[0m  [1m[34mSELECT "flights".* FROM "flights"[0m
+  ↳ app/controllers/flights_controller.rb:4:in `index'
+Completed 200 OK in 3ms (Views: 2.5ms | ActiveRecord: 0.1ms | Allocations: 2091)
+
+
