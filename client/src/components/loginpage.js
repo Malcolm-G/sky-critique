@@ -1,28 +1,34 @@
-import React, { useState } from 'react';
+import React, { useState, useContext } from 'react';
 import { useNavigate } from 'react-router-dom';
+import { UserContext } from './UserDataProvider';
 
 
 function Login() {
     
-  const [email, setEmail] = useState('');
+  const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
-  // const navigate = useNavigate();
+  const navigate = useNavigate();
+  const [user,setUser] = useContext(UserContext)
 
-//   const handleEmailChange = (event) => {
-//     setEmail(event.target.value);
-//   };
-
-//   const handlePasswordChange = (event) => {  
-//   const [email, setEmail] = useState('');
-//   const [password, setPassword] = useState('');
-//   const navigate = useNavigate();
-//     setPassword(event.target.value);
-//   };
+  const input = {"name":username, "password":password}
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    // Your login logic goes here
-    // navigate('/home');
+    fetch('/login',{
+      method:'POST',
+      headers:{
+        "Content-Type":"application/json"
+      },
+      body:JSON.stringify(input)
+    })
+    .then(resp=>resp.json())
+    .then(data=>{
+      console.log(data)
+      if(!data.errors){
+        setUser(data)
+        navigate('/home');
+      }
+    })
   };
 
   return (
@@ -31,10 +37,10 @@ function Login() {
       <form className='form-control'
       onSubmit={(e)=>handleSubmit(e)}>
         <label>
-          Email:
-          <input type="text" placeholder='Enter Email...'
-          onChange={(e)=>setEmail(e.target.value)}
-          value={email}/>
+          Username:
+          <input type="text" placeholder='Enter Username...'
+          onChange={(e)=>setUsername(e.target.value)}
+          value={username}/>
         </label>
         <br/>
         <label>
