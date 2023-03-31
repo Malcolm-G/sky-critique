@@ -300,12 +300,12 @@ p{
   
   .nav-item:hover:after {
     width: 100%;
-    background: #ffdd40;
+    background: #68d7e4;
   }
   
   .nav-item .active {
-    color: #ffdd40;
-    border: 1px solid #ffdd40;
+    color:  #68d7e4;
+    border: 1px solid  #68d7e4;
   }
   
   .nav-icon {
