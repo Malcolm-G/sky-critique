@@ -7,6 +7,9 @@ h2{
 p{
   font-size: 50px ;
 }
+.card-text{
+  font-size: 12px;
+}
 .homme{
   background-color: wheat;
   max-height: 100%;

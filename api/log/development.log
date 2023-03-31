@@ -4513,3 +4513,355 @@ Completed 200 OK in 10ms (Views: 0.5ms | ActiveRecord: 0.8ms | Allocations: 1792
 >>>>>>> 3b40e876a1636ee794b6c23ad76b5d087e32052a
 
 
+Started GET "/" for 127.0.0.1 at 2023-03-31 15:06:23 +0300
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by Rails::WelcomeController#index as HTML
+  Rendering /usr/share/rvm/gems/ruby-2.7.4/gems/railties-7.0.4.3/lib/rails/templates/rails/welcome/index.html.erb
+  Rendered /usr/share/rvm/gems/ruby-2.7.4/gems/railties-7.0.4.3/lib/rails/templates/rails/welcome/index.html.erb (Duration: 2.8ms | Allocations: 706)
+Completed 200 OK in 19ms (Views: 12.2ms | ActiveRecord: 0.0ms | Allocations: 3316)
+
+
+Started GET "/flights" for 127.0.0.1 at 2023-03-31 15:06:39 +0300
+Processing by FlightsController#index as */*
+  [1m[36mFlight Load (5.4ms)[0m  [1m[34mSELECT "flights".* FROM "flights"[0m
+  ↳ app/controllers/flights_controller.rb:7:in `map'
+  [1m[36mAirport Load (0.2ms)[0m  [1m[34mSELECT "airports".* FROM "airports" WHERE "airports"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/flights_controller.rb:10:in `block in index'
+  [1m[36mAirport Load (0.1ms)[0m  [1m[34mSELECT "airports".* FROM "airports" WHERE "airports"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/flights_controller.rb:11:in `block in index'
+  [1m[36mCACHE Airport Load (0.0ms)[0m  [1m[34mSELECT "airports".* FROM "airports" WHERE "airports"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/flights_controller.rb:10:in `block in index'
+  [1m[36mCACHE Airport Load (0.0ms)[0m  [1m[34mSELECT "airports".* FROM "airports" WHERE "airports"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/flights_controller.rb:11:in `block in index'
+  [1m[36mCACHE Airport Load (0.0ms)[0m  [1m[34mSELECT "airports".* FROM "airports" WHERE "airports"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/flights_controller.rb:10:in `block in index'
+  [1m[36mAirport Load (0.1ms)[0m  [1m[34mSELECT "airports".* FROM "airports" WHERE "airports"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/flights_controller.rb:11:in `block in index'
+  [1m[36mCACHE Airport Load (0.0ms)[0m  [1m[34mSELECT "airports".* FROM "airports" WHERE "airports"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/flights_controller.rb:10:in `block in index'
+  [1m[36mCACHE Airport Load (0.0ms)[0m  [1m[34mSELECT "airports".* FROM "airports" WHERE "airports"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/flights_controller.rb:11:in `block in index'
+  [1m[36mCACHE Airport Load (0.0ms)[0m  [1m[34mSELECT "airports".* FROM "airports" WHERE "airports"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/flights_controller.rb:10:in `block in index'
+  [1m[36mAirport Load (0.1ms)[0m  [1m[34mSELECT "airports".* FROM "airports" WHERE "airports"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/flights_controller.rb:11:in `block in index'
+  [1m[36mCACHE Airport Load (0.0ms)[0m  [1m[34mSELECT "airports".* FROM "airports" WHERE "airports"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/flights_controller.rb:10:in `block in index'
+  [1m[36mCACHE Airport Load (0.0ms)[0m  [1m[34mSELECT "airports".* FROM "airports" WHERE "airports"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/flights_controller.rb:11:in `block in index'
+  [1m[36mCACHE Airport Load (0.0ms)[0m  [1m[34mSELECT "airports".* FROM "airports" WHERE "airports"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/flights_controller.rb:10:in `block in index'
+  [1m[36mAirport Load (0.1ms)[0m  [1m[34mSELECT "airports".* FROM "airports" WHERE "airports"."id" = ? LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/controllers/flights_controller.rb:11:in `block in index'
+  [1m[36mCACHE Airport Load (0.0ms)[0m  [1m[34mSELECT "airports".* FROM "airports" WHERE "airports"."id" = ? LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/controllers/flights_controller.rb:10:in `block in index'
+  [1m[36mCACHE Airport Load (0.0ms)[0m  [1m[34mSELECT "airports".* FROM "airports" WHERE "airports"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/flights_controller.rb:11:in `block in index'
+  [1m[36mCACHE Airport Load (0.0ms)[0m  [1m[34mSELECT "airports".* FROM "airports" WHERE "airports"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/flights_controller.rb:10:in `block in index'
+  [1m[36mCACHE Airport Load (0.0ms)[0m  [1m[34mSELECT "airports".* FROM "airports" WHERE "airports"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/flights_controller.rb:11:in `block in index'
+Completed 200 OK in 59ms (Views: 1.2ms | ActiveRecord: 7.0ms | Allocations: 55162)
+
+
+Started GET "/flights" for 127.0.0.1 at 2023-03-31 15:06:39 +0300
+Processing by FlightsController#index as */*
+  [1m[36mFlight Load (0.1ms)[0m  [1m[34mSELECT "flights".* FROM "flights"[0m
+  ↳ app/controllers/flights_controller.rb:7:in `map'
+  [1m[36mAirport Load (0.0ms)[0m  [1m[34mSELECT "airports".* FROM "airports" WHERE "airports"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/flights_controller.rb:10:in `block in index'
+  [1m[36mAirport Load (0.0ms)[0m  [1m[34mSELECT "airports".* FROM "airports" WHERE "airports"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/flights_controller.rb:11:in `block in index'
+  [1m[36mCACHE Airport Load (0.0ms)[0m  [1m[34mSELECT "airports".* FROM "airports" WHERE "airports"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/flights_controller.rb:10:in `block in index'
+  [1m[36mCACHE Airport Load (0.0ms)[0m  [1m[34mSELECT "airports".* FROM "airports" WHERE "airports"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/flights_controller.rb:11:in `block in index'
+  [1m[36mCACHE Airport Load (0.0ms)[0m  [1m[34mSELECT "airports".* FROM "airports" WHERE "airports"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/flights_controller.rb:10:in `block in index'
+  [1m[36mAirport Load (0.1ms)[0m  [1m[34mSELECT "airports".* FROM "airports" WHERE "airports"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/flights_controller.rb:11:in `block in index'
+  [1m[36mCACHE Airport Load (0.0ms)[0m  [1m[34mSELECT "airports".* FROM "airports" WHERE "airports"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/flights_controller.rb:10:in `block in index'
+  [1m[36mCACHE Airport Load (0.0ms)[0m  [1m[34mSELECT "airports".* FROM "airports" WHERE "airports"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/flights_controller.rb:11:in `block in index'
+  [1m[36mCACHE Airport Load (0.0ms)[0m  [1m[34mSELECT "airports".* FROM "airports" WHERE "airports"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/flights_controller.rb:10:in `block in index'
+  [1m[36mAirport Load (0.1ms)[0m  [1m[34mSELECT "airports".* FROM "airports" WHERE "airports"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/flights_controller.rb:11:in `block in index'
+  [1m[36mCACHE Airport Load (0.0ms)[0m  [1m[34mSELECT "airports".* FROM "airports" WHERE "airports"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/flights_controller.rb:10:in `block in index'
+  [1m[36mCACHE Airport Load (0.0ms)[0m  [1m[34mSELECT "airports".* FROM "airports" WHERE "airports"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/flights_controller.rb:11:in `block in index'
+  [1m[36mCACHE Airport Load (0.0ms)[0m  [1m[34mSELECT "airports".* FROM "airports" WHERE "airports"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/flights_controller.rb:10:in `block in index'
+  [1m[36mAirport Load (0.1ms)[0m  [1m[34mSELECT "airports".* FROM "airports" WHERE "airports"."id" = ? LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/controllers/flights_controller.rb:11:in `block in index'
+  [1m[36mCACHE Airport Load (0.0ms)[0m  [1m[34mSELECT "airports".* FROM "airports" WHERE "airports"."id" = ? LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/controllers/flights_controller.rb:10:in `block in index'
+  [1m[36mCACHE Airport Load (0.0ms)[0m  [1m[34mSELECT "airports".* FROM "airports" WHERE "airports"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/flights_controller.rb:11:in `block in index'
+  [1m[36mCACHE Airport Load (0.0ms)[0m  [1m[34mSELECT "airports".* FROM "airports" WHERE "airports"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/flights_controller.rb:10:in `block in index'
+  [1m[36mCACHE Airport Load (0.0ms)[0m  [1m[34mSELECT "airports".* FROM "airports" WHERE "airports"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/flights_controller.rb:11:in `block in index'
+Completed 200 OK in 11ms (Views: 0.5ms | ActiveRecord: 0.5ms | Allocations: 10898)
+
+
+Started GET "/flights" for 127.0.0.1 at 2023-03-31 15:08:31 +0300
+Processing by FlightsController#index as */*
+  [1m[36mFlight Load (4.6ms)[0m  [1m[34mSELECT "flights".* FROM "flights"[0m
+  ↳ app/controllers/flights_controller.rb:7:in `map'
+  [1m[36mAirport Load (0.5ms)[0m  [1m[34mSELECT "airports".* FROM "airports" WHERE "airports"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/flights_controller.rb:10:in `block in index'
+  [1m[36mAirport Load (0.1ms)[0m  [1m[34mSELECT "airports".* FROM "airports" WHERE "airports"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/flights_controller.rb:11:in `block in index'
+  [1m[36mCACHE Airport Load (0.0ms)[0m  [1m[34mSELECT "airports".* FROM "airports" WHERE "airports"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/flights_controller.rb:10:in `block in index'
+  [1m[36mCACHE Airport Load (0.0ms)[0m  [1m[34mSELECT "airports".* FROM "airports" WHERE "airports"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/flights_controller.rb:11:in `block in index'
+  [1m[36mCACHE Airport Load (0.0ms)[0m  [1m[34mSELECT "airports".* FROM "airports" WHERE "airports"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/flights_controller.rb:10:in `block in index'
+  [1m[36mAirport Load (0.1ms)[0m  [1m[34mSELECT "airports".* FROM "airports" WHERE "airports"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/flights_controller.rb:11:in `block in index'
+  [1m[36mCACHE Airport Load (0.1ms)[0m  [1m[34mSELECT "airports".* FROM "airports" WHERE "airports"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/flights_controller.rb:10:in `block in index'
+  [1m[36mCACHE Airport Load (0.0ms)[0m  [1m[34mSELECT "airports".* FROM "airports" WHERE "airports"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/flights_controller.rb:11:in `block in index'
+  [1m[36mCACHE Airport Load (0.0ms)[0m  [1m[34mSELECT "airports".* FROM "airports" WHERE "airports"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/flights_controller.rb:10:in `block in index'
+  [1m[36mAirport Load (0.4ms)[0m  [1m[34mSELECT "airports".* FROM "airports" WHERE "airports"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/flights_controller.rb:11:in `block in index'
+  [1m[36mCACHE Airport Load (0.0ms)[0m  [1m[34mSELECT "airports".* FROM "airports" WHERE "airports"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/flights_controller.rb:10:in `block in index'
+  [1m[36mCACHE Airport Load (0.0ms)[0m  [1m[34mSELECT "airports".* FROM "airports" WHERE "airports"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/flights_controller.rb:11:in `block in index'
+  [1m[36mCACHE Airport Load (0.0ms)[0m  [1m[34mSELECT "airports".* FROM "airports" WHERE "airports"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/flights_controller.rb:10:in `block in index'
+  [1m[36mAirport Load (0.1ms)[0m  [1m[34mSELECT "airports".* FROM "airports" WHERE "airports"."id" = ? LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/controllers/flights_controller.rb:11:in `block in index'
+  [1m[36mCACHE Airport Load (0.0ms)[0m  [1m[34mSELECT "airports".* FROM "airports" WHERE "airports"."id" = ? LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/controllers/flights_controller.rb:10:in `block in index'
+  [1m[36mCACHE Airport Load (0.0ms)[0m  [1m[34mSELECT "airports".* FROM "airports" WHERE "airports"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/flights_controller.rb:11:in `block in index'
+  [1m[36mCACHE Airport Load (0.0ms)[0m  [1m[34mSELECT "airports".* FROM "airports" WHERE "airports"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/flights_controller.rb:10:in `block in index'
+  [1m[36mCACHE Airport Load (0.0ms)[0m  [1m[34mSELECT "airports".* FROM "airports" WHERE "airports"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/flights_controller.rb:11:in `block in index'
+Completed 200 OK in 39ms (Views: 1.7ms | ActiveRecord: 6.0ms | Allocations: 10898)
+
+
+Started GET "/flights" for 127.0.0.1 at 2023-03-31 15:08:32 +0300
+Processing by FlightsController#index as */*
+  [1m[36mFlight Load (0.6ms)[0m  [1m[34mSELECT "flights".* FROM "flights"[0m
+  ↳ app/controllers/flights_controller.rb:7:in `map'
+  [1m[36mAirport Load (0.1ms)[0m  [1m[34mSELECT "airports".* FROM "airports" WHERE "airports"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/flights_controller.rb:10:in `block in index'
+  [1m[36mAirport Load (0.1ms)[0m  [1m[34mSELECT "airports".* FROM "airports" WHERE "airports"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/flights_controller.rb:11:in `block in index'
+  [1m[36mCACHE Airport Load (0.0ms)[0m  [1m[34mSELECT "airports".* FROM "airports" WHERE "airports"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/flights_controller.rb:10:in `block in index'
+  [1m[36mCACHE Airport Load (0.0ms)[0m  [1m[34mSELECT "airports".* FROM "airports" WHERE "airports"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/flights_controller.rb:11:in `block in index'
+  [1m[36mCACHE Airport Load (0.0ms)[0m  [1m[34mSELECT "airports".* FROM "airports" WHERE "airports"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/flights_controller.rb:10:in `block in index'
+  [1m[36mAirport Load (0.1ms)[0m  [1m[34mSELECT "airports".* FROM "airports" WHERE "airports"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/flights_controller.rb:11:in `block in index'
+  [1m[36mCACHE Airport Load (0.0ms)[0m  [1m[34mSELECT "airports".* FROM "airports" WHERE "airports"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/flights_controller.rb:10:in `block in index'
+  [1m[36mCACHE Airport Load (0.0ms)[0m  [1m[34mSELECT "airports".* FROM "airports" WHERE "airports"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/flights_controller.rb:11:in `block in index'
+  [1m[36mCACHE Airport Load (0.0ms)[0m  [1m[34mSELECT "airports".* FROM "airports" WHERE "airports"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/flights_controller.rb:10:in `block in index'
+  [1m[36mAirport Load (0.1ms)[0m  [1m[34mSELECT "airports".* FROM "airports" WHERE "airports"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/flights_controller.rb:11:in `block in index'
+  [1m[36mCACHE Airport Load (0.0ms)[0m  [1m[34mSELECT "airports".* FROM "airports" WHERE "airports"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/flights_controller.rb:10:in `block in index'
+  [1m[36mCACHE Airport Load (0.0ms)[0m  [1m[34mSELECT "airports".* FROM "airports" WHERE "airports"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/flights_controller.rb:11:in `block in index'
+  [1m[36mCACHE Airport Load (0.0ms)[0m  [1m[34mSELECT "airports".* FROM "airports" WHERE "airports"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/flights_controller.rb:10:in `block in index'
+  [1m[36mAirport Load (0.1ms)[0m  [1m[34mSELECT "airports".* FROM "airports" WHERE "airports"."id" = ? LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/controllers/flights_controller.rb:11:in `block in index'
+  [1m[36mCACHE Airport Load (0.0ms)[0m  [1m[34mSELECT "airports".* FROM "airports" WHERE "airports"."id" = ? LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/controllers/flights_controller.rb:10:in `block in index'
+  [1m[36mCACHE Airport Load (0.0ms)[0m  [1m[34mSELECT "airports".* FROM "airports" WHERE "airports"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/flights_controller.rb:11:in `block in index'
+  [1m[36mCACHE Airport Load (0.0ms)[0m  [1m[34mSELECT "airports".* FROM "airports" WHERE "airports"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/flights_controller.rb:10:in `block in index'
+  [1m[36mCACHE Airport Load (0.0ms)[0m  [1m[34mSELECT "airports".* FROM "airports" WHERE "airports"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/flights_controller.rb:11:in `block in index'
+Completed 200 OK in 41ms (Views: 0.7ms | ActiveRecord: 1.4ms | Allocations: 10898)
+
+
+Started GET "/flights" for 127.0.0.1 at 2023-03-31 15:09:16 +0300
+Processing by FlightsController#index as */*
+  [1m[36mFlight Load (3.2ms)[0m  [1m[34mSELECT "flights".* FROM "flights"[0m
+  ↳ app/controllers/flights_controller.rb:7:in `map'
+  [1m[36mAirport Load (0.1ms)[0m  [1m[34mSELECT "airports".* FROM "airports" WHERE "airports"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/flights_controller.rb:10:in `block in index'
+  [1m[36mAirport Load (0.1ms)[0m  [1m[34mSELECT "airports".* FROM "airports" WHERE "airports"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/flights_controller.rb:11:in `block in index'
+  [1m[36mCACHE Airport Load (0.0ms)[0m  [1m[34mSELECT "airports".* FROM "airports" WHERE "airports"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/flights_controller.rb:10:in `block in index'
+  [1m[36mCACHE Airport Load (0.0ms)[0m  [1m[34mSELECT "airports".* FROM "airports" WHERE "airports"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/flights_controller.rb:11:in `block in index'
+  [1m[36mCACHE Airport Load (0.0ms)[0m  [1m[34mSELECT "airports".* FROM "airports" WHERE "airports"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/flights_controller.rb:10:in `block in index'
+  [1m[36mAirport Load (0.1ms)[0m  [1m[34mSELECT "airports".* FROM "airports" WHERE "airports"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/flights_controller.rb:11:in `block in index'
+  [1m[36mCACHE Airport Load (0.0ms)[0m  [1m[34mSELECT "airports".* FROM "airports" WHERE "airports"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/flights_controller.rb:10:in `block in index'
+  [1m[36mCACHE Airport Load (0.0ms)[0m  [1m[34mSELECT "airports".* FROM "airports" WHERE "airports"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/flights_controller.rb:11:in `block in index'
+  [1m[36mCACHE Airport Load (0.0ms)[0m  [1m[34mSELECT "airports".* FROM "airports" WHERE "airports"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/flights_controller.rb:10:in `block in index'
+  [1m[36mAirport Load (0.1ms)[0m  [1m[34mSELECT "airports".* FROM "airports" WHERE "airports"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/flights_controller.rb:11:in `block in index'
+  [1m[36mCACHE Airport Load (0.0ms)[0m  [1m[34mSELECT "airports".* FROM "airports" WHERE "airports"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/flights_controller.rb:10:in `block in index'
+  [1m[36mCACHE Airport Load (0.0ms)[0m  [1m[34mSELECT "airports".* FROM "airports" WHERE "airports"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/flights_controller.rb:11:in `block in index'
+  [1m[36mCACHE Airport Load (0.0ms)[0m  [1m[34mSELECT "airports".* FROM "airports" WHERE "airports"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/flights_controller.rb:10:in `block in index'
+  [1m[36mAirport Load (0.1ms)[0m  [1m[34mSELECT "airports".* FROM "airports" WHERE "airports"."id" = ? LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/controllers/flights_controller.rb:11:in `block in index'
+  [1m[36mCACHE Airport Load (0.0ms)[0m  [1m[34mSELECT "airports".* FROM "airports" WHERE "airports"."id" = ? LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/controllers/flights_controller.rb:10:in `block in index'
+  [1m[36mCACHE Airport Load (0.0ms)[0m  [1m[34mSELECT "airports".* FROM "airports" WHERE "airports"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/flights_controller.rb:11:in `block in index'
+  [1m[36mCACHE Airport Load (0.0ms)[0m  [1m[34mSELECT "airports".* FROM "airports" WHERE "airports"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/flights_controller.rb:10:in `block in index'
+  [1m[36mCACHE Airport Load (0.0ms)[0m  [1m[34mSELECT "airports".* FROM "airports" WHERE "airports"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/flights_controller.rb:11:in `block in index'
+Completed 200 OK in 19ms (Views: 1.2ms | ActiveRecord: 3.7ms | Allocations: 10879)
+
+
+Started GET "/flights" for 127.0.0.1 at 2023-03-31 15:09:17 +0300
+Processing by FlightsController#index as */*
+  [1m[36mFlight Load (0.2ms)[0m  [1m[34mSELECT "flights".* FROM "flights"[0m
+  ↳ app/controllers/flights_controller.rb:7:in `map'
+  [1m[36mAirport Load (0.1ms)[0m  [1m[34mSELECT "airports".* FROM "airports" WHERE "airports"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/flights_controller.rb:10:in `block in index'
+  [1m[36mAirport Load (0.1ms)[0m  [1m[34mSELECT "airports".* FROM "airports" WHERE "airports"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/flights_controller.rb:11:in `block in index'
+  [1m[36mCACHE Airport Load (0.0ms)[0m  [1m[34mSELECT "airports".* FROM "airports" WHERE "airports"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/flights_controller.rb:10:in `block in index'
+  [1m[36mCACHE Airport Load (0.0ms)[0m  [1m[34mSELECT "airports".* FROM "airports" WHERE "airports"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/flights_controller.rb:11:in `block in index'
+  [1m[36mCACHE Airport Load (0.0ms)[0m  [1m[34mSELECT "airports".* FROM "airports" WHERE "airports"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/flights_controller.rb:10:in `block in index'
+  [1m[36mAirport Load (0.1ms)[0m  [1m[34mSELECT "airports".* FROM "airports" WHERE "airports"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/flights_controller.rb:11:in `block in index'
+  [1m[36mCACHE Airport Load (0.0ms)[0m  [1m[34mSELECT "airports".* FROM "airports" WHERE "airports"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/flights_controller.rb:10:in `block in index'
+  [1m[36mCACHE Airport Load (0.0ms)[0m  [1m[34mSELECT "airports".* FROM "airports" WHERE "airports"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/flights_controller.rb:11:in `block in index'
+  [1m[36mCACHE Airport Load (0.0ms)[0m  [1m[34mSELECT "airports".* FROM "airports" WHERE "airports"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/flights_controller.rb:10:in `block in index'
+  [1m[36mAirport Load (0.1ms)[0m  [1m[34mSELECT "airports".* FROM "airports" WHERE "airports"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/flights_controller.rb:11:in `block in index'
+  [1m[36mCACHE Airport Load (0.0ms)[0m  [1m[34mSELECT "airports".* FROM "airports" WHERE "airports"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/flights_controller.rb:10:in `block in index'
+  [1m[36mCACHE Airport Load (0.0ms)[0m  [1m[34mSELECT "airports".* FROM "airports" WHERE "airports"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/flights_controller.rb:11:in `block in index'
+  [1m[36mCACHE Airport Load (0.0ms)[0m  [1m[34mSELECT "airports".* FROM "airports" WHERE "airports"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/flights_controller.rb:10:in `block in index'
+  [1m[36mAirport Load (0.1ms)[0m  [1m[34mSELECT "airports".* FROM "airports" WHERE "airports"."id" = ? LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/controllers/flights_controller.rb:11:in `block in index'
+  [1m[36mCACHE Airport Load (0.0ms)[0m  [1m[34mSELECT "airports".* FROM "airports" WHERE "airports"."id" = ? LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/controllers/flights_controller.rb:10:in `block in index'
+  [1m[36mCACHE Airport Load (0.0ms)[0m  [1m[34mSELECT "airports".* FROM "airports" WHERE "airports"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/flights_controller.rb:11:in `block in index'
+  [1m[36mCACHE Airport Load (0.0ms)[0m  [1m[34mSELECT "airports".* FROM "airports" WHERE "airports"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/flights_controller.rb:10:in `block in index'
+  [1m[36mCACHE Airport Load (0.0ms)[0m  [1m[34mSELECT "airports".* FROM "airports" WHERE "airports"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/flights_controller.rb:11:in `block in index'
+Completed 200 OK in 16ms (Views: 0.7ms | ActiveRecord: 0.8ms | Allocations: 10877)
+
+
+Started GET "/flights" for 127.0.0.1 at 2023-03-31 15:10:28 +0300
+Processing by FlightsController#index as */*
+  [1m[36mFlight Load (0.3ms)[0m  [1m[34mSELECT "flights".* FROM "flights"[0m
+  ↳ app/controllers/flights_controller.rb:7:in `map'
+  [1m[36mAirport Load (0.1ms)[0m  [1m[34mSELECT "airports".* FROM "airports" WHERE "airports"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/flights_controller.rb:10:in `block in index'
+  [1m[36mAirport Load (0.1ms)[0m  [1m[34mSELECT "airports".* FROM "airports" WHERE "airports"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/flights_controller.rb:11:in `block in index'
+  [1m[36mCACHE Airport Load (0.0ms)[0m  [1m[34mSELECT "airports".* FROM "airports" WHERE "airports"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/flights_controller.rb:10:in `block in index'
+  [1m[36mCACHE Airport Load (0.0ms)[0m  [1m[34mSELECT "airports".* FROM "airports" WHERE "airports"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/flights_controller.rb:11:in `block in index'
+  [1m[36mCACHE Airport Load (0.0ms)[0m  [1m[34mSELECT "airports".* FROM "airports" WHERE "airports"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/flights_controller.rb:10:in `block in index'
+  [1m[36mAirport Load (0.3ms)[0m  [1m[34mSELECT "airports".* FROM "airports" WHERE "airports"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/flights_controller.rb:11:in `block in index'
+  [1m[36mCACHE Airport Load (0.0ms)[0m  [1m[34mSELECT "airports".* FROM "airports" WHERE "airports"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/flights_controller.rb:10:in `block in index'
+  [1m[36mCACHE Airport Load (0.0ms)[0m  [1m[34mSELECT "airports".* FROM "airports" WHERE "airports"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/flights_controller.rb:11:in `block in index'
+  [1m[36mCACHE Airport Load (0.0ms)[0m  [1m[34mSELECT "airports".* FROM "airports" WHERE "airports"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/flights_controller.rb:10:in `block in index'
+  [1m[36mAirport Load (0.1ms)[0m  [1m[34mSELECT "airports".* FROM "airports" WHERE "airports"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/flights_controller.rb:11:in `block in index'
+  [1m[36mCACHE Airport Load (0.0ms)[0m  [1m[34mSELECT "airports".* FROM "airports" WHERE "airports"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/flights_controller.rb:10:in `block in index'
+  [1m[36mCACHE Airport Load (0.0ms)[0m  [1m[34mSELECT "airports".* FROM "airports" WHERE "airports"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/flights_controller.rb:11:in `block in index'
+  [1m[36mCACHE Airport Load (0.0ms)[0m  [1m[34mSELECT "airports".* FROM "airports" WHERE "airports"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/flights_controller.rb:10:in `block in index'
+  [1m[36mAirport Load (0.2ms)[0m  [1m[34mSELECT "airports".* FROM "airports" WHERE "airports"."id" = ? LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/controllers/flights_controller.rb:11:in `block in index'
+  [1m[36mCACHE Airport Load (0.1ms)[0m  [1m[34mSELECT "airports".* FROM "airports" WHERE "airports"."id" = ? LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/controllers/flights_controller.rb:10:in `block in index'
+  [1m[36mCACHE Airport Load (0.0ms)[0m  [1m[34mSELECT "airports".* FROM "airports" WHERE "airports"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/flights_controller.rb:11:in `block in index'
+  [1m[36mCACHE Airport Load (0.0ms)[0m  [1m[34mSELECT "airports".* FROM "airports" WHERE "airports"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/flights_controller.rb:10:in `block in index'
+  [1m[36mCACHE Airport Load (0.0ms)[0m  [1m[34mSELECT "airports".* FROM "airports" WHERE "airports"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/flights_controller.rb:11:in `block in index'
+Completed 200 OK in 30ms (Views: 0.7ms | ActiveRecord: 1.3ms | Allocations: 10877)
+
+
+Started GET "/flights" for 127.0.0.1 at 2023-03-31 15:10:28 +0300
+Processing by FlightsController#index as */*
+  [1m[36mFlight Load (0.4ms)[0m  [1m[34mSELECT "flights".* FROM "flights"[0m
+  ↳ app/controllers/flights_controller.rb:7:in `map'
+  [1m[36mAirport Load (0.1ms)[0m  [1m[34mSELECT "airports".* FROM "airports" WHERE "airports"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/flights_controller.rb:10:in `block in index'
+  [1m[36mAirport Load (0.1ms)[0m  [1m[34mSELECT "airports".* FROM "airports" WHERE "airports"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/flights_controller.rb:11:in `block in index'
+  [1m[36mCACHE Airport Load (0.0ms)[0m  [1m[34mSELECT "airports".* FROM "airports" WHERE "airports"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/flights_controller.rb:10:in `block in index'
+  [1m[36mCACHE Airport Load (0.0ms)[0m  [1m[34mSELECT "airports".* FROM "airports" WHERE "airports"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/flights_controller.rb:11:in `block in index'
+  [1m[36mCACHE Airport Load (0.0ms)[0m  [1m[34mSELECT "airports".* FROM "airports" WHERE "airports"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/flights_controller.rb:10:in `block in index'
+  [1m[36mAirport Load (0.1ms)[0m  [1m[34mSELECT "airports".* FROM "airports" WHERE "airports"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/flights_controller.rb:11:in `block in index'
+  [1m[36mCACHE Airport Load (0.0ms)[0m  [1m[34mSELECT "airports".* FROM "airports" WHERE "airports"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/flights_controller.rb:10:in `block in index'
+  [1m[36mCACHE Airport Load (0.0ms)[0m  [1m[34mSELECT "airports".* FROM "airports" WHERE "airports"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/flights_controller.rb:11:in `block in index'
+  [1m[36mCACHE Airport Load (0.0ms)[0m  [1m[34mSELECT "airports".* FROM "airports" WHERE "airports"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/flights_controller.rb:10:in `block in index'
+  [1m[36mAirport Load (0.1ms)[0m  [1m[34mSELECT "airports".* FROM "airports" WHERE "airports"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/flights_controller.rb:11:in `block in index'
+  [1m[36mCACHE Airport Load (0.0ms)[0m  [1m[34mSELECT "airports".* FROM "airports" WHERE "airports"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/flights_controller.rb:10:in `block in index'
+  [1m[36mCACHE Airport Load (0.0ms)[0m  [1m[34mSELECT "airports".* FROM "airports" WHERE "airports"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/flights_controller.rb:11:in `block in index'
+  [1m[36mCACHE Airport Load (0.0ms)[0m  [1m[34mSELECT "airports".* FROM "airports" WHERE "airports"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/flights_controller.rb:10:in `block in index'
+  [1m[36mAirport Load (0.1ms)[0m  [1m[34mSELECT "airports".* FROM "airports" WHERE "airports"."id" = ? LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/controllers/flights_controller.rb:11:in `block in index'
+  [1m[36mCACHE Airport Load (0.0ms)[0m  [1m[34mSELECT "airports".* FROM "airports" WHERE "airports"."id" = ? LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/controllers/flights_controller.rb:10:in `block in index'
+  [1m[36mCACHE Airport Load (0.0ms)[0m  [1m[34mSELECT "airports".* FROM "airports" WHERE "airports"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/flights_controller.rb:11:in `block in index'
+  [1m[36mCACHE Airport Load (0.0ms)[0m  [1m[34mSELECT "airports".* FROM "airports" WHERE "airports"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/flights_controller.rb:10:in `block in index'
+  [1m[36mCACHE Airport Load (0.0ms)[0m  [1m[34mSELECT "airports".* FROM "airports" WHERE "airports"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/flights_controller.rb:11:in `block in index'
+Completed 200 OK in 23ms (Views: 0.7ms | ActiveRecord: 1.1ms | Allocations: 10877)
+
+
