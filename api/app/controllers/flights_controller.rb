@@ -1,4 +1,6 @@
 class FlightsController < ApplicationController
+  before_action :authorize
+
   # def index
   #   @flights = Flight.all
   #   render json: @flights, include: [:origin, :destination], except: [:origin_id, :destination_id], status: :ok
