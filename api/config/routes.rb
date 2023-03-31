@@ -1,7 +1,9 @@
 Rails.application.routes.draw do
   # devise_for :users
-  # resources :airports
-  # resources :reviews
+  resources :airports, only: [:index]
+  resources :users, only: [:index, :create]
+
+    # resources :reviews
   # resources :bookings, only: []
   resources :flights, only: [:index, :show]
   # resources :users
@@ -16,8 +18,8 @@ Rails.application.routes.draw do
   put '/flights/:flight_id/reviews/:id', to: 'reviews#update'
   delete '/flights/:flight_id/reviews/:id', to: 'reviews#destroy'
   get '/reviews/:id', to: 'reviews#show'
-  post '/users', to: 'users#create'
-  get '/users', to: 'users#index'
+  # post '/users', to: 'users#create'
+  # get '/users', to: 'users#index'
   devise_for :users, path: '', path_names: { sign_in: 'login', sign_out: 'logout', password: 'reset_password', confirmation: 'verification', unlock: 'unlock_account', registration: 'signup', sign_up: '' }, controllers: { passwords: 'passwords' }
 
  
