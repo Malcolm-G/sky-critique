@@ -23,6 +23,10 @@ class ReviewsController < ApplicationController
     def destroy
       @review.destroy
     end
+    def index
+      @flight = Flight.find(params[:flight_id])
+      @reviews = @flight.reviews
+    end
   
     private
   

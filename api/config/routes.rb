@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
   # devise_for :users
-  # resources :airports
-  # resources :reviews
+  resources :airports, only: [:index]
+    # resources :reviews
   # resources :bookings, only: []
   resources :flights, only: [:index, :show]
   # resources :users
