@@ -10,6 +10,7 @@ function Flights() {
     fetch('/flights')
     .then(resp=>resp.json())
     .then(data=>{
+      console.log(data)
       setFlights([...data])
     })
   },[])
@@ -24,10 +25,9 @@ function Flights() {
 
   const filteredFlights = flights?.filter(
     (flight) =>
-      // filter === 'Departure'
-      //   ? flight.departureAirport.toLowerCase().includes(search.toLowerCase())
-      //   : flight.arrivalAirport.toLowerCase().includes(search.toLowerCase())
-      true
+      filter === 'Departure'
+        ? flight.origin.toLowerCase().includes(search.toLowerCase())
+        : flight.destination.toLowerCase().includes(search.toLowerCase())
   );
 
   return (
@@ -60,8 +60,8 @@ function Flights() {
         {filteredFlights.map((flight) => (
           <div className="col" key={flight.id}>
             <Flight
-              departureAirport={flight.departureAirport}
-              arrivalAirport={flight.arrivalAirport}
+              departureAirport={flight.origin}
+              arrivalAirport={flight.destination}
               flightImage = {flight.image_url}
             />
           </div>
