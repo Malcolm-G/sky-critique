@@ -1,5 +1,7 @@
 class BookingsController < ApplicationController
 
+  before_action :authorize
+
     # GET /bookings
     def index
       @bookings = Booking.all

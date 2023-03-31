@@ -18,9 +18,17 @@ Rails.application.routes.draw do
   put '/flights/:flight_id/reviews/:id', to: 'reviews#update'
   delete '/flights/:flight_id/reviews/:id', to: 'reviews#destroy'
   get '/reviews/:id', to: 'reviews#show'
+  post "/login", to: "sessions#create"
+  get "/me", to: "users#show"
+  post "/signup", to: "users#create"
+  delete "/logout", to: "sessions#destroy"
+
+  
+
+
   # post '/users', to: 'users#create'
   # get '/users', to: 'users#index'
-  devise_for :users, path: '', path_names: { sign_in: 'login', sign_out: 'logout', password: 'reset_password', confirmation: 'verification', unlock: 'unlock_account', registration: 'signup', sign_up: '' }, controllers: { passwords: 'passwords' }
+  # devise_for :users, path: '', path_names: { sign_in: 'login', sign_out: 'logout', password: 'reset_password', confirmation: 'verification', unlock: 'unlock_account', registration: 'signup', sign_up: '' }, controllers: { passwords: 'passwords' }
 
  
   
