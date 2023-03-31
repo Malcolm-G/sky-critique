@@ -5110,3 +5110,247 @@ Filter chain halted as :authorize rendered or redirected
 Completed 401 Unauthorized in 1ms (Views: 0.4ms | ActiveRecord: 0.0ms | Allocations: 341)
 
 
+Started POST "/login" for 127.0.0.1 at 2023-03-31 16:17:33 +0300
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by SessionsController#create as */*
+  Parameters: {"name"=>"Kennedy", "password"=>"[FILTERED]", "session"=>{}}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."name" = ? LIMIT ?[0m  [["name", "Kennedy"], ["LIMIT", 1]]
+  ↳ app/controllers/sessions_controller.rb:6:in `create'
+Completed 200 OK in 294ms (Views: 0.8ms | ActiveRecord: 1.3ms | Allocations: 14845)
+
+
+Started GET "/me" for 127.0.0.1 at 2023-03-31 16:17:37 +0300
+Processing by UsersController#show as */*
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:13:in `show'
+Completed 201 Created in 2ms (Views: 0.5ms | ActiveRecord: 0.1ms | Allocations: 1416)
+
+
+Started GET "/flights" for 127.0.0.1 at 2023-03-31 16:19:42 +0300
+Processing by FlightsController#index as */*
+Filter chain halted as :authorize rendered or redirected
+Completed 401 Unauthorized in 1ms (Views: 0.2ms | ActiveRecord: 0.0ms | Allocations: 332)
+
+
+Started GET "/me" for 127.0.0.1 at 2023-03-31 16:19:42 +0300
+Processing by UsersController#show as */*
+Filter chain halted as :authorize rendered or redirected
+Completed 401 Unauthorized in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 178)
+
+
+Started GET "/flights" for 127.0.0.1 at 2023-03-31 16:19:42 +0300
+Processing by FlightsController#index as */*
+Filter chain halted as :authorize rendered or redirected
+Completed 401 Unauthorized in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 175)
+
+
+Started GET "/me" for 127.0.0.1 at 2023-03-31 16:19:42 +0300
+Processing by UsersController#show as */*
+Filter chain halted as :authorize rendered or redirected
+Completed 401 Unauthorized in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 177)
+
+
+Started GET "/me" for 127.0.0.1 at 2023-03-31 16:20:19 +0300
+Processing by UsersController#show as */*
+Started GET "/flights" for 127.0.0.1 at 2023-03-31 16:20:19 +0300
+Filter chain halted as :authorize rendered or redirected
+Processing by FlightsController#index as */*
+Completed 401 Unauthorized in 2ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 514)
+
+
+Filter chain halted as :authorize rendered or redirected
+Completed 401 Unauthorized in 1ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 355)
+
+
+Started GET "/flights" for 127.0.0.1 at 2023-03-31 16:20:19 +0300
+Processing by FlightsController#index as */*
+Filter chain halted as :authorize rendered or redirected
+Completed 401 Unauthorized in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 175)
+
+
+Started GET "/me" for 127.0.0.1 at 2023-03-31 16:20:19 +0300
+Processing by UsersController#show as */*
+Filter chain halted as :authorize rendered or redirected
+Completed 401 Unauthorized in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 175)
+
+
+Started GET "/me" for 127.0.0.1 at 2023-03-31 16:20:23 +0300
+Processing by UsersController#show as */*
+Filter chain halted as :authorize rendered or redirected
+Completed 401 Unauthorized in 1ms (Views: 0.3ms | ActiveRecord: 0.0ms | Allocations: 175)
+
+
+Started GET "/flights" for 127.0.0.1 at 2023-03-31 16:20:23 +0300
+Processing by FlightsController#index as */*
+Filter chain halted as :authorize rendered or redirected
+Completed 401 Unauthorized in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 175)
+
+
+Started GET "/me" for 127.0.0.1 at 2023-03-31 16:20:23 +0300
+Processing by UsersController#show as */*
+Filter chain halted as :authorize rendered or redirected
+Completed 401 Unauthorized in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 175)
+
+
+Started GET "/flights" for 127.0.0.1 at 2023-03-31 16:20:23 +0300
+Processing by FlightsController#index as */*
+Filter chain halted as :authorize rendered or redirected
+Completed 401 Unauthorized in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 175)
+
+
+Started GET "/me" for 127.0.0.1 at 2023-03-31 16:20:26 +0300
+Processing by UsersController#show as */*
+Filter chain halted as :authorize rendered or redirected
+Completed 401 Unauthorized in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 175)
+
+
+Started GET "/flights" for 127.0.0.1 at 2023-03-31 16:20:26 +0300
+Processing by FlightsController#index as */*
+Filter chain halted as :authorize rendered or redirected
+Completed 401 Unauthorized in 2ms (Views: 0.3ms | ActiveRecord: 0.0ms | Allocations: 175)
+
+
+Started GET "/me" for 127.0.0.1 at 2023-03-31 16:20:26 +0300
+Started GET "/flights" for 127.0.0.1 at 2023-03-31 16:20:26 +0300
+Processing by FlightsController#index as */*
+Filter chain halted as :authorize rendered or redirected
+Completed 401 Unauthorized in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 175)
+
+
+Processing by UsersController#show as */*
+Filter chain halted as :authorize rendered or redirected
+Completed 401 Unauthorized in 1ms (Views: 0.2ms | ActiveRecord: 0.0ms | Allocations: 175)
+
+
+Started GET "/flights" for 127.0.0.1 at 2023-03-31 16:20:35 +0300
+Processing by FlightsController#index as */*
+Filter chain halted as :authorize rendered or redirected
+Completed 401 Unauthorized in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 175)
+
+
+Started GET "/me" for 127.0.0.1 at 2023-03-31 16:20:35 +0300
+Processing by UsersController#show as */*
+Filter chain halted as :authorize rendered or redirected
+Completed 401 Unauthorized in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 175)
+
+
+Started GET "/flights" for 127.0.0.1 at 2023-03-31 16:20:35 +0300
+Processing by FlightsController#index as */*
+Filter chain halted as :authorize rendered or redirected
+Completed 401 Unauthorized in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 175)
+
+
+Started GET "/me" for 127.0.0.1 at 2023-03-31 16:20:35 +0300
+Processing by UsersController#show as */*
+Filter chain halted as :authorize rendered or redirected
+Completed 401 Unauthorized in 1ms (Views: 0.3ms | ActiveRecord: 0.0ms | Allocations: 175)
+
+
+Started GET "/me" for 127.0.0.1 at 2023-03-31 16:20:38 +0300
+Processing by UsersController#show as */*
+Filter chain halted as :authorize rendered or redirected
+Completed 401 Unauthorized in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 175)
+
+
+Started GET "/flights" for 127.0.0.1 at 2023-03-31 16:20:38 +0300
+Processing by FlightsController#index as */*
+Filter chain halted as :authorize rendered or redirected
+Completed 401 Unauthorized in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 175)
+
+
+Started GET "/me" for 127.0.0.1 at 2023-03-31 16:20:38 +0300
+Processing by UsersController#show as */*
+Filter chain halted as :authorize rendered or redirected
+Completed 401 Unauthorized in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 175)
+
+
+Started GET "/flights" for 127.0.0.1 at 2023-03-31 16:20:38 +0300
+Processing by FlightsController#index as */*
+Filter chain halted as :authorize rendered or redirected
+Completed 401 Unauthorized in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 175)
+
+
+Started GET "/flights" for 127.0.0.1 at 2023-03-31 16:20:48 +0300
+Processing by FlightsController#index as */*
+Filter chain halted as :authorize rendered or redirected
+Completed 401 Unauthorized in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 175)
+
+
+Started GET "/me" for 127.0.0.1 at 2023-03-31 16:20:48 +0300
+Processing by UsersController#show as */*
+Filter chain halted as :authorize rendered or redirected
+Completed 401 Unauthorized in 1ms (Views: 0.2ms | ActiveRecord: 0.0ms | Allocations: 175)
+
+
+Started GET "/flights" for 127.0.0.1 at 2023-03-31 16:20:48 +0300
+Processing by FlightsController#index as */*
+Filter chain halted as :authorize rendered or redirected
+Completed 401 Unauthorized in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 175)
+
+
+Started GET "/me" for 127.0.0.1 at 2023-03-31 16:20:48 +0300
+Processing by UsersController#show as */*
+Filter chain halted as :authorize rendered or redirected
+Completed 401 Unauthorized in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 175)
+
+
+Started GET "/me" for 127.0.0.1 at 2023-03-31 16:20:50 +0300
+Processing by UsersController#show as */*
+Filter chain halted as :authorize rendered or redirected
+Completed 401 Unauthorized in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 175)
+
+
+Started GET "/me" for 127.0.0.1 at 2023-03-31 16:20:50 +0300
+Processing by UsersController#show as */*
+Filter chain halted as :authorize rendered or redirected
+Completed 401 Unauthorized in 0ms (Views: 0.2ms | ActiveRecord: 0.0ms | Allocations: 175)
+
+
+Started GET "/me" for 127.0.0.1 at 2023-03-31 16:21:54 +0300
+Processing by UsersController#show as */*
+Filter chain halted as :authorize rendered or redirected
+Completed 401 Unauthorized in 1ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 175)
+
+
+Started GET "/me" for 127.0.0.1 at 2023-03-31 16:21:54 +0300
+Processing by UsersController#show as */*
+Filter chain halted as :authorize rendered or redirected
+Completed 401 Unauthorized in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 175)
+
+
+Started GET "/me" for 127.0.0.1 at 2023-03-31 16:22:08 +0300
+Processing by UsersController#show as */*
+Filter chain halted as :authorize rendered or redirected
+Completed 401 Unauthorized in 9ms (Views: 7.5ms | ActiveRecord: 0.0ms | Allocations: 175)
+
+
+Started GET "/me" for 127.0.0.1 at 2023-03-31 16:22:08 +0300
+Processing by UsersController#show as */*
+Filter chain halted as :authorize rendered or redirected
+Completed 401 Unauthorized in 1ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 176)
+
+
+Started GET "/me" for 127.0.0.1 at 2023-03-31 16:22:15 +0300
+Processing by UsersController#show as */*
+Filter chain halted as :authorize rendered or redirected
+Completed 401 Unauthorized in 1ms (Views: 0.3ms | ActiveRecord: 0.0ms | Allocations: 175)
+
+
+Started GET "/me" for 127.0.0.1 at 2023-03-31 16:22:15 +0300
+Processing by UsersController#show as */*
+Filter chain halted as :authorize rendered or redirected
+Completed 401 Unauthorized in 1ms (Views: 0.2ms | ActiveRecord: 0.0ms | Allocations: 175)
+
+
+Started GET "/me" for 127.0.0.1 at 2023-03-31 16:22:21 +0300
+Processing by UsersController#show as */*
+Filter chain halted as :authorize rendered or redirected
+Completed 401 Unauthorized in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 176)
+
+
+Started GET "/me" for 127.0.0.1 at 2023-03-31 16:22:21 +0300
+Processing by UsersController#show as */*
+Filter chain halted as :authorize rendered or redirected
+Completed 401 Unauthorized in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 175)
+
+

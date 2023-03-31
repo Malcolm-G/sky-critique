@@ -1,6 +1,7 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
 import { BrowserRouter } from 'react-router-dom';
+import { UserDataProvider } from './components/UserDataProvider';
 import App from './App'
 
 
@@ -11,7 +12,9 @@ const root = createRoot(rootElement);
 root.render(
   <React.StrictMode>
     <BrowserRouter>
-      <App />
+      <UserDataProvider>
+        <App />
+      </UserDataProvider>
     </BrowserRouter>
   </React.StrictMode>
 );
