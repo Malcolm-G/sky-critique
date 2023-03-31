@@ -14,7 +14,7 @@ function Signup() {
   };
 
   return (
-    <div className='form'> 
+    <div className='form my-5'> 
       <h1>Sign Up</h1>
       <form >
         <label>
