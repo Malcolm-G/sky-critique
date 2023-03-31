@@ -3216,3 +3216,718 @@ Migrating to AddDeviseToUsers (20230330184747)
   [1m[36mTRANSACTION (11.2ms)[0m  [1m[36mcommit transaction[0m
   [1m[36mActiveRecord::InternalMetadata Load (0.3ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
   [1m[36mActiveRecord::SchemaMigration Pluck (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Started GET "/flights" for 127.0.0.1 at 2023-03-30 23:08:16 +0300
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by FlightsController#index as */*
+  [1m[36mFlight Load (0.2ms)[0m  [1m[34mSELECT "flights".* FROM "flights"[0m
+  ↳ app/controllers/flights_controller.rb:4:in `index'
+Completed 200 OK in 58ms (Views: 12.1ms | ActiveRecord: 0.7ms | Allocations: 13063)
+
+
+Started GET "/flights" for 127.0.0.1 at 2023-03-30 23:08:51 +0300
+Processing by FlightsController#index as */*
+  [1m[36mFlight Load (0.1ms)[0m  [1m[34mSELECT "flights".* FROM "flights"[0m
+  ↳ app/controllers/flights_controller.rb:4:in `index'
+Completed 200 OK in 3ms (Views: 2.9ms | ActiveRecord: 0.1ms | Allocations: 2198)
+
+
+Started GET "/flights" for 127.0.0.1 at 2023-03-30 23:08:51 +0300
+Processing by FlightsController#index as */*
+  [1m[36mFlight Load (0.1ms)[0m  [1m[34mSELECT "flights".* FROM "flights"[0m
+  ↳ app/controllers/flights_controller.rb:4:in `index'
+Completed 200 OK in 4ms (Views: 3.2ms | ActiveRecord: 0.1ms | Allocations: 2103)
+
+
+Started GET "/flights" for 127.0.0.1 at 2023-03-30 23:10:41 +0300
+Processing by FlightsController#index as */*
+  [1m[36mFlight Load (0.1ms)[0m  [1m[34mSELECT "flights".* FROM "flights"[0m
+  ↳ app/controllers/flights_controller.rb:4:in `index'
+Completed 200 OK in 3ms (Views: 2.8ms | ActiveRecord: 0.1ms | Allocations: 2091)
+
+
+Started GET "/flights" for 127.0.0.1 at 2023-03-30 23:12:29 +0300
+Processing by FlightsController#index as */*
+  [1m[36mFlight Load (0.1ms)[0m  [1m[34mSELECT "flights".* FROM "flights"[0m
+  ↳ app/controllers/flights_controller.rb:4:in `index'
+Completed 200 OK in 3ms (Views: 2.9ms | ActiveRecord: 0.1ms | Allocations: 2091)
+
+
+Started GET "/flights" for 127.0.0.1 at 2023-03-30 23:12:32 +0300
+Processing by FlightsController#index as */*
+  [1m[36mFlight Load (0.1ms)[0m  [1m[34mSELECT "flights".* FROM "flights"[0m
+  ↳ app/controllers/flights_controller.rb:4:in `index'
+Completed 200 OK in 3ms (Views: 2.9ms | ActiveRecord: 0.1ms | Allocations: 2091)
+
+
+Started GET "/flights" for 127.0.0.1 at 2023-03-30 23:12:45 +0300
+Processing by FlightsController#index as */*
+  [1m[36mFlight Load (0.2ms)[0m  [1m[34mSELECT "flights".* FROM "flights"[0m
+  ↳ app/controllers/flights_controller.rb:4:in `index'
+Completed 200 OK in 3ms (Views: 2.5ms | ActiveRecord: 0.2ms | Allocations: 2103)
+
+
+Started GET "/flights" for 127.0.0.1 at 2023-03-30 23:15:01 +0300
+Processing by FlightsController#index as */*
+  [1m[36mFlight Load (0.1ms)[0m  [1m[34mSELECT "flights".* FROM "flights"[0m
+  ↳ app/controllers/flights_controller.rb:4:in `index'
+Completed 200 OK in 4ms (Views: 3.3ms | ActiveRecord: 0.1ms | Allocations: 2103)
+
+
+Started GET "/flights" for 127.0.0.1 at 2023-03-30 23:15:01 +0300
+Processing by FlightsController#index as */*
+  [1m[36mFlight Load (0.1ms)[0m  [1m[34mSELECT "flights".* FROM "flights"[0m
+  ↳ app/controllers/flights_controller.rb:4:in `index'
+Completed 200 OK in 3ms (Views: 2.8ms | ActiveRecord: 0.1ms | Allocations: 2091)
+
+
+Started GET "/flights" for 127.0.0.1 at 2023-03-30 23:17:05 +0300
+Processing by FlightsController#index as */*
+  [1m[36mFlight Load (0.1ms)[0m  [1m[34mSELECT "flights".* FROM "flights"[0m
+  ↳ app/controllers/flights_controller.rb:4:in `index'
+Completed 200 OK in 3ms (Views: 2.7ms | ActiveRecord: 0.1ms | Allocations: 2091)
+
+
+Started GET "/flights" for 127.0.0.1 at 2023-03-30 23:17:05 +0300
+Processing by FlightsController#index as */*
+  [1m[36mFlight Load (0.1ms)[0m  [1m[34mSELECT "flights".* FROM "flights"[0m
+  ↳ app/controllers/flights_controller.rb:4:in `index'
+Completed 200 OK in 5ms (Views: 4.4ms | ActiveRecord: 0.1ms | Allocations: 2091)
+
+
+Started GET "/flights" for 127.0.0.1 at 2023-03-30 23:17:08 +0300
+Processing by FlightsController#index as */*
+  [1m[36mFlight Load (0.1ms)[0m  [1m[34mSELECT "flights".* FROM "flights"[0m
+  ↳ app/controllers/flights_controller.rb:4:in `index'
+Completed 200 OK in 3ms (Views: 2.9ms | ActiveRecord: 0.1ms | Allocations: 2091)
+
+
+Started GET "/flights" for 127.0.0.1 at 2023-03-30 23:17:08 +0300
+Processing by FlightsController#index as */*
+  [1m[36mFlight Load (0.1ms)[0m  [1m[34mSELECT "flights".* FROM "flights"[0m
+  ↳ app/controllers/flights_controller.rb:4:in `index'
+Completed 200 OK in 20ms (Views: 19.9ms | ActiveRecord: 0.1ms | Allocations: 2091)
+
+
+Started GET "/flights" for 127.0.0.1 at 2023-03-30 23:17:20 +0300
+Processing by FlightsController#index as */*
+  [1m[36mFlight Load (0.2ms)[0m  [1m[34mSELECT "flights".* FROM "flights"[0m
+  ↳ app/controllers/flights_controller.rb:4:in `index'
+Completed 200 OK in 25ms (Views: 25.0ms | ActiveRecord: 0.2ms | Allocations: 2092)
+
+
+Started GET "/flights" for 127.0.0.1 at 2023-03-30 23:17:20 +0300
+Processing by FlightsController#index as */*
+  [1m[36mFlight Load (0.1ms)[0m  [1m[34mSELECT "flights".* FROM "flights"[0m
+  ↳ app/controllers/flights_controller.rb:4:in `index'
+Completed 200 OK in 4ms (Views: 3.2ms | ActiveRecord: 0.1ms | Allocations: 2091)
+
+
+Started GET "/flights" for 127.0.0.1 at 2023-03-30 23:17:22 +0300
+Processing by FlightsController#index as */*
+  [1m[36mFlight Load (0.1ms)[0m  [1m[34mSELECT "flights".* FROM "flights"[0m
+  ↳ app/controllers/flights_controller.rb:4:in `index'
+Completed 200 OK in 3ms (Views: 2.3ms | ActiveRecord: 0.1ms | Allocations: 2091)
+
+
+Started GET "/flights" for 127.0.0.1 at 2023-03-30 23:17:22 +0300
+Processing by FlightsController#index as */*
+  [1m[36mFlight Load (0.1ms)[0m  [1m[34mSELECT "flights".* FROM "flights"[0m
+  ↳ app/controllers/flights_controller.rb:4:in `index'
+Completed 200 OK in 3ms (Views: 2.6ms | ActiveRecord: 0.1ms | Allocations: 2092)
+
+
+Started GET "/flights" for 127.0.0.1 at 2023-03-30 23:17:24 +0300
+Processing by FlightsController#index as */*
+  [1m[36mFlight Load (0.3ms)[0m  [1m[34mSELECT "flights".* FROM "flights"[0m
+  ↳ app/controllers/flights_controller.rb:4:in `index'
+Completed 200 OK in 3ms (Views: 2.5ms | ActiveRecord: 0.3ms | Allocations: 2091)
+
+
+Started GET "/flights" for 127.0.0.1 at 2023-03-30 23:17:24 +0300
+Processing by FlightsController#index as */*
+  [1m[36mFlight Load (0.1ms)[0m  [1m[34mSELECT "flights".* FROM "flights"[0m
+  ↳ app/controllers/flights_controller.rb:4:in `index'
+Completed 200 OK in 3ms (Views: 2.4ms | ActiveRecord: 0.1ms | Allocations: 2091)
+
+
+Started GET "/flights" for 127.0.0.1 at 2023-03-30 23:17:35 +0300
+Processing by FlightsController#index as */*
+  [1m[36mFlight Load (0.1ms)[0m  [1m[34mSELECT "flights".* FROM "flights"[0m
+  ↳ app/controllers/flights_controller.rb:4:in `index'
+Completed 200 OK in 3ms (Views: 2.5ms | ActiveRecord: 0.1ms | Allocations: 2091)
+
+
+Started GET "/flights" for 127.0.0.1 at 2023-03-30 23:17:35 +0300
+Processing by FlightsController#index as */*
+  [1m[36mFlight Load (0.1ms)[0m  [1m[34mSELECT "flights".* FROM "flights"[0m
+  ↳ app/controllers/flights_controller.rb:4:in `index'
+Completed 200 OK in 3ms (Views: 2.5ms | ActiveRecord: 0.1ms | Allocations: 2091)
+
+
+Started GET "/flights" for 127.0.0.1 at 2023-03-30 23:19:11 +0300
+Processing by FlightsController#index as */*
+  [1m[36mFlight Load (0.1ms)[0m  [1m[34mSELECT "flights".* FROM "flights"[0m
+  ↳ app/controllers/flights_controller.rb:4:in `index'
+Completed 200 OK in 2ms (Views: 2.1ms | ActiveRecord: 0.1ms | Allocations: 2091)
+
+
+Started GET "/flights" for 127.0.0.1 at 2023-03-30 23:19:11 +0300
+Processing by FlightsController#index as */*
+  [1m[36mFlight Load (0.1ms)[0m  [1m[34mSELECT "flights".* FROM "flights"[0m
+  ↳ app/controllers/flights_controller.rb:4:in `index'
+Completed 200 OK in 3ms (Views: 2.4ms | ActiveRecord: 0.1ms | Allocations: 2091)
+
+
+Started GET "/flights" for 127.0.0.1 at 2023-03-30 23:19:13 +0300
+Processing by FlightsController#index as */*
+  [1m[36mFlight Load (0.1ms)[0m  [1m[34mSELECT "flights".* FROM "flights"[0m
+  ↳ app/controllers/flights_controller.rb:4:in `index'
+Completed 200 OK in 3ms (Views: 2.4ms | ActiveRecord: 0.1ms | Allocations: 2091)
+
+
+Started GET "/flights" for 127.0.0.1 at 2023-03-30 23:19:26 +0300
+Processing by FlightsController#index as */*
+  [1m[36mFlight Load (0.1ms)[0m  [1m[34mSELECT "flights".* FROM "flights"[0m
+  ↳ app/controllers/flights_controller.rb:4:in `index'
+Completed 200 OK in 3ms (Views: 2.9ms | ActiveRecord: 0.1ms | Allocations: 2091)
+
+
+Started GET "/flights" for 127.0.0.1 at 2023-03-30 23:19:26 +0300
+Processing by FlightsController#index as */*
+  [1m[36mFlight Load (0.1ms)[0m  [1m[34mSELECT "flights".* FROM "flights"[0m
+  ↳ app/controllers/flights_controller.rb:4:in `index'
+Completed 200 OK in 3ms (Views: 2.3ms | ActiveRecord: 0.1ms | Allocations: 2091)
+
+
+Started GET "/flights" for 127.0.0.1 at 2023-03-30 23:19:28 +0300
+Processing by FlightsController#index as */*
+  [1m[36mFlight Load (0.1ms)[0m  [1m[34mSELECT "flights".* FROM "flights"[0m
+  ↳ app/controllers/flights_controller.rb:4:in `index'
+Completed 200 OK in 3ms (Views: 2.3ms | ActiveRecord: 0.1ms | Allocations: 2091)
+
+
+Started GET "/flights" for 127.0.0.1 at 2023-03-30 23:19:28 +0300
+Processing by FlightsController#index as */*
+  [1m[36mFlight Load (0.1ms)[0m  [1m[34mSELECT "flights".* FROM "flights"[0m
+  ↳ app/controllers/flights_controller.rb:4:in `index'
+Completed 200 OK in 3ms (Views: 2.4ms | ActiveRecord: 0.1ms | Allocations: 2091)
+
+
+Started GET "/flights" for 127.0.0.1 at 2023-03-31 09:18:57 +0300
+Processing by FlightsController#index as */*
+  [1m[36mFlight Load (0.2ms)[0m  [1m[34mSELECT "flights".* FROM "flights"[0m
+  ↳ app/controllers/flights_controller.rb:4:in `index'
+Completed 200 OK in 4ms (Views: 3.6ms | ActiveRecord: 0.5ms | Allocations: 2291)
+
+
+Started GET "/flights" for 127.0.0.1 at 2023-03-31 09:18:57 +0300
+Processing by FlightsController#index as */*
+  [1m[36mFlight Load (0.1ms)[0m  [1m[34mSELECT "flights".* FROM "flights"[0m
+  ↳ app/controllers/flights_controller.rb:4:in `index'
+Completed 200 OK in 3ms (Views: 2.5ms | ActiveRecord: 0.1ms | Allocations: 2091)
+
+
+Started GET "/flights" for 127.0.0.1 at 2023-03-31 09:19:34 +0300
+Processing by FlightsController#index as */*
+  [1m[36mFlight Load (0.1ms)[0m  [1m[34mSELECT "flights".* FROM "flights"[0m
+  ↳ app/controllers/flights_controller.rb:4:in `index'
+Completed 200 OK in 3ms (Views: 2.4ms | ActiveRecord: 0.1ms | Allocations: 2091)
+
+
+Started GET "/flights" for 127.0.0.1 at 2023-03-31 09:19:37 +0300
+Processing by FlightsController#index as */*
+  [1m[36mFlight Load (0.1ms)[0m  [1m[34mSELECT "flights".* FROM "flights"[0m
+  ↳ app/controllers/flights_controller.rb:4:in `index'
+Completed 200 OK in 3ms (Views: 2.7ms | ActiveRecord: 0.1ms | Allocations: 2091)
+
+
+Started GET "/flights" for 127.0.0.1 at 2023-03-31 09:19:45 +0300
+Processing by FlightsController#index as */*
+  [1m[36mFlight Load (0.1ms)[0m  [1m[34mSELECT "flights".* FROM "flights"[0m
+  ↳ app/controllers/flights_controller.rb:4:in `index'
+Completed 200 OK in 3ms (Views: 2.3ms | ActiveRecord: 0.1ms | Allocations: 2091)
+
+
+Started GET "/flights" for 127.0.0.1 at 2023-03-31 09:19:55 +0300
+Processing by FlightsController#index as */*
+  [1m[36mFlight Load (0.1ms)[0m  [1m[34mSELECT "flights".* FROM "flights"[0m
+  ↳ app/controllers/flights_controller.rb:4:in `index'
+Completed 200 OK in 3ms (Views: 2.5ms | ActiveRecord: 0.1ms | Allocations: 2091)
+
+
+Started GET "/flights" for 127.0.0.1 at 2023-03-31 09:20:05 +0300
+Processing by FlightsController#index as */*
+  [1m[36mFlight Load (0.1ms)[0m  [1m[34mSELECT "flights".* FROM "flights"[0m
+  ↳ app/controllers/flights_controller.rb:4:in `index'
+Completed 200 OK in 3ms (Views: 2.4ms | ActiveRecord: 0.1ms | Allocations: 2091)
+
+
+Started GET "/flights" for 127.0.0.1 at 2023-03-31 09:20:06 +0300
+Processing by FlightsController#index as */*
+  [1m[36mFlight Load (0.1ms)[0m  [1m[34mSELECT "flights".* FROM "flights"[0m
+  ↳ app/controllers/flights_controller.rb:4:in `index'
+Completed 200 OK in 2ms (Views: 2.0ms | ActiveRecord: 0.1ms | Allocations: 2091)
+
+
+Started GET "/flights" for 127.0.0.1 at 2023-03-31 09:20:09 +0300
+Processing by FlightsController#index as */*
+  [1m[36mFlight Load (0.1ms)[0m  [1m[34mSELECT "flights".* FROM "flights"[0m
+  ↳ app/controllers/flights_controller.rb:4:in `index'
+Completed 200 OK in 3ms (Views: 2.3ms | ActiveRecord: 0.1ms | Allocations: 2091)
+
+
+Started GET "/flights" for 127.0.0.1 at 2023-03-31 09:20:14 +0300
+Processing by FlightsController#index as */*
+  [1m[36mFlight Load (0.1ms)[0m  [1m[34mSELECT "flights".* FROM "flights"[0m
+  ↳ app/controllers/flights_controller.rb:4:in `index'
+Completed 200 OK in 3ms (Views: 2.3ms | ActiveRecord: 0.1ms | Allocations: 2091)
+
+
+Started GET "/flights" for 127.0.0.1 at 2023-03-31 09:20:35 +0300
+Processing by FlightsController#index as */*
+  [1m[36mFlight Load (0.1ms)[0m  [1m[34mSELECT "flights".* FROM "flights"[0m
+  ↳ app/controllers/flights_controller.rb:4:in `index'
+Completed 200 OK in 5ms (Views: 2.2ms | ActiveRecord: 0.1ms | Allocations: 2091)
+
+
+Started GET "/flights" for 127.0.0.1 at 2023-03-31 09:20:38 +0300
+Processing by FlightsController#index as */*
+  [1m[36mFlight Load (0.1ms)[0m  [1m[34mSELECT "flights".* FROM "flights"[0m
+  ↳ app/controllers/flights_controller.rb:4:in `index'
+Completed 200 OK in 3ms (Views: 2.5ms | ActiveRecord: 0.1ms | Allocations: 2091)
+
+
+Started GET "/flights" for 127.0.0.1 at 2023-03-31 09:22:54 +0300
+Processing by FlightsController#index as */*
+  [1m[36mFlight Load (0.1ms)[0m  [1m[34mSELECT "flights".* FROM "flights"[0m
+  ↳ app/controllers/flights_controller.rb:4:in `index'
+Completed 200 OK in 3ms (Views: 2.7ms | ActiveRecord: 0.1ms | Allocations: 2091)
+
+
+Started GET "/flights" for 127.0.0.1 at 2023-03-31 09:22:59 +0300
+Processing by FlightsController#index as */*
+  [1m[36mFlight Load (0.2ms)[0m  [1m[34mSELECT "flights".* FROM "flights"[0m
+  ↳ app/controllers/flights_controller.rb:4:in `index'
+Completed 200 OK in 3ms (Views: 2.6ms | ActiveRecord: 0.2ms | Allocations: 2091)
+
+
+Started GET "/flights" for 127.0.0.1 at 2023-03-31 09:23:02 +0300
+Processing by FlightsController#index as */*
+  [1m[36mFlight Load (0.1ms)[0m  [1m[34mSELECT "flights".* FROM "flights"[0m
+  ↳ app/controllers/flights_controller.rb:4:in `index'
+Completed 200 OK in 3ms (Views: 2.4ms | ActiveRecord: 0.1ms | Allocations: 2091)
+
+
+Started GET "/flights" for 127.0.0.1 at 2023-03-31 09:23:08 +0300
+Processing by FlightsController#index as */*
+  [1m[36mFlight Load (0.1ms)[0m  [1m[34mSELECT "flights".* FROM "flights"[0m
+  ↳ app/controllers/flights_controller.rb:4:in `index'
+Completed 200 OK in 3ms (Views: 2.3ms | ActiveRecord: 0.1ms | Allocations: 2091)
+
+
+Started GET "/flights" for 127.0.0.1 at 2023-03-31 09:23:13 +0300
+Processing by FlightsController#index as */*
+  [1m[36mFlight Load (0.1ms)[0m  [1m[34mSELECT "flights".* FROM "flights"[0m
+  ↳ app/controllers/flights_controller.rb:4:in `index'
+Completed 200 OK in 3ms (Views: 2.4ms | ActiveRecord: 0.1ms | Allocations: 2091)
+
+
+Started GET "/flights" for 127.0.0.1 at 2023-03-31 09:23:21 +0300
+Processing by FlightsController#index as */*
+  [1m[36mFlight Load (0.1ms)[0m  [1m[34mSELECT "flights".* FROM "flights"[0m
+  ↳ app/controllers/flights_controller.rb:4:in `index'
+Completed 200 OK in 3ms (Views: 2.4ms | ActiveRecord: 0.1ms | Allocations: 2091)
+
+
+Started GET "/flights" for 127.0.0.1 at 2023-03-31 09:23:25 +0300
+Processing by FlightsController#index as */*
+  [1m[36mFlight Load (0.1ms)[0m  [1m[34mSELECT "flights".* FROM "flights"[0m
+  ↳ app/controllers/flights_controller.rb:4:in `index'
+Completed 200 OK in 3ms (Views: 3.0ms | ActiveRecord: 0.1ms | Allocations: 2091)
+
+
+Started GET "/flights" for 127.0.0.1 at 2023-03-31 09:23:28 +0300
+Processing by FlightsController#index as */*
+  [1m[36mFlight Load (0.1ms)[0m  [1m[34mSELECT "flights".* FROM "flights"[0m
+  ↳ app/controllers/flights_controller.rb:4:in `index'
+Completed 200 OK in 3ms (Views: 2.5ms | ActiveRecord: 0.1ms | Allocations: 2091)
+
+
+Started GET "/flights" for 127.0.0.1 at 2023-03-31 09:23:38 +0300
+Processing by FlightsController#index as */*
+  [1m[36mFlight Load (0.1ms)[0m  [1m[34mSELECT "flights".* FROM "flights"[0m
+  ↳ app/controllers/flights_controller.rb:4:in `index'
+Completed 200 OK in 2ms (Views: 2.1ms | ActiveRecord: 0.1ms | Allocations: 2091)
+
+
+Started GET "/flights" for 127.0.0.1 at 2023-03-31 09:23:39 +0300
+Processing by FlightsController#index as */*
+  [1m[36mFlight Load (0.2ms)[0m  [1m[34mSELECT "flights".* FROM "flights"[0m
+  ↳ app/controllers/flights_controller.rb:4:in `index'
+Completed 200 OK in 3ms (Views: 2.9ms | ActiveRecord: 0.2ms | Allocations: 2091)
+
+
+Started GET "/flights" for 127.0.0.1 at 2023-03-31 09:23:41 +0300
+Processing by FlightsController#index as */*
+  [1m[36mFlight Load (0.1ms)[0m  [1m[34mSELECT "flights".* FROM "flights"[0m
+  ↳ app/controllers/flights_controller.rb:4:in `index'
+Completed 200 OK in 3ms (Views: 2.9ms | ActiveRecord: 0.1ms | Allocations: 2091)
+
+
+Started GET "/flights" for 127.0.0.1 at 2023-03-31 09:24:48 +0300
+Processing by FlightsController#index as */*
+  [1m[36mFlight Load (0.1ms)[0m  [1m[34mSELECT "flights".* FROM "flights"[0m
+  ↳ app/controllers/flights_controller.rb:4:in `index'
+Completed 200 OK in 3ms (Views: 2.2ms | ActiveRecord: 0.1ms | Allocations: 2091)
+
+
+Started GET "/flights" for 127.0.0.1 at 2023-03-31 09:24:49 +0300
+Processing by FlightsController#index as */*
+  [1m[36mFlight Load (0.1ms)[0m  [1m[34mSELECT "flights".* FROM "flights"[0m
+  ↳ app/controllers/flights_controller.rb:4:in `index'
+Completed 200 OK in 3ms (Views: 2.7ms | ActiveRecord: 0.1ms | Allocations: 2091)
+
+
+Started GET "/flights" for 127.0.0.1 at 2023-03-31 09:24:50 +0300
+Processing by FlightsController#index as */*
+  [1m[36mFlight Load (0.1ms)[0m  [1m[34mSELECT "flights".* FROM "flights"[0m
+  ↳ app/controllers/flights_controller.rb:4:in `index'
+Completed 200 OK in 2ms (Views: 2.2ms | ActiveRecord: 0.1ms | Allocations: 2091)
+
+
+Started GET "/flights" for 127.0.0.1 at 2023-03-31 09:24:57 +0300
+Processing by FlightsController#index as */*
+  [1m[36mFlight Load (0.5ms)[0m  [1m[34mSELECT "flights".* FROM "flights"[0m
+  ↳ app/controllers/flights_controller.rb:4:in `index'
+Completed 200 OK in 4ms (Views: 2.9ms | ActiveRecord: 0.5ms | Allocations: 2091)
+
+
+Started GET "/flights" for 127.0.0.1 at 2023-03-31 09:25:27 +0300
+Processing by FlightsController#index as */*
+  [1m[36mFlight Load (0.2ms)[0m  [1m[34mSELECT "flights".* FROM "flights"[0m
+  ↳ app/controllers/flights_controller.rb:4:in `index'
+Completed 200 OK in 3ms (Views: 3.0ms | ActiveRecord: 0.2ms | Allocations: 2091)
+
+
+Started GET "/flights" for 127.0.0.1 at 2023-03-31 09:27:13 +0300
+Processing by FlightsController#index as */*
+  [1m[36mFlight Load (0.2ms)[0m  [1m[34mSELECT "flights".* FROM "flights"[0m
+  ↳ app/controllers/flights_controller.rb:4:in `index'
+Completed 200 OK in 3ms (Views: 2.7ms | ActiveRecord: 0.2ms | Allocations: 2091)
+
+
+Started GET "/flights" for 127.0.0.1 at 2023-03-31 09:27:20 +0300
+Processing by FlightsController#index as */*
+  [1m[36mFlight Load (0.2ms)[0m  [1m[34mSELECT "flights".* FROM "flights"[0m
+  ↳ app/controllers/flights_controller.rb:4:in `index'
+Completed 200 OK in 3ms (Views: 2.9ms | ActiveRecord: 0.2ms | Allocations: 2091)
+
+
+Started GET "/flights" for 127.0.0.1 at 2023-03-31 09:27:36 +0300
+Processing by FlightsController#index as */*
+  [1m[36mFlight Load (0.1ms)[0m  [1m[34mSELECT "flights".* FROM "flights"[0m
+  ↳ app/controllers/flights_controller.rb:4:in `index'
+Completed 200 OK in 3ms (Views: 2.8ms | ActiveRecord: 0.1ms | Allocations: 2091)
+
+
+Started GET "/flights" for 127.0.0.1 at 2023-03-31 09:27:45 +0300
+Processing by FlightsController#index as */*
+  [1m[36mFlight Load (0.2ms)[0m  [1m[34mSELECT "flights".* FROM "flights"[0m
+  ↳ app/controllers/flights_controller.rb:4:in `index'
+Completed 200 OK in 3ms (Views: 2.4ms | ActiveRecord: 0.2ms | Allocations: 2091)
+
+
+Started GET "/flights" for 127.0.0.1 at 2023-03-31 09:28:42 +0300
+Processing by FlightsController#index as */*
+  [1m[36mFlight Load (0.1ms)[0m  [1m[34mSELECT "flights".* FROM "flights"[0m
+  ↳ app/controllers/flights_controller.rb:4:in `index'
+Completed 200 OK in 3ms (Views: 2.4ms | ActiveRecord: 0.1ms | Allocations: 2091)
+
+
+Started GET "/flights" for 127.0.0.1 at 2023-03-31 09:28:43 +0300
+Processing by FlightsController#index as */*
+  [1m[36mFlight Load (0.1ms)[0m  [1m[34mSELECT "flights".* FROM "flights"[0m
+  ↳ app/controllers/flights_controller.rb:4:in `index'
+Completed 200 OK in 3ms (Views: 2.9ms | ActiveRecord: 0.1ms | Allocations: 2091)
+
+
+Started GET "/flights" for 127.0.0.1 at 2023-03-31 09:28:52 +0300
+Processing by FlightsController#index as */*
+  [1m[36mFlight Load (0.1ms)[0m  [1m[34mSELECT "flights".* FROM "flights"[0m
+  ↳ app/controllers/flights_controller.rb:4:in `index'
+Completed 200 OK in 4ms (Views: 3.8ms | ActiveRecord: 0.1ms | Allocations: 2092)
+
+
+Started GET "/flights" for 127.0.0.1 at 2023-03-31 09:28:55 +0300
+Processing by FlightsController#index as */*
+  [1m[36mFlight Load (0.1ms)[0m  [1m[34mSELECT "flights".* FROM "flights"[0m
+  ↳ app/controllers/flights_controller.rb:4:in `index'
+Completed 200 OK in 3ms (Views: 2.7ms | ActiveRecord: 0.1ms | Allocations: 2091)
+
+
+Started GET "/flights" for 127.0.0.1 at 2023-03-31 09:28:59 +0300
+Processing by FlightsController#index as */*
+  [1m[36mFlight Load (0.5ms)[0m  [1m[34mSELECT "flights".* FROM "flights"[0m
+  ↳ app/controllers/flights_controller.rb:4:in `index'
+Completed 200 OK in 4ms (Views: 2.9ms | ActiveRecord: 0.5ms | Allocations: 2091)
+
+
+Started GET "/flights" for 127.0.0.1 at 2023-03-31 09:29:10 +0300
+Processing by FlightsController#index as */*
+  [1m[36mFlight Load (0.2ms)[0m  [1m[34mSELECT "flights".* FROM "flights"[0m
+  ↳ app/controllers/flights_controller.rb:4:in `index'
+Completed 200 OK in 4ms (Views: 3.4ms | ActiveRecord: 0.2ms | Allocations: 2092)
+
+
+Started GET "/flights" for 127.0.0.1 at 2023-03-31 09:29:12 +0300
+Processing by FlightsController#index as */*
+  [1m[36mFlight Load (0.1ms)[0m  [1m[34mSELECT "flights".* FROM "flights"[0m
+  ↳ app/controllers/flights_controller.rb:4:in `index'
+Completed 200 OK in 3ms (Views: 2.5ms | ActiveRecord: 0.1ms | Allocations: 2091)
+
+
+Started GET "/flights" for 127.0.0.1 at 2023-03-31 09:29:14 +0300
+Processing by FlightsController#index as */*
+  [1m[36mFlight Load (0.1ms)[0m  [1m[34mSELECT "flights".* FROM "flights"[0m
+  ↳ app/controllers/flights_controller.rb:4:in `index'
+Completed 200 OK in 3ms (Views: 2.9ms | ActiveRecord: 0.1ms | Allocations: 2091)
+
+
+Started GET "/flights" for 127.0.0.1 at 2023-03-31 09:29:16 +0300
+Processing by FlightsController#index as */*
+  [1m[36mFlight Load (0.1ms)[0m  [1m[34mSELECT "flights".* FROM "flights"[0m
+  ↳ app/controllers/flights_controller.rb:4:in `index'
+Completed 200 OK in 3ms (Views: 2.1ms | ActiveRecord: 0.1ms | Allocations: 2091)
+
+
+Started GET "/flights" for 127.0.0.1 at 2023-03-31 09:29:26 +0300
+Processing by FlightsController#index as */*
+  [1m[36mFlight Load (0.1ms)[0m  [1m[34mSELECT "flights".* FROM "flights"[0m
+  ↳ app/controllers/flights_controller.rb:4:in `index'
+Completed 200 OK in 5ms (Views: 4.7ms | ActiveRecord: 0.1ms | Allocations: 2091)
+
+
+Started GET "/flights" for 127.0.0.1 at 2023-03-31 09:30:34 +0300
+Processing by FlightsController#index as */*
+  [1m[36mFlight Load (0.2ms)[0m  [1m[34mSELECT "flights".* FROM "flights"[0m
+  ↳ app/controllers/flights_controller.rb:4:in `index'
+Completed 200 OK in 3ms (Views: 2.5ms | ActiveRecord: 0.2ms | Allocations: 2091)
+
+
+Started GET "/flights" for 127.0.0.1 at 2023-03-31 09:30:50 +0300
+Processing by FlightsController#index as */*
+  [1m[36mFlight Load (0.1ms)[0m  [1m[34mSELECT "flights".* FROM "flights"[0m
+  ↳ app/controllers/flights_controller.rb:4:in `index'
+Completed 200 OK in 4ms (Views: 3.2ms | ActiveRecord: 0.1ms | Allocations: 2091)
+
+
+Started GET "/flights" for 127.0.0.1 at 2023-03-31 09:30:53 +0300
+Processing by FlightsController#index as */*
+  [1m[36mFlight Load (0.1ms)[0m  [1m[34mSELECT "flights".* FROM "flights"[0m
+  ↳ app/controllers/flights_controller.rb:4:in `index'
+Completed 200 OK in 3ms (Views: 3.0ms | ActiveRecord: 0.1ms | Allocations: 2091)
+
+
+Started GET "/flights" for 127.0.0.1 at 2023-03-31 09:30:59 +0300
+Processing by FlightsController#index as */*
+  [1m[36mFlight Load (0.1ms)[0m  [1m[34mSELECT "flights".* FROM "flights"[0m
+  ↳ app/controllers/flights_controller.rb:4:in `index'
+Completed 200 OK in 2ms (Views: 2.2ms | ActiveRecord: 0.1ms | Allocations: 2091)
+
+
+Started GET "/flights" for 127.0.0.1 at 2023-03-31 09:31:03 +0300
+Processing by FlightsController#index as */*
+  [1m[36mFlight Load (0.2ms)[0m  [1m[34mSELECT "flights".* FROM "flights"[0m
+  ↳ app/controllers/flights_controller.rb:4:in `index'
+Completed 200 OK in 4ms (Views: 3.2ms | ActiveRecord: 0.2ms | Allocations: 2091)
+
+
+Started GET "/flights" for 127.0.0.1 at 2023-03-31 09:31:39 +0300
+Processing by FlightsController#index as */*
+  [1m[36mFlight Load (0.1ms)[0m  [1m[34mSELECT "flights".* FROM "flights"[0m
+  ↳ app/controllers/flights_controller.rb:4:in `index'
+Completed 200 OK in 3ms (Views: 3.0ms | ActiveRecord: 0.1ms | Allocations: 2091)
+
+
+Started GET "/flights" for 127.0.0.1 at 2023-03-31 09:31:54 +0300
+Processing by FlightsController#index as */*
+  [1m[36mFlight Load (0.1ms)[0m  [1m[34mSELECT "flights".* FROM "flights"[0m
+  ↳ app/controllers/flights_controller.rb:4:in `index'
+Completed 200 OK in 3ms (Views: 2.5ms | ActiveRecord: 0.1ms | Allocations: 2091)
+
+
+Started GET "/flights" for 127.0.0.1 at 2023-03-31 09:32:46 +0300
+Processing by FlightsController#index as */*
+  [1m[36mFlight Load (0.1ms)[0m  [1m[34mSELECT "flights".* FROM "flights"[0m
+  ↳ app/controllers/flights_controller.rb:4:in `index'
+Completed 200 OK in 3ms (Views: 2.6ms | ActiveRecord: 0.1ms | Allocations: 2091)
+
+
+Started GET "/flights" for 127.0.0.1 at 2023-03-31 09:32:50 +0300
+Processing by FlightsController#index as */*
+  [1m[36mFlight Load (0.1ms)[0m  [1m[34mSELECT "flights".* FROM "flights"[0m
+  ↳ app/controllers/flights_controller.rb:4:in `index'
+Completed 200 OK in 3ms (Views: 2.3ms | ActiveRecord: 0.1ms | Allocations: 2091)
+
+
+Started GET "/flights" for 127.0.0.1 at 2023-03-31 09:32:52 +0300
+Processing by FlightsController#index as */*
+  [1m[36mFlight Load (0.1ms)[0m  [1m[34mSELECT "flights".* FROM "flights"[0m
+  ↳ app/controllers/flights_controller.rb:4:in `index'
+Completed 200 OK in 3ms (Views: 2.2ms | ActiveRecord: 0.1ms | Allocations: 2091)
+
+
+Started GET "/flights" for 127.0.0.1 at 2023-03-31 09:34:01 +0300
+Processing by FlightsController#index as */*
+  [1m[36mFlight Load (0.1ms)[0m  [1m[34mSELECT "flights".* FROM "flights"[0m
+  ↳ app/controllers/flights_controller.rb:4:in `index'
+Completed 200 OK in 3ms (Views: 2.9ms | ActiveRecord: 0.1ms | Allocations: 2091)
+
+
+Started GET "/flights" for 127.0.0.1 at 2023-03-31 09:34:05 +0300
+Processing by FlightsController#index as */*
+  [1m[36mFlight Load (0.2ms)[0m  [1m[34mSELECT "flights".* FROM "flights"[0m
+  ↳ app/controllers/flights_controller.rb:4:in `index'
+Completed 200 OK in 3ms (Views: 2.3ms | ActiveRecord: 0.2ms | Allocations: 2091)
+
+
+Started GET "/flights" for 127.0.0.1 at 2023-03-31 09:34:35 +0300
+Processing by FlightsController#index as */*
+  [1m[36mFlight Load (0.1ms)[0m  [1m[34mSELECT "flights".* FROM "flights"[0m
+  ↳ app/controllers/flights_controller.rb:4:in `index'
+Completed 200 OK in 3ms (Views: 2.4ms | ActiveRecord: 0.1ms | Allocations: 2091)
+
+
+Started GET "/flights" for 127.0.0.1 at 2023-03-31 09:41:26 +0300
+Processing by FlightsController#index as */*
+  [1m[36mFlight Load (0.1ms)[0m  [1m[34mSELECT "flights".* FROM "flights"[0m
+  ↳ app/controllers/flights_controller.rb:4:in `index'
+Completed 200 OK in 4ms (Views: 3.4ms | ActiveRecord: 0.5ms | Allocations: 2246)
+
+
+Started GET "/flights" for 127.0.0.1 at 2023-03-31 09:41:30 +0300
+Processing by FlightsController#index as */*
+  [1m[36mFlight Load (0.1ms)[0m  [1m[34mSELECT "flights".* FROM "flights"[0m
+  ↳ app/controllers/flights_controller.rb:4:in `index'
+Completed 200 OK in 3ms (Views: 2.4ms | ActiveRecord: 0.1ms | Allocations: 2091)
+
+
+Started GET "/flights" for 127.0.0.1 at 2023-03-31 09:41:36 +0300
+Processing by FlightsController#index as */*
+  [1m[36mFlight Load (0.1ms)[0m  [1m[34mSELECT "flights".* FROM "flights"[0m
+  ↳ app/controllers/flights_controller.rb:4:in `index'
+Completed 200 OK in 3ms (Views: 2.2ms | ActiveRecord: 0.1ms | Allocations: 2091)
+
+
+Started GET "/flights" for 127.0.0.1 at 2023-03-31 09:41:38 +0300
+Processing by FlightsController#index as */*
+  [1m[36mFlight Load (0.1ms)[0m  [1m[34mSELECT "flights".* FROM "flights"[0m
+  ↳ app/controllers/flights_controller.rb:4:in `index'
+Completed 200 OK in 3ms (Views: 2.4ms | ActiveRecord: 0.1ms | Allocations: 2091)
+
+
+Started GET "/flights" for 127.0.0.1 at 2023-03-31 09:42:19 +0300
+Processing by FlightsController#index as */*
+  [1m[36mFlight Load (0.1ms)[0m  [1m[34mSELECT "flights".* FROM "flights"[0m
+  ↳ app/controllers/flights_controller.rb:4:in `index'
+Completed 200 OK in 5ms (Views: 5.0ms | ActiveRecord: 0.1ms | Allocations: 2091)
+
+
+Started GET "/flights" for 127.0.0.1 at 2023-03-31 09:42:26 +0300
+Processing by FlightsController#index as */*
+  [1m[36mFlight Load (0.1ms)[0m  [1m[34mSELECT "flights".* FROM "flights"[0m
+  ↳ app/controllers/flights_controller.rb:4:in `index'
+Completed 200 OK in 3ms (Views: 2.9ms | ActiveRecord: 0.1ms | Allocations: 2091)
+
+
+Started GET "/flights" for 127.0.0.1 at 2023-03-31 09:42:42 +0300
+Processing by FlightsController#index as */*
+  [1m[36mFlight Load (0.1ms)[0m  [1m[34mSELECT "flights".* FROM "flights"[0m
+  ↳ app/controllers/flights_controller.rb:4:in `index'
+Completed 200 OK in 3ms (Views: 2.4ms | ActiveRecord: 0.1ms | Allocations: 2091)
+
+
+Started GET "/flights" for 127.0.0.1 at 2023-03-31 09:42:48 +0300
+Processing by FlightsController#index as */*
+  [1m[36mFlight Load (0.1ms)[0m  [1m[34mSELECT "flights".* FROM "flights"[0m
+  ↳ app/controllers/flights_controller.rb:4:in `index'
+Completed 200 OK in 3ms (Views: 2.6ms | ActiveRecord: 0.1ms | Allocations: 2091)
+
+
+Started GET "/flights" for 127.0.0.1 at 2023-03-31 09:42:53 +0300
+Processing by FlightsController#index as */*
+  [1m[36mFlight Load (0.1ms)[0m  [1m[34mSELECT "flights".* FROM "flights"[0m
+  ↳ app/controllers/flights_controller.rb:4:in `index'
+Completed 200 OK in 3ms (Views: 2.3ms | ActiveRecord: 0.1ms | Allocations: 2091)
+
+
+Started GET "/flights" for 127.0.0.1 at 2023-03-31 09:43:02 +0300
+Processing by FlightsController#index as */*
+  [1m[36mFlight Load (0.1ms)[0m  [1m[34mSELECT "flights".* FROM "flights"[0m
+  ↳ app/controllers/flights_controller.rb:4:in `index'
+Completed 200 OK in 3ms (Views: 2.4ms | ActiveRecord: 0.1ms | Allocations: 2091)
+
+
+Started GET "/flights" for 127.0.0.1 at 2023-03-31 09:44:29 +0300
+Processing by FlightsController#index as */*
+  [1m[36mFlight Load (0.1ms)[0m  [1m[34mSELECT "flights".* FROM "flights"[0m
+  ↳ app/controllers/flights_controller.rb:4:in `index'
+Completed 200 OK in 3ms (Views: 2.4ms | ActiveRecord: 0.1ms | Allocations: 2091)
+
+
+Started GET "/flights" for 127.0.0.1 at 2023-03-31 09:44:31 +0300
+Processing by FlightsController#index as */*
+  [1m[36mFlight Load (0.1ms)[0m  [1m[34mSELECT "flights".* FROM "flights"[0m
+  ↳ app/controllers/flights_controller.rb:4:in `index'
+Completed 200 OK in 3ms (Views: 2.4ms | ActiveRecord: 0.1ms | Allocations: 2091)
+
+
+Started GET "/flights" for 127.0.0.1 at 2023-03-31 09:44:52 +0300
+Processing by FlightsController#index as */*
+  [1m[36mFlight Load (0.1ms)[0m  [1m[34mSELECT "flights".* FROM "flights"[0m
+  ↳ app/controllers/flights_controller.rb:4:in `index'
+Completed 200 OK in 3ms (Views: 2.4ms | ActiveRecord: 0.1ms | Allocations: 2091)
+
+
+Started GET "/flights" for 127.0.0.1 at 2023-03-31 09:46:14 +0300
+Processing by FlightsController#index as */*
+  [1m[36mFlight Load (0.1ms)[0m  [1m[34mSELECT "flights".* FROM "flights"[0m
+  ↳ app/controllers/flights_controller.rb:4:in `index'
+Completed 200 OK in 3ms (Views: 2.6ms | ActiveRecord: 0.1ms | Allocations: 2091)
+
+
+Started GET "/flights" for 127.0.0.1 at 2023-03-31 09:46:24 +0300
+Processing by FlightsController#index as */*
+  [1m[36mFlight Load (0.1ms)[0m  [1m[34mSELECT "flights".* FROM "flights"[0m
+  ↳ app/controllers/flights_controller.rb:4:in `index'
+Completed 200 OK in 3ms (Views: 2.6ms | ActiveRecord: 0.1ms | Allocations: 2091)
+
+
+Started GET "/flights" for 127.0.0.1 at 2023-03-31 09:46:30 +0300
+Processing by FlightsController#index as */*
+  [1m[36mFlight Load (0.1ms)[0m  [1m[34mSELECT "flights".* FROM "flights"[0m
+  ↳ app/controllers/flights_controller.rb:4:in `index'
+Completed 200 OK in 3ms (Views: 2.3ms | ActiveRecord: 0.1ms | Allocations: 2091)
+
+
+Started GET "/flights" for 127.0.0.1 at 2023-03-31 09:47:32 +0300
+Processing by FlightsController#index as */*
+  [1m[36mFlight Load (0.1ms)[0m  [1m[34mSELECT "flights".* FROM "flights"[0m
+  ↳ app/controllers/flights_controller.rb:4:in `index'
+Completed 200 OK in 2ms (Views: 2.1ms | ActiveRecord: 0.1ms | Allocations: 2091)
+
+
+Started GET "/flights" for 127.0.0.1 at 2023-03-31 09:47:34 +0300
+Processing by FlightsController#index as */*
+  [1m[36mFlight Load (0.1ms)[0m  [1m[34mSELECT "flights".* FROM "flights"[0m
+  ↳ app/controllers/flights_controller.rb:4:in `index'
+Completed 200 OK in 3ms (Views: 2.4ms | ActiveRecord: 0.1ms | Allocations: 2091)
+
+
+Started GET "/flights" for 127.0.0.1 at 2023-03-31 09:47:39 +0300
+Processing by FlightsController#index as */*
+  [1m[36mFlight Load (0.1ms)[0m  [1m[34mSELECT "flights".* FROM "flights"[0m
+  ↳ app/controllers/flights_controller.rb:4:in `index'
+Completed 200 OK in 2ms (Views: 2.1ms | ActiveRecord: 0.1ms | Allocations: 2091)
+
+
