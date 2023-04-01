@@ -60,6 +60,7 @@ function Flights() {
         {filteredFlights.map((flight) => (
           <div className="col" key={flight.id}>
             <Flight
+              flight_id = {flight.id}
               departureAirport={flight.origin}
               arrivalAirport={flight.destination}
               flightImage = {flight.image_url}

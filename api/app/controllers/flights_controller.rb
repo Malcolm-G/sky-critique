@@ -8,6 +8,7 @@ class FlightsController < ApplicationController
   def index
     flights = Flight.all.map do |flight|
       {
+        id: flight.id,
         name: flight.name,
         origin: flight.origin.name,
         destination: flight.destination.name,
