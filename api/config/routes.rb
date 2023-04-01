@@ -2,6 +2,9 @@ Rails.application.routes.draw do
   # devise_for :users
   resources :airports, only: [:index]
   resources :users, only: [:index, :create]
+  # resources :flights do
+  #   get '/reviews', to: 'reviews#reviews_by_flight'
+  # end
 
     # resources :reviews
   # resources :bookings, only: []
@@ -14,6 +17,8 @@ Rails.application.routes.draw do
   post '/bookings', to: 'bookings#create'
   delete '/bookings/:id', to: 'bookings#destroy'
   get '/flights/:flight_id/reviews', to: 'reviews#index'
+  # get '/flights/:flight_id/reviews', to: 'reviews#show'
+
   post '/flights/:flight_id/reviews', to: 'reviews#create'
   put '/flights/:flight_id/reviews/:id', to: 'reviews#update'
   delete '/flights/:flight_id/reviews/:id', to: 'reviews#destroy'
@@ -22,6 +27,7 @@ Rails.application.routes.draw do
   get "/me", to: "users#show"
   post "/signup", to: "users#create"
   delete "/logout", to: "sessions#destroy"
+
 
   
 
