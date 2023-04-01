@@ -1,10 +1,10 @@
 import React, { useEffect } from 'react';
 
-function Review({ user_id, comment, rating }) {
+function Review({ username, comment, rating }) {
 
   return (
     <div className="card mb-3">
-      <div className="card-header">{user_id}</div>
+      <div className="card-header">{username}</div>
       <div className="card-body">
         <p className="card-text">{comment}</p>
         <div className="text-warning">

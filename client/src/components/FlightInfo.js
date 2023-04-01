@@ -42,7 +42,7 @@ function FlightInfo({ departureAirport, arrivalAirport, imageSrc }) {
             <CreateReview flightId={params.id} onReviewSubmit={handleReviewSubmit} />
             {reviews?.map((review) => (
               <li className="list-group-item" key={review.id}>
-                <Review user_id={review.user_id} comment={review.comment} rating={review.rating} />
+                <Review username={review.user_name} comment={review.comment} rating={review.rating} />
               </li>
             ))}
           </ul>
