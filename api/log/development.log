@@ -4874,3 +4874,186 @@ Processing by ReviewsController#index as */*
 Completed 200 OK in 47ms (Views: 0.3ms | ActiveRecord: 1.3ms | Allocations: 26589)
 
 
+Started GET "/flights/1/reviews" for 127.0.0.1 at 2023-04-01 13:04:30 +0300
+Processing by ReviewsController#index as */*
+  Parameters: {"flight_id"=>"1"}
+  [1m[36mFlight Load (0.1ms)[0m  [1m[34mSELECT "flights".* FROM "flights" WHERE "flights"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/reviews_controller.rb:29:in `index'
+  [1m[36mReview Load (0.3ms)[0m  [1m[34mSELECT "reviews".* FROM "reviews" WHERE "reviews"."flight_id" = ?[0m  [["flight_id", 1]]
+  ↳ app/controllers/reviews_controller.rb:31:in `map'
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" IN (?, ?)[0m  [["id", 1], ["id", 2]]
+  ↳ app/controllers/reviews_controller.rb:31:in `map'
+Completed 200 OK in 10ms (Views: 0.4ms | ActiveRecord: 1.2ms | Allocations: 2852)
+
+
+Started GET "/flights/5/reviews" for 127.0.0.1 at 2023-04-01 13:04:48 +0300
+Processing by ReviewsController#index as */*
+  Parameters: {"flight_id"=>"5"}
+  [1m[36mFlight Load (0.2ms)[0m  [1m[34mSELECT "flights".* FROM "flights" WHERE "flights"."id" = ? LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/controllers/reviews_controller.rb:29:in `index'
+  [1m[36mReview Load (0.1ms)[0m  [1m[34mSELECT "reviews".* FROM "reviews" WHERE "reviews"."flight_id" = ?[0m  [["flight_id", 5]]
+  ↳ app/controllers/reviews_controller.rb:31:in `map'
+Completed 200 OK in 5ms (Views: 0.2ms | ActiveRecord: 0.3ms | Allocations: 1414)
+
+
+Started GET "/flights/4/reviews" for 127.0.0.1 at 2023-04-01 13:04:56 +0300
+Processing by ReviewsController#index as */*
+  Parameters: {"flight_id"=>"4"}
+  [1m[36mFlight Load (0.3ms)[0m  [1m[34mSELECT "flights".* FROM "flights" WHERE "flights"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/reviews_controller.rb:29:in `index'
+  [1m[36mReview Load (0.3ms)[0m  [1m[34mSELECT "reviews".* FROM "reviews" WHERE "reviews"."flight_id" = ?[0m  [["flight_id", 4]]
+  ↳ app/controllers/reviews_controller.rb:31:in `map'
+Completed 200 OK in 6ms (Views: 0.3ms | ActiveRecord: 0.6ms | Allocations: 1417)
+
+
+Started GET "/flights/2/reviews" for 127.0.0.1 at 2023-04-01 13:05:17 +0300
+Processing by ReviewsController#index as */*
+  Parameters: {"flight_id"=>"2"}
+  [1m[36mFlight Load (0.1ms)[0m  [1m[34mSELECT "flights".* FROM "flights" WHERE "flights"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/reviews_controller.rb:29:in `index'
+  [1m[36mReview Load (0.1ms)[0m  [1m[34mSELECT "reviews".* FROM "reviews" WHERE "reviews"."flight_id" = ?[0m  [["flight_id", 2]]
+  ↳ app/controllers/reviews_controller.rb:31:in `map'
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" IN (?, ?)[0m  [["id", 1], ["id", 2]]
+  ↳ app/controllers/reviews_controller.rb:31:in `map'
+Completed 200 OK in 8ms (Views: 0.6ms | ActiveRecord: 0.5ms | Allocations: 2521)
+
+
+Started GET "/flights/3/reviews" for 127.0.0.1 at 2023-04-01 13:05:43 +0300
+Processing by ReviewsController#index as */*
+  Parameters: {"flight_id"=>"3"}
+  [1m[36mFlight Load (0.2ms)[0m  [1m[34mSELECT "flights".* FROM "flights" WHERE "flights"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/reviews_controller.rb:29:in `index'
+  [1m[36mReview Load (0.2ms)[0m  [1m[34mSELECT "reviews".* FROM "reviews" WHERE "reviews"."flight_id" = ?[0m  [["flight_id", 3]]
+  ↳ app/controllers/reviews_controller.rb:31:in `map'
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" IN (?, ?)[0m  [["id", 1], ["id", 2]]
+  ↳ app/controllers/reviews_controller.rb:31:in `map'
+Completed 200 OK in 9ms (Views: 0.5ms | ActiveRecord: 0.6ms | Allocations: 2524)
+
+
+Started GET "/flights/4/reviews" for 127.0.0.1 at 2023-04-01 13:05:53 +0300
+Processing by ReviewsController#index as */*
+  Parameters: {"flight_id"=>"4"}
+  [1m[36mFlight Load (0.1ms)[0m  [1m[34mSELECT "flights".* FROM "flights" WHERE "flights"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/reviews_controller.rb:29:in `index'
+  [1m[36mReview Load (0.1ms)[0m  [1m[34mSELECT "reviews".* FROM "reviews" WHERE "reviews"."flight_id" = ?[0m  [["flight_id", 4]]
+  ↳ app/controllers/reviews_controller.rb:31:in `map'
+Completed 200 OK in 4ms (Views: 0.2ms | ActiveRecord: 0.2ms | Allocations: 1414)
+
+
+Started GET "/bookings" for 127.0.0.1 at 2023-04-01 22:46:48 +0300
+Processing by BookingsController#index as */*
+  [1m[36mBooking Load (0.2ms)[0m  [1m[34mSELECT "bookings".* FROM "bookings"[0m
+  ↳ app/controllers/bookings_controller.rb:8:in `index'
+Completed 200 OK in 23ms (Views: 10.3ms | ActiveRecord: 2.2ms | Allocations: 7772)
+
+
+Started GET "/users/1/bookings" for 127.0.0.1 at 2023-04-01 22:53:50 +0300
+Processing by BookingsController#index as */*
+  Parameters: {"user_id"=>"1"}
+  [1m[36mBooking Load (0.1ms)[0m  [1m[34mSELECT "bookings".* FROM "bookings"[0m
+  ↳ app/controllers/bookings_controller.rb:8:in `index'
+Completed 200 OK in 14ms (Views: 6.3ms | ActiveRecord: 0.5ms | Allocations: 7648)
+
+
+Started GET "/bookings" for 127.0.0.1 at 2023-04-01 22:54:20 +0300
+Processing by BookingsController#index as */*
+  [1m[36mBooking Load (0.2ms)[0m  [1m[34mSELECT "bookings".* FROM "bookings"[0m
+  ↳ app/controllers/bookings_controller.rb:8:in `index'
+Completed 200 OK in 5ms (Views: 3.4ms | ActiveRecord: 0.2ms | Allocations: 1310)
+
+
+Started GET "/bookings" for 127.0.0.1 at 2023-04-01 22:54:21 +0300
+Processing by BookingsController#index as */*
+  [1m[36mBooking Load (0.2ms)[0m  [1m[34mSELECT "bookings".* FROM "bookings"[0m
+  ↳ app/controllers/bookings_controller.rb:8:in `index'
+Completed 200 OK in 4ms (Views: 2.6ms | ActiveRecord: 0.2ms | Allocations: 1225)
+
+
+Started GET "/bookings" for 127.0.0.1 at 2023-04-01 22:54:22 +0300
+Processing by BookingsController#index as */*
+  [1m[36mBooking Load (0.2ms)[0m  [1m[34mSELECT "bookings".* FROM "bookings"[0m
+  ↳ app/controllers/bookings_controller.rb:8:in `index'
+Completed 200 OK in 16ms (Views: 14.7ms | ActiveRecord: 0.2ms | Allocations: 1238)
+
+
+Started GET "/bookings" for 127.0.0.1 at 2023-04-01 22:54:24 +0300
+Processing by BookingsController#index as */*
+  [1m[36mBooking Load (0.2ms)[0m  [1m[34mSELECT "bookings".* FROM "bookings"[0m
+  ↳ app/controllers/bookings_controller.rb:8:in `index'
+Completed 200 OK in 5ms (Views: 3.2ms | ActiveRecord: 0.2ms | Allocations: 1226)
+
+
+Started GET "/bookings" for 127.0.0.1 at 2023-04-01 22:54:53 +0300
+Processing by BookingsController#index as */*
+  [1m[36mBooking Load (0.2ms)[0m  [1m[34mSELECT "bookings".* FROM "bookings"[0m
+  ↳ app/controllers/bookings_controller.rb:8:in `index'
+Completed 200 OK in 5ms (Views: 3.0ms | ActiveRecord: 0.2ms | Allocations: 1234)
+
+
+Started GET "/users" for 127.0.0.1 at 2023-04-01 22:57:55 +0300
+Processing by UsersController#index as */*
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/controllers/users_controller.rb:9:in `index'
+Completed 200 OK in 19ms (Views: 8.2ms | ActiveRecord: 1.7ms | Allocations: 9144)
+
+
+Started GET "/users/1/bookings" for 127.0.0.1 at 2023-04-01 22:58:19 +0300
+Processing by UsersController#bookings as */*
+  Parameters: {"user_id"=>"1"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:12:in `bookings'
+  [1m[36mBooking Load (0.3ms)[0m  [1m[34mSELECT "bookings".* FROM "bookings" WHERE "bookings"."user_id" = ?[0m  [["user_id", 1]]
+  ↳ app/controllers/users_controller.rb:14:in `bookings'
+  [1m[36mFlight Load (0.2ms)[0m  [1m[34mSELECT "flights".* FROM "flights" WHERE "flights"."id" = ?[0m  [["id", 1]]
+  ↳ app/controllers/users_controller.rb:14:in `bookings'
+  [1m[36mAirport Load (0.1ms)[0m  [1m[34mSELECT "airports".* FROM "airports" WHERE "airports"."id" IN (?, ?)[0m  [["id", 1], ["id", 2]]
+  ↳ app/controllers/users_controller.rb:14:in `bookings'
+Completed 200 OK in 49ms (Views: 0.6ms | ActiveRecord: 2.8ms | Allocations: 24526)
+
+
+Started GET "/users/2/bookings" for 127.0.0.1 at 2023-04-01 22:58:53 +0300
+Processing by UsersController#bookings as */*
+  Parameters: {"user_id"=>"2"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:12:in `bookings'
+  [1m[36mBooking Load (0.3ms)[0m  [1m[34mSELECT "bookings".* FROM "bookings" WHERE "bookings"."user_id" = ?[0m  [["user_id", 2]]
+  ↳ app/controllers/users_controller.rb:14:in `bookings'
+  [1m[36mFlight Load (0.1ms)[0m  [1m[34mSELECT "flights".* FROM "flights" WHERE "flights"."id" = ?[0m  [["id", 2]]
+  ↳ app/controllers/users_controller.rb:14:in `bookings'
+  [1m[36mAirport Load (0.4ms)[0m  [1m[34mSELECT "airports".* FROM "airports" WHERE "airports"."id" IN (?, ?)[0m  [["id", 2], ["id", 1]]
+  ↳ app/controllers/users_controller.rb:14:in `bookings'
+Completed 200 OK in 14ms (Views: 0.3ms | ActiveRecord: 1.0ms | Allocations: 3515)
+
+
+Started GET "/users/2/bookings" for 127.0.0.1 at 2023-04-01 23:01:27 +0300
+  
+SyntaxError (/home/icika/projec5/sky-critique/api/app/controllers/users_controller.rb:20: syntax error, unexpected ')', expecting =>
+...[:origin, :destination], :user)
+...                              ^
+):
+  
+app/controllers/users_controller.rb:20: syntax error, unexpected ')', expecting =>
+app/controllers/users_controller.rb:20: syntax error, unexpected ')', expecting =>
+Started GET "/users/2/bookings" for 127.0.0.1 at 2023-04-01 23:02:05 +0300
+  
+SyntaxError (/home/icika/projec5/sky-critique/api/app/controllers/users_controller.rb:20: syntax error, unexpected ')', expecting =>
+...[:origin, :destination], :user)
+...                              ^
+):
+  
+app/controllers/users_controller.rb:20: syntax error, unexpected ')', expecting =>
+app/controllers/users_controller.rb:20: syntax error, unexpected ')', expecting =>
+Started GET "/users/2/bookings" for 127.0.0.1 at 2023-04-01 23:02:59 +0300
+Processing by UsersController#bookings as */*
+  Parameters: {"user_id"=>"2"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:19:in `bookings'
+  [1m[36mBooking Load (1.4ms)[0m  [1m[34mSELECT "bookings".* FROM "bookings" WHERE "bookings"."user_id" = ?[0m  [["user_id", 2]]
+  ↳ app/controllers/users_controller.rb:21:in `bookings'
+  [1m[36mFlight Load (0.2ms)[0m  [1m[34mSELECT "flights".* FROM "flights" WHERE "flights"."id" = ?[0m  [["id", 2]]
+  ↳ app/controllers/users_controller.rb:21:in `bookings'
+  [1m[36mAirport Load (0.3ms)[0m  [1m[34mSELECT "airports".* FROM "airports" WHERE "airports"."id" IN (?, ?)[0m  [["id", 2], ["id", 1]]
+  ↳ app/controllers/users_controller.rb:21:in `bookings'
+Completed 200 OK in 60ms (Views: 0.3ms | ActiveRecord: 5.2ms | Allocations: 32100)
+
+
