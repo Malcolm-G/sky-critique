@@ -28,6 +28,7 @@ class ReviewsController < ApplicationController
     def index
       @flight = Flight.find(params[:flight_id])
       @reviews = @flight.reviews
+      render json: @reviews
     end
   
     private

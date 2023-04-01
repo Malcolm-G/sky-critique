@@ -10,8 +10,8 @@ import BookingForm from './components/BookingForm';
 import NavBar from './components/Navbar';
 import './App.css'
 import ReactDOM from 'react-dom'
-import ReviewForm from './components/ReviewForm';
 import { Routes, Route } from 'react-router-dom';
+import CreateReview from './components/CreateReview';
 
 
 function App() {
@@ -50,7 +50,7 @@ function App() {
               />
               <Route
               path ="/review/:flightId"
-              element = {<ReviewForm />}
+              element = {<CreateReview />}
               />
               <Route
               path ="/booking/:flightId"
