@@ -7,7 +7,7 @@ import MyBookings from './components/MyBookings';
 import Flights from './components/Flights';
 import FlightInfo from './components/FlightInfo';
 import BookingForm from './components/BookingForm';
-import NavBar from './components/navbar';
+import NavBar from './components/Navbar';
 import './App.css'
 import ReactDOM from 'react-dom'
 import { Routes, Route } from 'react-router-dom';
@@ -17,12 +17,13 @@ import CreateReview from './components/CreateReview';
 function App() {
   return (
           <div>
-            <NavBar />
+          <NavBar />
             <Routes>
               <Route
               exact path ="/"
               element = {<LandingPage />}
               />
+            
               <Route
               exact path ="/home"
               element = {<Home />}
