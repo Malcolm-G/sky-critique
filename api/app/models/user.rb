@@ -13,7 +13,7 @@ class User < ApplicationRecord
   # Validations
   validates :name, presence: true
   validates :email, presence: true, uniqueness: true
-  validates :password_digest, presence: true
+  # validates :password_digest, presence: true
 
   # Password management
   has_secure_password

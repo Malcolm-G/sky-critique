@@ -4513,6 +4513,7 @@ Completed 200 OK in 10ms (Views: 0.5ms | ActiveRecord: 0.8ms | Allocations: 1792
 >>>>>>> 3b40e876a1636ee794b6c23ad76b5d087e32052a
 
 
+<<<<<<< HEAD
 Started GET "/" for 127.0.0.1 at 2023-03-31 15:06:23 +0300
   [1m[36mActiveRecord::SchemaMigration Pluck (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
 Processing by Rails::WelcomeController#index as HTML
@@ -4538,11 +4539,31 @@ Processing by FlightsController#index as */*
   [1m[36mAirport Load (0.1ms)[0m  [1m[34mSELECT "airports".* FROM "airports" WHERE "airports"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
   ↳ app/controllers/flights_controller.rb:11:in `block in index'
   [1m[36mCACHE Airport Load (0.0ms)[0m  [1m[34mSELECT "airports".* FROM "airports" WHERE "airports"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+=======
+Started GET "/flights" for 127.0.0.1 at 2023-03-31 11:52:38 +0300
+Processing by FlightsController#index as */*
+  [1m[36mFlight Load (0.4ms)[0m  [1m[34mSELECT "flights".* FROM "flights"[0m
+  ↳ app/controllers/flights_controller.rb:7:in `map'
+  [1m[36mAirport Load (0.6ms)[0m  [1m[34mSELECT "airports".* FROM "airports" WHERE "airports"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/flights_controller.rb:10:in `block in index'
+  [1m[36mAirport Load (0.3ms)[0m  [1m[34mSELECT "airports".* FROM "airports" WHERE "airports"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/flights_controller.rb:11:in `block in index'
+  [1m[36mCACHE Airport Load (0.0ms)[0m  [1m[34mSELECT "airports".* FROM "airports" WHERE "airports"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/flights_controller.rb:10:in `block in index'
+  [1m[36mCACHE Airport Load (0.1ms)[0m  [1m[34mSELECT "airports".* FROM "airports" WHERE "airports"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/flights_controller.rb:11:in `block in index'
+  [1m[36mCACHE Airport Load (0.1ms)[0m  [1m[34mSELECT "airports".* FROM "airports" WHERE "airports"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/flights_controller.rb:10:in `block in index'
+  [1m[36mAirport Load (0.3ms)[0m  [1m[34mSELECT "airports".* FROM "airports" WHERE "airports"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/flights_controller.rb:11:in `block in index'
+  [1m[36mCACHE Airport Load (0.1ms)[0m  [1m[34mSELECT "airports".* FROM "airports" WHERE "airports"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+>>>>>>> 56ee24cf001b57ead6f37b93ec1a6b58f26886f5
   ↳ app/controllers/flights_controller.rb:10:in `block in index'
   [1m[36mCACHE Airport Load (0.0ms)[0m  [1m[34mSELECT "airports".* FROM "airports" WHERE "airports"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
   ↳ app/controllers/flights_controller.rb:11:in `block in index'
   [1m[36mCACHE Airport Load (0.0ms)[0m  [1m[34mSELECT "airports".* FROM "airports" WHERE "airports"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
   ↳ app/controllers/flights_controller.rb:10:in `block in index'
+<<<<<<< HEAD
   [1m[36mAirport Load (0.1ms)[0m  [1m[34mSELECT "airports".* FROM "airports" WHERE "airports"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
   ↳ app/controllers/flights_controller.rb:11:in `block in index'
   [1m[36mCACHE Airport Load (0.0ms)[0m  [1m[34mSELECT "airports".* FROM "airports" WHERE "airports"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
@@ -5647,3 +5668,824 @@ Processing by FlightsController#index as */*
   ↳ app/controllers/flights_controller.rb:10:in `block in index'
   [1m[36mAirport Load (0.1ms)[0m  [1m[34mSELECT "airports".* FROM "airports" WHERE "airports"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
   ↳ app/controllers/flights_controller.rb:11:in `block in index'
+=======
+  [1m[36mAirport Load (0.5ms)[0m  [1m[34mSELECT "airports".* FROM "airports" WHERE "airports"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/flights_controller.rb:11:in `block in index'
+  [1m[36mCACHE Airport Load (0.1ms)[0m  [1m[34mSELECT "airports".* FROM "airports" WHERE "airports"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/flights_controller.rb:10:in `block in index'
+  [1m[36mCACHE Airport Load (0.1ms)[0m  [1m[34mSELECT "airports".* FROM "airports" WHERE "airports"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/flights_controller.rb:11:in `block in index'
+  [1m[36mCACHE Airport Load (0.0ms)[0m  [1m[34mSELECT "airports".* FROM "airports" WHERE "airports"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/flights_controller.rb:10:in `block in index'
+  [1m[36mAirport Load (0.2ms)[0m  [1m[34mSELECT "airports".* FROM "airports" WHERE "airports"."id" = ? LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/controllers/flights_controller.rb:11:in `block in index'
+  [1m[36mCACHE Airport Load (0.0ms)[0m  [1m[34mSELECT "airports".* FROM "airports" WHERE "airports"."id" = ? LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/controllers/flights_controller.rb:10:in `block in index'
+  [1m[36mCACHE Airport Load (0.1ms)[0m  [1m[34mSELECT "airports".* FROM "airports" WHERE "airports"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/flights_controller.rb:11:in `block in index'
+  [1m[36mCACHE Airport Load (0.1ms)[0m  [1m[34mSELECT "airports".* FROM "airports" WHERE "airports"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/flights_controller.rb:10:in `block in index'
+  [1m[36mCACHE Airport Load (0.0ms)[0m  [1m[34mSELECT "airports".* FROM "airports" WHERE "airports"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/flights_controller.rb:11:in `block in index'
+Completed 200 OK in 125ms (Views: 1.4ms | ActiveRecord: 3.6ms | Allocations: 25267)
+
+
+Started GET "/users" for 127.0.0.1 at 2023-03-31 12:00:39 +0300
+Processing by UsersController#index as */*
+  [1m[36mUser Load (1.8ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/controllers/users_controller.rb:4:in `index'
+Completed 200 OK in 36ms (Views: 24.8ms | ActiveRecord: 3.5ms | Allocations: 23486)
+
+
+Started GET "/users" for 127.0.0.1 at 2023-03-31 14:30:35 +0300
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by UsersController#index as */*
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:3:in `authorize'
+Filter chain halted as :authorize rendered or redirected
+Completed 401 Unauthorized in 30ms (Views: 0.5ms | ActiveRecord: 0.6ms | Allocations: 9995)
+
+
+Started GET "/users" for 127.0.0.1 at 2023-03-31 14:31:23 +0300
+Processing by UsersController#index as */*
+Completed 500 Internal Server Error in 7ms (Allocations: 1908)
+
+
+  
+NoMethodError (undefined method `authorize' for #<UsersController:0x00000000006860>):
+  
+activesupport (7.0.4.3) lib/active_support/callbacks.rb:400:in `block in make_lambda'
+activesupport (7.0.4.3) lib/active_support/callbacks.rb:180:in `block (2 levels) in halting_and_conditional'
+actionpack (7.0.4.3) lib/abstract_controller/callbacks.rb:34:in `block (2 levels) in <module:Callbacks>'
+activesupport (7.0.4.3) lib/active_support/callbacks.rb:181:in `block in halting_and_conditional'
+activesupport (7.0.4.3) lib/active_support/callbacks.rb:595:in `block in invoke_before'
+activesupport (7.0.4.3) lib/active_support/callbacks.rb:595:in `each'
+activesupport (7.0.4.3) lib/active_support/callbacks.rb:595:in `invoke_before'
+activesupport (7.0.4.3) lib/active_support/callbacks.rb:106:in `run_callbacks'
+actionpack (7.0.4.3) lib/abstract_controller/callbacks.rb:233:in `process_action'
+actionpack (7.0.4.3) lib/action_controller/metal/rescue.rb:22:in `process_action'
+actionpack (7.0.4.3) lib/action_controller/metal/instrumentation.rb:67:in `block in process_action'
+activesupport (7.0.4.3) lib/active_support/notifications.rb:206:in `block in instrument'
+activesupport (7.0.4.3) lib/active_support/notifications/instrumenter.rb:24:in `instrument'
+activesupport (7.0.4.3) lib/active_support/notifications.rb:206:in `instrument'
+actionpack (7.0.4.3) lib/action_controller/metal/instrumentation.rb:66:in `process_action'
+actionpack (7.0.4.3) lib/action_controller/metal/params_wrapper.rb:259:in `process_action'
+activerecord (7.0.4.3) lib/active_record/railties/controller_runtime.rb:27:in `process_action'
+actionpack (7.0.4.3) lib/abstract_controller/base.rb:151:in `process'
+actionpack (7.0.4.3) lib/action_controller/metal.rb:188:in `dispatch'
+actionpack (7.0.4.3) lib/action_controller/metal.rb:251:in `dispatch'
+actionpack (7.0.4.3) lib/action_dispatch/routing/route_set.rb:49:in `dispatch'
+actionpack (7.0.4.3) lib/action_dispatch/routing/route_set.rb:32:in `serve'
+actionpack (7.0.4.3) lib/action_dispatch/journey/router.rb:50:in `block in serve'
+actionpack (7.0.4.3) lib/action_dispatch/journey/router.rb:32:in `each'
+actionpack (7.0.4.3) lib/action_dispatch/journey/router.rb:32:in `serve'
+actionpack (7.0.4.3) lib/action_dispatch/routing/route_set.rb:852:in `call'
+rack (2.2.6.4) lib/rack/session/abstract/id.rb:266:in `context'
+rack (2.2.6.4) lib/rack/session/abstract/id.rb:260:in `call'
+actionpack (7.0.4.3) lib/action_dispatch/middleware/cookies.rb:704:in `call'
+warden (1.2.9) lib/warden/manager.rb:36:in `block in call'
+warden (1.2.9) lib/warden/manager.rb:34:in `catch'
+warden (1.2.9) lib/warden/manager.rb:34:in `call'
+rack (2.2.6.4) lib/rack/etag.rb:27:in `call'
+rack (2.2.6.4) lib/rack/conditional_get.rb:27:in `call'
+rack (2.2.6.4) lib/rack/head.rb:12:in `call'
+activerecord (7.0.4.3) lib/active_record/migration.rb:603:in `call'
+actionpack (7.0.4.3) lib/action_dispatch/middleware/callbacks.rb:27:in `block in call'
+activesupport (7.0.4.3) lib/active_support/callbacks.rb:99:in `run_callbacks'
+actionpack (7.0.4.3) lib/action_dispatch/middleware/callbacks.rb:26:in `call'
+actionpack (7.0.4.3) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (7.0.4.3) lib/action_dispatch/middleware/actionable_exceptions.rb:17:in `call'
+actionpack (7.0.4.3) lib/action_dispatch/middleware/debug_exceptions.rb:28:in `call'
+actionpack (7.0.4.3) lib/action_dispatch/middleware/show_exceptions.rb:26:in `call'
+railties (7.0.4.3) lib/rails/rack/logger.rb:40:in `call_app'
+railties (7.0.4.3) lib/rails/rack/logger.rb:25:in `block in call'
+activesupport (7.0.4.3) lib/active_support/tagged_logging.rb:99:in `block in tagged'
+activesupport (7.0.4.3) lib/active_support/tagged_logging.rb:37:in `tagged'
+activesupport (7.0.4.3) lib/active_support/tagged_logging.rb:99:in `tagged'
+railties (7.0.4.3) lib/rails/rack/logger.rb:25:in `call'
+actionpack (7.0.4.3) lib/action_dispatch/middleware/remote_ip.rb:93:in `call'
+actionpack (7.0.4.3) lib/action_dispatch/middleware/request_id.rb:26:in `call'
+rack (2.2.6.4) lib/rack/runtime.rb:22:in `call'
+activesupport (7.0.4.3) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (7.0.4.3) lib/action_dispatch/middleware/server_timing.rb:61:in `block in call'
+actionpack (7.0.4.3) lib/action_dispatch/middleware/server_timing.rb:26:in `collect_events'
+actionpack (7.0.4.3) lib/action_dispatch/middleware/server_timing.rb:60:in `call'
+actionpack (7.0.4.3) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (7.0.4.3) lib/action_dispatch/middleware/static.rb:23:in `call'
+rack (2.2.6.4) lib/rack/sendfile.rb:110:in `call'
+actionpack (7.0.4.3) lib/action_dispatch/middleware/host_authorization.rb:137:in `call'
+railties (7.0.4.3) lib/rails/engine.rb:530:in `call'
+puma (5.6.5) lib/puma/configuration.rb:252:in `call'
+puma (5.6.5) lib/puma/request.rb:77:in `block in handle_request'
+puma (5.6.5) lib/puma/thread_pool.rb:340:in `with_force_shutdown'
+puma (5.6.5) lib/puma/request.rb:76:in `handle_request'
+puma (5.6.5) lib/puma/server.rb:443:in `process_client'
+puma (5.6.5) lib/puma/thread_pool.rb:147:in `block in spawn_thread'
+Started GET "/users" for 127.0.0.1 at 2023-03-31 14:31:55 +0300
+Processing by UsersController#index as */*
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/controllers/users_controller.rb:7:in `index'
+Completed 200 OK in 61ms (Views: 26.8ms | ActiveRecord: 1.5ms | Allocations: 44502)
+
+
+Started GET "/flights" for 127.0.0.1 at 2023-03-31 14:32:08 +0300
+Processing by FlightsController#index as */*
+Completed 500 Internal Server Error in 8ms (ActiveRecord: 0.0ms | Allocations: 1839)
+
+
+  
+NoMethodError (undefined method `authorize' for #<FlightsController:0x00000000007fd0>):
+  
+activesupport (7.0.4.3) lib/active_support/callbacks.rb:400:in `block in make_lambda'
+activesupport (7.0.4.3) lib/active_support/callbacks.rb:199:in `block (2 levels) in halting'
+actionpack (7.0.4.3) lib/abstract_controller/callbacks.rb:34:in `block (2 levels) in <module:Callbacks>'
+activesupport (7.0.4.3) lib/active_support/callbacks.rb:200:in `block in halting'
+activesupport (7.0.4.3) lib/active_support/callbacks.rb:595:in `block in invoke_before'
+activesupport (7.0.4.3) lib/active_support/callbacks.rb:595:in `each'
+activesupport (7.0.4.3) lib/active_support/callbacks.rb:595:in `invoke_before'
+activesupport (7.0.4.3) lib/active_support/callbacks.rb:106:in `run_callbacks'
+actionpack (7.0.4.3) lib/abstract_controller/callbacks.rb:233:in `process_action'
+actionpack (7.0.4.3) lib/action_controller/metal/rescue.rb:22:in `process_action'
+actionpack (7.0.4.3) lib/action_controller/metal/instrumentation.rb:67:in `block in process_action'
+activesupport (7.0.4.3) lib/active_support/notifications.rb:206:in `block in instrument'
+activesupport (7.0.4.3) lib/active_support/notifications/instrumenter.rb:24:in `instrument'
+activesupport (7.0.4.3) lib/active_support/notifications.rb:206:in `instrument'
+actionpack (7.0.4.3) lib/action_controller/metal/instrumentation.rb:66:in `process_action'
+actionpack (7.0.4.3) lib/action_controller/metal/params_wrapper.rb:259:in `process_action'
+activerecord (7.0.4.3) lib/active_record/railties/controller_runtime.rb:27:in `process_action'
+actionpack (7.0.4.3) lib/abstract_controller/base.rb:151:in `process'
+actionpack (7.0.4.3) lib/action_controller/metal.rb:188:in `dispatch'
+actionpack (7.0.4.3) lib/action_controller/metal.rb:251:in `dispatch'
+actionpack (7.0.4.3) lib/action_dispatch/routing/route_set.rb:49:in `dispatch'
+actionpack (7.0.4.3) lib/action_dispatch/routing/route_set.rb:32:in `serve'
+actionpack (7.0.4.3) lib/action_dispatch/journey/router.rb:50:in `block in serve'
+actionpack (7.0.4.3) lib/action_dispatch/journey/router.rb:32:in `each'
+actionpack (7.0.4.3) lib/action_dispatch/journey/router.rb:32:in `serve'
+actionpack (7.0.4.3) lib/action_dispatch/routing/route_set.rb:852:in `call'
+rack (2.2.6.4) lib/rack/session/abstract/id.rb:266:in `context'
+rack (2.2.6.4) lib/rack/session/abstract/id.rb:260:in `call'
+actionpack (7.0.4.3) lib/action_dispatch/middleware/cookies.rb:704:in `call'
+warden (1.2.9) lib/warden/manager.rb:36:in `block in call'
+warden (1.2.9) lib/warden/manager.rb:34:in `catch'
+warden (1.2.9) lib/warden/manager.rb:34:in `call'
+rack (2.2.6.4) lib/rack/etag.rb:27:in `call'
+rack (2.2.6.4) lib/rack/conditional_get.rb:27:in `call'
+rack (2.2.6.4) lib/rack/head.rb:12:in `call'
+activerecord (7.0.4.3) lib/active_record/migration.rb:603:in `call'
+actionpack (7.0.4.3) lib/action_dispatch/middleware/callbacks.rb:27:in `block in call'
+activesupport (7.0.4.3) lib/active_support/callbacks.rb:99:in `run_callbacks'
+actionpack (7.0.4.3) lib/action_dispatch/middleware/callbacks.rb:26:in `call'
+actionpack (7.0.4.3) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (7.0.4.3) lib/action_dispatch/middleware/actionable_exceptions.rb:17:in `call'
+actionpack (7.0.4.3) lib/action_dispatch/middleware/debug_exceptions.rb:28:in `call'
+actionpack (7.0.4.3) lib/action_dispatch/middleware/show_exceptions.rb:26:in `call'
+railties (7.0.4.3) lib/rails/rack/logger.rb:40:in `call_app'
+railties (7.0.4.3) lib/rails/rack/logger.rb:25:in `block in call'
+activesupport (7.0.4.3) lib/active_support/tagged_logging.rb:99:in `block in tagged'
+activesupport (7.0.4.3) lib/active_support/tagged_logging.rb:37:in `tagged'
+activesupport (7.0.4.3) lib/active_support/tagged_logging.rb:99:in `tagged'
+railties (7.0.4.3) lib/rails/rack/logger.rb:25:in `call'
+actionpack (7.0.4.3) lib/action_dispatch/middleware/remote_ip.rb:93:in `call'
+actionpack (7.0.4.3) lib/action_dispatch/middleware/request_id.rb:26:in `call'
+rack (2.2.6.4) lib/rack/runtime.rb:22:in `call'
+activesupport (7.0.4.3) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (7.0.4.3) lib/action_dispatch/middleware/server_timing.rb:61:in `block in call'
+actionpack (7.0.4.3) lib/action_dispatch/middleware/server_timing.rb:26:in `collect_events'
+actionpack (7.0.4.3) lib/action_dispatch/middleware/server_timing.rb:60:in `call'
+actionpack (7.0.4.3) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (7.0.4.3) lib/action_dispatch/middleware/static.rb:23:in `call'
+rack (2.2.6.4) lib/rack/sendfile.rb:110:in `call'
+actionpack (7.0.4.3) lib/action_dispatch/middleware/host_authorization.rb:137:in `call'
+railties (7.0.4.3) lib/rails/engine.rb:530:in `call'
+puma (5.6.5) lib/puma/configuration.rb:252:in `call'
+puma (5.6.5) lib/puma/request.rb:77:in `block in handle_request'
+puma (5.6.5) lib/puma/thread_pool.rb:340:in `with_force_shutdown'
+puma (5.6.5) lib/puma/request.rb:76:in `handle_request'
+puma (5.6.5) lib/puma/server.rb:443:in `process_client'
+puma (5.6.5) lib/puma/thread_pool.rb:147:in `block in spawn_thread'
+Started GET "/flights" for 127.0.0.1 at 2023-03-31 14:32:24 +0300
+Processing by FlightsController#index as */*
+  [1m[36mFlight Load (0.1ms)[0m  [1m[34mSELECT "flights".* FROM "flights"[0m
+  ↳ app/controllers/flights_controller.rb:9:in `map'
+  [1m[36mAirport Load (0.7ms)[0m  [1m[34mSELECT "airports".* FROM "airports" WHERE "airports"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/flights_controller.rb:12:in `block in index'
+  [1m[36mAirport Load (0.3ms)[0m  [1m[34mSELECT "airports".* FROM "airports" WHERE "airports"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/flights_controller.rb:13:in `block in index'
+  [1m[36mCACHE Airport Load (0.1ms)[0m  [1m[34mSELECT "airports".* FROM "airports" WHERE "airports"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/flights_controller.rb:12:in `block in index'
+  [1m[36mCACHE Airport Load (0.1ms)[0m  [1m[34mSELECT "airports".* FROM "airports" WHERE "airports"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/flights_controller.rb:13:in `block in index'
+  [1m[36mCACHE Airport Load (0.1ms)[0m  [1m[34mSELECT "airports".* FROM "airports" WHERE "airports"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/flights_controller.rb:12:in `block in index'
+  [1m[36mAirport Load (0.3ms)[0m  [1m[34mSELECT "airports".* FROM "airports" WHERE "airports"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/flights_controller.rb:13:in `block in index'
+  [1m[36mCACHE Airport Load (0.1ms)[0m  [1m[34mSELECT "airports".* FROM "airports" WHERE "airports"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/flights_controller.rb:12:in `block in index'
+  [1m[36mCACHE Airport Load (0.0ms)[0m  [1m[34mSELECT "airports".* FROM "airports" WHERE "airports"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/flights_controller.rb:13:in `block in index'
+  [1m[36mCACHE Airport Load (0.0ms)[0m  [1m[34mSELECT "airports".* FROM "airports" WHERE "airports"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/flights_controller.rb:12:in `block in index'
+  [1m[36mAirport Load (0.4ms)[0m  [1m[34mSELECT "airports".* FROM "airports" WHERE "airports"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/flights_controller.rb:13:in `block in index'
+  [1m[36mCACHE Airport Load (0.1ms)[0m  [1m[34mSELECT "airports".* FROM "airports" WHERE "airports"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/flights_controller.rb:12:in `block in index'
+  [1m[36mCACHE Airport Load (0.1ms)[0m  [1m[34mSELECT "airports".* FROM "airports" WHERE "airports"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/flights_controller.rb:13:in `block in index'
+  [1m[36mCACHE Airport Load (0.1ms)[0m  [1m[34mSELECT "airports".* FROM "airports" WHERE "airports"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/flights_controller.rb:12:in `block in index'
+  [1m[36mAirport Load (0.3ms)[0m  [1m[34mSELECT "airports".* FROM "airports" WHERE "airports"."id" = ? LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/controllers/flights_controller.rb:13:in `block in index'
+  [1m[36mCACHE Airport Load (0.1ms)[0m  [1m[34mSELECT "airports".* FROM "airports" WHERE "airports"."id" = ? LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/controllers/flights_controller.rb:12:in `block in index'
+  [1m[36mCACHE Airport Load (0.0ms)[0m  [1m[34mSELECT "airports".* FROM "airports" WHERE "airports"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/flights_controller.rb:13:in `block in index'
+  [1m[36mCACHE Airport Load (0.0ms)[0m  [1m[34mSELECT "airports".* FROM "airports" WHERE "airports"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/flights_controller.rb:12:in `block in index'
+  [1m[36mCACHE Airport Load (0.0ms)[0m  [1m[34mSELECT "airports".* FROM "airports" WHERE "airports"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/flights_controller.rb:13:in `block in index'
+Completed 200 OK in 121ms (Views: 1.4ms | ActiveRecord: 4.6ms | Allocations: 55750)
+
+
+Started POST "/users" for 127.0.0.1 at 2023-03-31 14:32:40 +0300
+Processing by UsersController#create as */*
+Completed 400 Bad Request in 12ms (ActiveRecord: 0.0ms | Allocations: 5236)
+
+
+  
+ActionController::ParameterMissing (param is missing or the value is empty: user):
+  
+app/controllers/users_controller.rb:38:in `user_params'
+app/controllers/users_controller.rb:28:in `create'
+Started POST "/users" for 127.0.0.1 at 2023-03-31 14:33:42 +0300
+Processing by UsersController#create as */*
+  Parameters: {"name"=>"icika", "email"=>"icika@gmail.com", "password"=>"[FILTERED]", "user"=>{"name"=>"icika", "email"=>"icika@gmail.com"}}
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/users_controller.rb:30:in `create'
+  [1m[36mUser Exists? (0.8ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "icika@gmail.com"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:30:in `create'
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[31mrollback transaction[0m
+  ↳ app/controllers/users_controller.rb:30:in `create'
+Completed 422 Unprocessable Entity in 35ms (Views: 17.6ms | ActiveRecord: 2.2ms | Allocations: 9100)
+
+
+Started POST "/users" for 127.0.0.1 at 2023-03-31 14:34:31 +0300
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by UsersController#create as */*
+  Parameters: {"name"=>"icika", "email"=>"icika@gmail.com", "password"=>"[FILTERED]", "user"=>{"name"=>"icika", "email"=>"icika@gmail.com"}}
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/users_controller.rb:30:in `create'
+  [1m[36mUser Exists? (0.3ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "icika@gmail.com"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:30:in `create'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mrollback transaction[0m
+  ↳ app/controllers/users_controller.rb:30:in `create'
+Completed 422 Unprocessable Entity in 11ms (Views: 3.3ms | ActiveRecord: 0.5ms | Allocations: 2744)
+
+
+Started POST "/users" for 127.0.0.1 at 2023-03-31 14:34:32 +0300
+Processing by UsersController#create as */*
+  Parameters: {"name"=>"icika", "email"=>"icika@gmail.com", "password"=>"[FILTERED]", "user"=>{"name"=>"icika", "email"=>"icika@gmail.com"}}
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/users_controller.rb:30:in `create'
+  [1m[36mUser Exists? (0.3ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "icika@gmail.com"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:30:in `create'
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[31mrollback transaction[0m
+  ↳ app/controllers/users_controller.rb:30:in `create'
+Completed 422 Unprocessable Entity in 11ms (Views: 2.4ms | ActiveRecord: 0.7ms | Allocations: 2754)
+
+
+Started GET "/users" for 127.0.0.1 at 2023-03-31 14:37:11 +0300
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by UsersController#index as */*
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:3:in `authorize'
+Filter chain halted as :authorize rendered or redirected
+Completed 401 Unauthorized in 63ms (Views: 1.1ms | ActiveRecord: 2.1ms | Allocations: 9984)
+
+
+Started GET "/users" for 127.0.0.1 at 2023-03-31 14:37:34 +0300
+Processing by UsersController#index as */*
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/controllers/users_controller.rb:7:in `index'
+Completed 200 OK in 170ms (Views: 83.9ms | ActiveRecord: 5.6ms | Allocations: 44498)
+
+
+Started GET "/login" for 127.0.0.1 at 2023-03-31 14:38:48 +0300
+  
+ActionController::RoutingError (No route matches [GET] "/login"):
+  
+Started POST "/login" for 127.0.0.1 at 2023-03-31 14:41:10 +0300
+  
+ArgumentError (Before process_action callback :authorize has not been defined):
+  
+app/controllers/sessions_controller.rb:2:in `<class:SessionsController>'
+app/controllers/sessions_controller.rb:1:in `<top (required)>'
+Started POST "/login" for 127.0.0.1 at 2023-03-31 14:42:52 +0300
+Processing by SessionsController#create as */*
+  Parameters: {"name"=>"Kennedy", "password"=>"[FILTERED]", "session"=>{}}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."name" = ? LIMIT ?[0m  [["name", "Kennedy"], ["LIMIT", 1]]
+  ↳ app/controllers/sessions_controller.rb:6:in `create'
+Completed 200 OK in 408ms (Views: 0.9ms | ActiveRecord: 5.0ms | Allocations: 10095)
+
+
+Started GET "/users" for 127.0.0.1 at 2023-03-31 14:43:48 +0300
+Processing by UsersController#index as */*
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:3:in `authorize'
+Filter chain halted as :authorize rendered or redirected
+Completed 200 OK in 4ms (Views: 0.7ms | ActiveRecord: 0.3ms | Allocations: 1409)
+
+
+Started GET "/users" for 127.0.0.1 at 2023-03-31 14:49:54 +0300
+Processing by UsersController#index as */*
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/controllers/users_controller.rb:7:in `index'
+Completed 200 OK in 63ms (Views: 27.9ms | ActiveRecord: 1.6ms | Allocations: 9659)
+
+
+Started GET "/logout" for 127.0.0.1 at 2023-03-31 14:50:57 +0300
+  
+ActionController::RoutingError (No route matches [GET] "/logout"):
+  
+Started DELETE "/logout" for 127.0.0.1 at 2023-03-31 14:51:02 +0300
+Processing by SessionsController#destroy as */*
+Completed 204 No Content in 1ms (ActiveRecord: 0.0ms | Allocations: 383)
+
+
+Started GET "/users" for 127.0.0.1 at 2023-03-31 14:51:34 +0300
+Processing by UsersController#index as */*
+  Parameters: {"name"=>"Kennedy", "password"=>"[FILTERED]", "user"=>{"name"=>"Kennedy"}}
+Filter chain halted as :authorize rendered or redirected
+Completed 401 Unauthorized in 1ms (Views: 0.3ms | ActiveRecord: 0.0ms | Allocations: 342)
+
+
+Started POST "/signup" for 127.0.0.1 at 2023-03-31 14:54:22 +0300
+Processing by UsersController#create as */*
+  Parameters: {"name"=>"icika", "email"=>"icika@gmail.com", "password"=>"[FILTERED]", "user"=>{"name"=>"icika", "email"=>"icika@gmail.com"}}
+  [1m[36mTRANSACTION (0.5ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/users_controller.rb:30:in `create'
+  [1m[36mUser Exists? (1.6ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "icika@gmail.com"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:30:in `create'
+  [1m[36mTRANSACTION (0.6ms)[0m  [1m[31mrollback transaction[0m
+  ↳ app/controllers/users_controller.rb:30:in `create'
+Completed 422 Unprocessable Entity in 68ms (Views: 28.6ms | ActiveRecord: 5.7ms | Allocations: 9197)
+
+
+Started POST "/signup" for 127.0.0.1 at 2023-03-31 14:56:27 +0300
+Processing by UsersController#create as */*
+  Parameters: {"name"=>"icika", "email"=>"icika@gmail.com", "password"=>"[FILTERED]", "user"=>{"name"=>"icika", "email"=>"icika@gmail.com"}}
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/users_controller.rb:30:in `create'
+  [1m[36mUser Exists? (1.2ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "icika@gmail.com"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:30:in `create'
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[31mrollback transaction[0m
+  ↳ app/controllers/users_controller.rb:30:in `create'
+Completed 422 Unprocessable Entity in 29ms (Views: 3.7ms | ActiveRecord: 4.3ms | Allocations: 5597)
+
+
+Started POST "/signup" for 127.0.0.1 at 2023-03-31 14:58:10 +0300
+Processing by UsersController#create as */*
+  Parameters: {"name"=>"icika", "email"=>"icika@gmail.com", "password"=>"[FILTERED]", "user"=>{"name"=>"icika", "email"=>"icika@gmail.com"}}
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/users_controller.rb:19:in `create'
+  [1m[36mUser Exists? (0.4ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "icika@gmail.com"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:19:in `create'
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[31mrollback transaction[0m
+  ↳ app/controllers/users_controller.rb:19:in `create'
+  [1m[36mUser Exists? (0.7ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "icika@gmail.com"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:20:in `create'
+Completed 422 Unprocessable Entity in 40ms (Views: 1.0ms | ActiveRecord: 4.1ms | Allocations: 6428)
+
+
+Started POST "/signup" for 127.0.0.1 at 2023-03-31 15:05:59 +0300
+Processing by UsersController#create as */*
+  Parameters: {"name"=>"kibuci", "email"=>"kibuci@gmail.com", "password"=>"[FILTERED]", "user"=>{"name"=>"kibuci", "email"=>"kibuci@gmail.com"}}
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/users_controller.rb:19:in `create'
+  [1m[36mUser Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "kibuci@gmail.com"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:19:in `create'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mrollback transaction[0m
+  ↳ app/controllers/users_controller.rb:19:in `create'
+  [1m[36mUser Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "kibuci@gmail.com"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:20:in `create'
+Completed 422 Unprocessable Entity in 18ms (Views: 0.2ms | ActiveRecord: 1.3ms | Allocations: 6710)
+
+
+Started GET "/users" for 127.0.0.1 at 2023-03-31 15:08:04 +0300
+Processing by UsersController#index as */*
+  Parameters: {"name"=>"Kennedy", "password"=>"[FILTERED]", "user"=>{"name"=>"Kennedy"}}
+Filter chain halted as :authorize rendered or redirected
+Completed 401 Unauthorized in 2ms (Views: 0.4ms | ActiveRecord: 0.0ms | Allocations: 360)
+
+
+Started POST "/signup" for 127.0.0.1 at 2023-03-31 15:09:52 +0300
+Processing by UsersController#create as */*
+  Parameters: {"name"=>"kibuci", "email"=>"kibuci@gmail.com", "password"=>"[FILTERED]", "user"=>{"name"=>"kibuci", "email"=>"kibuci@gmail.com"}}
+  [1m[36mTRANSACTION (6.4ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/users_controller.rb:19:in `create'
+  [1m[36mUser Exists? (4.3ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "kibuci@gmail.com"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:19:in `create'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mrollback transaction[0m
+  ↳ app/controllers/users_controller.rb:19:in `create'
+  [1m[36mUser Exists? (0.3ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "kibuci@gmail.com"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:20:in `create'
+Completed 422 Unprocessable Entity in 39ms (Views: 0.8ms | ActiveRecord: 11.2ms | Allocations: 3688)
+
+
+Started POST "/signup" for 127.0.0.1 at 2023-03-31 15:11:17 +0300
+Processing by UsersController#create as */*
+  Parameters: {"name"=>"kibuci", "email"=>"kibuci@gmail.com", "password"=>"[FILTERED]", "user"=>{"name"=>"kibuci", "email"=>"kibuci@gmail.com"}}
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/users_controller.rb:19:in `create'
+  [1m[36mUser Exists? (0.4ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "kibuci@gmail.com"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:19:in `create'
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[31mrollback transaction[0m
+  ↳ app/controllers/users_controller.rb:19:in `create'
+  [1m[36mUser Exists? (0.4ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "kibuci@gmail.com"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:20:in `create'
+Completed 422 Unprocessable Entity in 49ms (Views: 1.0ms | ActiveRecord: 15.9ms | Allocations: 6860)
+
+
+Started POST "/signup" for 127.0.0.1 at 2023-03-31 15:14:49 +0300
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.8ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by UsersController#create as */*
+  Parameters: {"name"=>"kibuci", "email"=>"kibuci@gmail.com", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]", "user"=>{"name"=>"kibuci", "email"=>"kibuci@gmail.com"}}
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/users_controller.rb:19:in `create'
+  [1m[36mUser Exists? (2.0ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "kibuci@gmail.com"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:19:in `create'
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[31mrollback transaction[0m
+  ↳ app/controllers/users_controller.rb:19:in `create'
+  [1m[36mUser Exists? (0.4ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "kibuci@gmail.com"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:20:in `create'
+Completed 422 Unprocessable Entity in 32ms (Views: 1.2ms | ActiveRecord: 5.9ms | Allocations: 6416)
+
+
+Started GET "/users" for 127.0.0.1 at 2023-03-31 15:15:02 +0300
+Processing by UsersController#index as */*
+  Parameters: {"name"=>"Kennedy", "password"=>"[FILTERED]", "user"=>{"name"=>"Kennedy"}}
+Filter chain halted as :authorize rendered or redirected
+Completed 401 Unauthorized in 10ms (Views: 0.3ms | ActiveRecord: 0.0ms | Allocations: 354)
+
+
+Started POST "/signup" for 127.0.0.1 at 2023-03-31 15:16:06 +0300
+Processing by UsersController#create as */*
+  Parameters: {"name"=>"kibuci", "email"=>"kibuci@gmail.com", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]", "user"=>{"name"=>"kibuci", "email"=>"kibuci@gmail.com"}}
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/users_controller.rb:19:in `create'
+  [1m[36mUser Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "kibuci@gmail.com"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:19:in `create'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mrollback transaction[0m
+  ↳ app/controllers/users_controller.rb:19:in `create'
+  [1m[36mUser Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "kibuci@gmail.com"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:20:in `create'
+Completed 422 Unprocessable Entity in 12ms (Views: 0.5ms | ActiveRecord: 0.6ms | Allocations: 3259)
+
+
+Started POST "/signup" for 127.0.0.1 at 2023-03-31 15:16:36 +0300
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by UsersController#create as */*
+  Parameters: {"name"=>"kibuci", "email"=>"kibuci@gmail.com", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]", "user"=>{"name"=>"kibuci", "email"=>"kibuci@gmail.com"}}
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/users_controller.rb:19:in `create'
+  [1m[36mUser Exists? (1.0ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "kibuci@gmail.com"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:19:in `create'
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[31mrollback transaction[0m
+  ↳ app/controllers/users_controller.rb:19:in `create'
+  [1m[36mUser Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "kibuci@gmail.com"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:20:in `create'
+Completed 422 Unprocessable Entity in 142ms (Views: 1.3ms | ActiveRecord: 2.8ms | Allocations: 46786)
+
+
+Started POST "/signup" for 127.0.0.1 at 2023-03-31 15:20:27 +0300
+Processing by UsersController#create as */*
+  Parameters: {"name"=>"kibuci", "email"=>"kibuci@gmail.com", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}
+Completed 400 Bad Request in 25ms (Allocations: 5508)
+
+
+  
+ActionController::ParameterMissing (param is missing or the value is empty: user):
+  
+app/controllers/users_controller.rb:40:in `user_params'
+app/controllers/users_controller.rb:21:in `create'
+Started POST "/signup" for 127.0.0.1 at 2023-03-31 15:38:39 +0300
+Processing by UsersController#create as */*
+  Parameters: {"name"=>"kibuci", "email"=>"kibuci@gmail.com", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}
+  [1m[36mTRANSACTION (3.3ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/users_controller.rb:21:in `create'
+  [1m[36mUser Exists? (0.5ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "kibuci@gmail.com"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:21:in `create'
+  [1m[36mUser Create (12.8ms)[0m  [1m[32mINSERT INTO "users" ("name", "email", "password_digest", "created_at", "updated_at", "encrypted_password", "reset_password_token", "reset_password_sent_at", "remember_created_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["name", "kibuci"], ["email", "kibuci@gmail.com"], ["password_digest", "[FILTERED]"], ["created_at", "2023-03-31 12:38:40.669649"], ["updated_at", "2023-03-31 12:38:40.669649"], ["encrypted_password", "[FILTERED]"], ["reset_password_token", "[FILTERED]"], ["reset_password_sent_at", "[FILTERED]"], ["remember_created_at", nil]]
+  ↳ app/controllers/users_controller.rb:21:in `create'
+  [1m[36mTRANSACTION (10.7ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/users_controller.rb:21:in `create'
+  [1m[36mUser Exists? (0.7ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = ? AND "users"."id" != ? LIMIT ?[0m  [["email", "kibuci@gmail.com"], ["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:22:in `create'
+Completed 201 Created in 732ms (Views: 0.6ms | ActiveRecord: 39.8ms | Allocations: 13989)
+
+
+Started GET "/users" for 127.0.0.1 at 2023-03-31 15:39:17 +0300
+Processing by UsersController#index as */*
+  Parameters: {"name"=>"Kennedy", "password"=>"[FILTERED]"}
+  [1m[36mUser Load (11.8ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/controllers/users_controller.rb:9:in `index'
+Completed 200 OK in 37ms (Views: 11.0ms | ActiveRecord: 11.8ms | Allocations: 1873)
+
+
+Started GET "/me" for 127.0.0.1 at 2023-03-31 15:40:19 +0300
+Processing by UsersController#show as */*
+  Parameters: {"name"=>"Kennedy", "password"=>"[FILTERED]"}
+Completed 404 Not Found in 13ms (ActiveRecord: 0.0ms | Allocations: 399)
+
+
+  
+ActiveRecord::RecordNotFound (Couldn't find User without an ID):
+  
+app/controllers/users_controller.rb:13:in `show'
+Started GET "/users" for 127.0.0.1 at 2023-03-31 15:40:37 +0300
+Processing by UsersController#index as */*
+  Parameters: {"name"=>"Kennedy", "password"=>"[FILTERED]"}
+  [1m[36mUser Load (32.2ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/controllers/users_controller.rb:9:in `index'
+Completed 200 OK in 47ms (Views: 13.5ms | ActiveRecord: 32.2ms | Allocations: 1501)
+
+
+Started POST "/me" for 127.0.0.1 at 2023-03-31 15:41:19 +0300
+  
+ActionController::RoutingError (No route matches [POST] "/me"):
+  
+Started GET "/me" for 127.0.0.1 at 2023-03-31 15:41:29 +0300
+Processing by UsersController#show as */*
+  Parameters: {"name"=>"kibuci", "email"=>"kibuci@gmail.com", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}
+Completed 404 Not Found in 3ms (ActiveRecord: 0.0ms | Allocations: 346)
+
+
+  
+ActiveRecord::RecordNotFound (Couldn't find User without an ID):
+  
+app/controllers/users_controller.rb:13:in `show'
+Started GET "/me" for 127.0.0.1 at 2023-03-31 15:43:20 +0300
+Processing by UsersController#show as */*
+  Parameters: {"name"=>"kibuci", "email"=>"kibuci@gmail.com", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:13:in `show'
+Completed 201 Created in 109ms (Views: 2.8ms | ActiveRecord: 13.5ms | Allocations: 9903)
+
+
+Started DELETE "/logout" for 127.0.0.1 at 2023-03-31 15:43:51 +0300
+Processing by SessionsController#destroy as */*
+  Parameters: {"name"=>"Kennedy", "password"=>"[FILTERED]", "session"=>{}}
+Completed 204 No Content in 4ms (ActiveRecord: 1.6ms | Allocations: 393)
+
+
+Started GET "/me" for 127.0.0.1 at 2023-03-31 15:44:08 +0300
+Processing by UsersController#show as */*
+  Parameters: {"name"=>"kibuci", "email"=>"kibuci@gmail.com", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}
+Filter chain halted as :authorize rendered or redirected
+Completed 401 Unauthorized in 1ms (Views: 0.4ms | ActiveRecord: 0.0ms | Allocations: 341)
+
+
+Started POST "/login" for 127.0.0.1 at 2023-03-31 16:17:33 +0300
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by SessionsController#create as */*
+  Parameters: {"name"=>"Kennedy", "password"=>"[FILTERED]", "session"=>{}}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."name" = ? LIMIT ?[0m  [["name", "Kennedy"], ["LIMIT", 1]]
+  ↳ app/controllers/sessions_controller.rb:6:in `create'
+Completed 200 OK in 294ms (Views: 0.8ms | ActiveRecord: 1.3ms | Allocations: 14845)
+
+
+Started GET "/me" for 127.0.0.1 at 2023-03-31 16:17:37 +0300
+Processing by UsersController#show as */*
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:13:in `show'
+Completed 201 Created in 2ms (Views: 0.5ms | ActiveRecord: 0.1ms | Allocations: 1416)
+
+
+Started GET "/flights" for 127.0.0.1 at 2023-03-31 16:19:42 +0300
+Processing by FlightsController#index as */*
+Filter chain halted as :authorize rendered or redirected
+Completed 401 Unauthorized in 1ms (Views: 0.2ms | ActiveRecord: 0.0ms | Allocations: 332)
+
+
+Started GET "/me" for 127.0.0.1 at 2023-03-31 16:19:42 +0300
+Processing by UsersController#show as */*
+Filter chain halted as :authorize rendered or redirected
+Completed 401 Unauthorized in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 178)
+
+
+Started GET "/flights" for 127.0.0.1 at 2023-03-31 16:19:42 +0300
+Processing by FlightsController#index as */*
+Filter chain halted as :authorize rendered or redirected
+Completed 401 Unauthorized in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 175)
+
+
+Started GET "/me" for 127.0.0.1 at 2023-03-31 16:19:42 +0300
+Processing by UsersController#show as */*
+Filter chain halted as :authorize rendered or redirected
+Completed 401 Unauthorized in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 177)
+
+
+Started GET "/me" for 127.0.0.1 at 2023-03-31 16:20:19 +0300
+Processing by UsersController#show as */*
+Started GET "/flights" for 127.0.0.1 at 2023-03-31 16:20:19 +0300
+Filter chain halted as :authorize rendered or redirected
+Processing by FlightsController#index as */*
+Completed 401 Unauthorized in 2ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 514)
+
+
+Filter chain halted as :authorize rendered or redirected
+Completed 401 Unauthorized in 1ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 355)
+
+
+Started GET "/flights" for 127.0.0.1 at 2023-03-31 16:20:19 +0300
+Processing by FlightsController#index as */*
+Filter chain halted as :authorize rendered or redirected
+Completed 401 Unauthorized in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 175)
+
+
+Started GET "/me" for 127.0.0.1 at 2023-03-31 16:20:19 +0300
+Processing by UsersController#show as */*
+Filter chain halted as :authorize rendered or redirected
+Completed 401 Unauthorized in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 175)
+
+
+Started GET "/me" for 127.0.0.1 at 2023-03-31 16:20:23 +0300
+Processing by UsersController#show as */*
+Filter chain halted as :authorize rendered or redirected
+Completed 401 Unauthorized in 1ms (Views: 0.3ms | ActiveRecord: 0.0ms | Allocations: 175)
+
+
+Started GET "/flights" for 127.0.0.1 at 2023-03-31 16:20:23 +0300
+Processing by FlightsController#index as */*
+Filter chain halted as :authorize rendered or redirected
+Completed 401 Unauthorized in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 175)
+
+
+Started GET "/me" for 127.0.0.1 at 2023-03-31 16:20:23 +0300
+Processing by UsersController#show as */*
+Filter chain halted as :authorize rendered or redirected
+Completed 401 Unauthorized in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 175)
+
+
+Started GET "/flights" for 127.0.0.1 at 2023-03-31 16:20:23 +0300
+Processing by FlightsController#index as */*
+Filter chain halted as :authorize rendered or redirected
+Completed 401 Unauthorized in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 175)
+
+
+Started GET "/me" for 127.0.0.1 at 2023-03-31 16:20:26 +0300
+Processing by UsersController#show as */*
+Filter chain halted as :authorize rendered or redirected
+Completed 401 Unauthorized in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 175)
+
+
+Started GET "/flights" for 127.0.0.1 at 2023-03-31 16:20:26 +0300
+Processing by FlightsController#index as */*
+Filter chain halted as :authorize rendered or redirected
+Completed 401 Unauthorized in 2ms (Views: 0.3ms | ActiveRecord: 0.0ms | Allocations: 175)
+
+
+Started GET "/me" for 127.0.0.1 at 2023-03-31 16:20:26 +0300
+Started GET "/flights" for 127.0.0.1 at 2023-03-31 16:20:26 +0300
+Processing by FlightsController#index as */*
+Filter chain halted as :authorize rendered or redirected
+Completed 401 Unauthorized in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 175)
+
+
+Processing by UsersController#show as */*
+Filter chain halted as :authorize rendered or redirected
+Completed 401 Unauthorized in 1ms (Views: 0.2ms | ActiveRecord: 0.0ms | Allocations: 175)
+
+
+Started GET "/flights" for 127.0.0.1 at 2023-03-31 16:20:35 +0300
+Processing by FlightsController#index as */*
+Filter chain halted as :authorize rendered or redirected
+Completed 401 Unauthorized in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 175)
+
+
+Started GET "/me" for 127.0.0.1 at 2023-03-31 16:20:35 +0300
+Processing by UsersController#show as */*
+Filter chain halted as :authorize rendered or redirected
+Completed 401 Unauthorized in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 175)
+
+
+Started GET "/flights" for 127.0.0.1 at 2023-03-31 16:20:35 +0300
+Processing by FlightsController#index as */*
+Filter chain halted as :authorize rendered or redirected
+Completed 401 Unauthorized in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 175)
+
+
+Started GET "/me" for 127.0.0.1 at 2023-03-31 16:20:35 +0300
+Processing by UsersController#show as */*
+Filter chain halted as :authorize rendered or redirected
+Completed 401 Unauthorized in 1ms (Views: 0.3ms | ActiveRecord: 0.0ms | Allocations: 175)
+
+
+Started GET "/me" for 127.0.0.1 at 2023-03-31 16:20:38 +0300
+Processing by UsersController#show as */*
+Filter chain halted as :authorize rendered or redirected
+Completed 401 Unauthorized in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 175)
+
+
+Started GET "/flights" for 127.0.0.1 at 2023-03-31 16:20:38 +0300
+Processing by FlightsController#index as */*
+Filter chain halted as :authorize rendered or redirected
+Completed 401 Unauthorized in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 175)
+
+
+Started GET "/me" for 127.0.0.1 at 2023-03-31 16:20:38 +0300
+Processing by UsersController#show as */*
+Filter chain halted as :authorize rendered or redirected
+Completed 401 Unauthorized in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 175)
+
+
+Started GET "/flights" for 127.0.0.1 at 2023-03-31 16:20:38 +0300
+Processing by FlightsController#index as */*
+Filter chain halted as :authorize rendered or redirected
+Completed 401 Unauthorized in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 175)
+
+
+Started GET "/flights" for 127.0.0.1 at 2023-03-31 16:20:48 +0300
+Processing by FlightsController#index as */*
+Filter chain halted as :authorize rendered or redirected
+Completed 401 Unauthorized in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 175)
+
+
+Started GET "/me" for 127.0.0.1 at 2023-03-31 16:20:48 +0300
+Processing by UsersController#show as */*
+Filter chain halted as :authorize rendered or redirected
+Completed 401 Unauthorized in 1ms (Views: 0.2ms | ActiveRecord: 0.0ms | Allocations: 175)
+
+
+Started GET "/flights" for 127.0.0.1 at 2023-03-31 16:20:48 +0300
+Processing by FlightsController#index as */*
+Filter chain halted as :authorize rendered or redirected
+Completed 401 Unauthorized in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 175)
+
+
+Started GET "/me" for 127.0.0.1 at 2023-03-31 16:20:48 +0300
+Processing by UsersController#show as */*
+Filter chain halted as :authorize rendered or redirected
+Completed 401 Unauthorized in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 175)
+
+
+Started GET "/me" for 127.0.0.1 at 2023-03-31 16:20:50 +0300
+Processing by UsersController#show as */*
+Filter chain halted as :authorize rendered or redirected
+Completed 401 Unauthorized in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 175)
+
+
+Started GET "/me" for 127.0.0.1 at 2023-03-31 16:20:50 +0300
+Processing by UsersController#show as */*
+Filter chain halted as :authorize rendered or redirected
+Completed 401 Unauthorized in 0ms (Views: 0.2ms | ActiveRecord: 0.0ms | Allocations: 175)
+
+
+Started GET "/me" for 127.0.0.1 at 2023-03-31 16:21:54 +0300
+Processing by UsersController#show as */*
+Filter chain halted as :authorize rendered or redirected
+Completed 401 Unauthorized in 1ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 175)
+
+
+Started GET "/me" for 127.0.0.1 at 2023-03-31 16:21:54 +0300
+Processing by UsersController#show as */*
+Filter chain halted as :authorize rendered or redirected
+Completed 401 Unauthorized in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 175)
+
+
+Started GET "/me" for 127.0.0.1 at 2023-03-31 16:22:08 +0300
+Processing by UsersController#show as */*
+Filter chain halted as :authorize rendered or redirected
+Completed 401 Unauthorized in 9ms (Views: 7.5ms | ActiveRecord: 0.0ms | Allocations: 175)
+
+
+Started GET "/me" for 127.0.0.1 at 2023-03-31 16:22:08 +0300
+Processing by UsersController#show as */*
+Filter chain halted as :authorize rendered or redirected
+Completed 401 Unauthorized in 1ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 176)
+
+
+Started GET "/me" for 127.0.0.1 at 2023-03-31 16:22:15 +0300
+Processing by UsersController#show as */*
+Filter chain halted as :authorize rendered or redirected
+Completed 401 Unauthorized in 1ms (Views: 0.3ms | ActiveRecord: 0.0ms | Allocations: 175)
+
+
+Started GET "/me" for 127.0.0.1 at 2023-03-31 16:22:15 +0300
+Processing by UsersController#show as */*
+Filter chain halted as :authorize rendered or redirected
+Completed 401 Unauthorized in 1ms (Views: 0.2ms | ActiveRecord: 0.0ms | Allocations: 175)
+
+
+Started GET "/me" for 127.0.0.1 at 2023-03-31 16:22:21 +0300
+Processing by UsersController#show as */*
+Filter chain halted as :authorize rendered or redirected
+Completed 401 Unauthorized in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 176)
+
+
+Started GET "/me" for 127.0.0.1 at 2023-03-31 16:22:21 +0300
+Processing by UsersController#show as */*
+Filter chain halted as :authorize rendered or redirected
+Completed 401 Unauthorized in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 175)
+
+
+>>>>>>> 56ee24cf001b57ead6f37b93ec1a6b58f26886f5

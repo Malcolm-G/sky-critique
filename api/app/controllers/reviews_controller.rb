@@ -1,5 +1,7 @@
 class ReviewsController < ApplicationController
-    before_action :set_review, only: [:update, :destroy]
+  before_action :authorize
+
+  before_action :set_review, only: [:update, :destroy]
   
     def create
       @flight = Flight.find_by(id: params[:flight_id])
