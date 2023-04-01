@@ -1,5 +1,5 @@
 [![Maintenance](https://img.shields.io/badge/Maintained%3F-yes-green.svg)](https://github.com/Malcolm-G/sky-critique/graphs/commit-activity)
-[![GitHub forks](https://img.shields.io/github/forks/Malcolm-G/sky-critique.svg?style=social&label=Fork&maxAge=2592000)](https://github.com/Malcolm-G/p-4-code-challenge-superheroes/network)
+[![GitHub forks](https://img.shields.io/github/forks/Malcolm-G/sky-critique.svg?style=social&label=Fork&maxAge=2592000)](https://github.com/Malcolm-G/sky-critique/network)
 [![GitHub license](https://img.shields.io/badge/GNU%20GENERAL%20PUBLIC-icense-green)](https://github.com/Malcolm-G/sky-critique/blob/main/Licence)
 [![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg?style=flat-square)](http://makeapullrequest.com)
 [![Linux](https://svgshare.com/i/Zhy.svg)](https://svgshare.com/i/Zhy.svg)
