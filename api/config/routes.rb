@@ -16,6 +16,9 @@ Rails.application.routes.draw do
   get '/bookings', to: 'bookings#index'
   post '/bookings', to: 'bookings#create'
   delete '/bookings/:id', to: 'bookings#destroy'
+  get '/users/:user_id/bookings', to: 'users#bookings'
+  put 'bookings/:id', to:'bookings#update_booking'
+
   get '/flights/:flight_id/reviews', to: 'reviews#index'
   # get '/flights/:flight_id/reviews', to: 'reviews#show'
 
