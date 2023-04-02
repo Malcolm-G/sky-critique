@@ -8,6 +8,30 @@ class UsersController < ApplicationController
         @users = User.all
         render json: @users, status: :ok
     end
+    # def bookings
+    #     @user = User.find(params[:user_id])
+    #     @bookings = @user.bookings.includes(flight: [:origin, :destination])
+    #     render json: @bookings.as_json(include: { flight: { only: [:name, :departure_time, :duration, :image_url], 
+    #                                                          include: { origin: { only: [:name] }, 
+    #                                                                    destination: { only: [:name] } } } })
+    #   end
+    def bookings
+        @user = User.find(params[:user_id])
+        @bookings = @user.bookings.includes(flight: [:origin, :destination])
+        render json: @bookings.as_json(include: { 
+          flight: { 
+            only: [:name, :departure_time, :duration, :image_url], 
+            include: { 
+              origin: { only: [:name] }, 
+              destination: { only: [:name] } 
+            } 
+          },
+          user: {
+            only: [:name]
+          }
+        })
+      end
+      
 
     def show
         user = User.find(session[:user_id])
