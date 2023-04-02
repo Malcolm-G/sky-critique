@@ -1,11 +1,25 @@
 
-import React, { useState } from "react";
-import { Link } from "react-router-dom";
+import React, { useContext, useState } from "react";
+import { Link, useNavigate } from "react-router-dom";
+import { UserContext } from "./UserDataProvider";
 
 function NavBar() {
   const [click, setClick] = useState(false);
+  const [user,setUser] = useContext(UserContext);
+  const navigate = useNavigate()
 
   const handleClick = () => setClick(!click);
+  function nameClicked(){
+    if(window.confirm('Do you wish to Sign out?')){
+      fetch('/logout',{
+        method:'DELETE'
+      })
+      .then(data=>{
+        setUser(null)
+      })
+      navigate('/');
+  }
+  }
   return (
     <>
       <nav className="navbar">
@@ -22,20 +36,21 @@ function NavBar() {
                 className="nav-links"
                 onClick={handleClick}
               >
-                Get Started
+                Home
               </Link>
             </li>
             <li className="nav-item">
 
               <Link
-                to="/home"
+                to="/my-bookings"
                 // activeClassName="active"
                 className="nav-links"
                 onClick={handleClick}
               >
-                Home
+                My-Bookings
               </Link>
             </li>
+
             <li className="nav-item">
               <Link
                 to="/flights"
@@ -48,14 +63,24 @@ function NavBar() {
             </li>
           
             <li className="nav-item">
+              {!user?
               <Link
-                to="/logout"
+                to="/login"
                 // activeClassName="active"
                 className="nav-links"
                 onClick={handleClick}
               >
-                Log Out
+                Log In
               </Link>
+              :
+              <Link
+              // activeClassName="active"
+              className="nav-links"
+              onClick={nameClicked}
+              >
+              {user?.name}
+            </Link>
+              }
             </li>
           </ul>
           <div className="nav-icon" onClick={handleClick}>
