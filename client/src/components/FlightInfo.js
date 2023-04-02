@@ -1,5 +1,5 @@
 import React, { useEffect, useState, useContext } from 'react';
-import { useParams } from 'react-router-dom';
+import { useParams, Link } from 'react-router-dom';
 import Review from './Review';
 import CreateReview from './CreateReview';
 import { UserContext } from './UserDataProvider';
@@ -65,9 +65,13 @@ function FlightInfo({ departureAirport, arrivalAirport, imageSrc }) {
     <div className="container-75 mt-0">
       <div className="row justify-content-center">
         <div className="col-md-6">
-          <img src={image?image:defaultImage} className="img-fluid img-thumbnail mx-auto" alt="Flight" />
-          <h2>{flightInfo.origin} to {flightInfo.destination}</h2>
-          <button className="btn btn-primary mb-3">Make Booking</button>
+          <div className='mb-2 border p-3 rounded bg-light'>
+            <img src={image?image:defaultImage} className="img-fluid img-thumbnail mx-auto" alt="Flight" />
+            <h2>{flightInfo.origin} to {flightInfo.destination}</h2>
+            <Link to={`/booking/${params.id}`}>
+              <button className="btn btn-primary mb-3">Make Booking</button>
+            </Link>
+          </div>
           <ul className="list-group border p-3 rounded shadow-lg bg-light">
             <h2 className='text-center'>Reviews</h2>
             <CreateReview flightId={params.id} onReviewSubmit={handleReviewSubmit} />
