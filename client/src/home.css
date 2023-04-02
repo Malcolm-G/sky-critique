@@ -1,3 +1,21 @@
+@font-face {
+    font-family: 'cloudy';
+    src: url('./fonts/Alphaclouds-EGMW.ttf')  format('truetype');
+}
+@font-face {
+    font-family: 'cloudy2';
+    src: url('./fonts/Alphasmoke-OOX6.ttf')  format('truetype');
+}
+@font-face {
+    font-family: 'cloudy3';
+    src: url('./fonts/CloudyCloud-nREq4.otf')  format('truetype');
+}
+@font-face {
+    font-family: 'cloudy4';
+    src: url('./fonts/Overcastskiesdemo-pMGZ.otf')  format('truetype');
+}
+
+  
 body{
     /* background: #1D1E23; */
     background: #00e0fe;
@@ -41,9 +59,9 @@ body{
     /* width: 590px;
     height: 189px; */
 
-    font-family: 'Inter';
+    font-family: 'cloudy2';
     font-style: normal;
-    font-weight: 400;
+    font-weight: 500;
     font-size: 64px;
     line-height: 77px;
 
@@ -55,9 +73,10 @@ body{
     /* width: 804px;
     height: 176px; */
 
-    font-family: 'Inter';
+    /* font-family: 'Inter'; */
+    font-family: 'cloudy3';
     font-style: normal;
-    font-weight: 400;
+    font-weight: 300;
     font-size: 36px;
     line-height: 44px;
 
