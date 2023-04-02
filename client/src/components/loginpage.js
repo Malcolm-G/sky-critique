@@ -1,6 +1,7 @@
 import React, { useState, useContext } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, Link } from 'react-router-dom';
 import { UserContext } from './UserDataProvider';
+// import '../login.css';
 
 
 function Login() {
@@ -26,7 +27,7 @@ function Login() {
       console.log(data)
       if(!data.errors){
         setUser(data)
-        navigate('/home');
+        navigate('/');
       }
     })
   };
@@ -34,26 +35,36 @@ function Login() {
   return (
     <div className='card my-5'>
       <h1>Log In</h1>
-      <form className='form-control'
-      onSubmit={(e)=>handleSubmit(e)}>
-        <label>
-          Username:
-          <input type="text" placeholder='Enter Username...'
-          onChange={(e)=>setUsername(e.target.value)}
-          value={username}/>
-        </label>
+      <form className='form-control border-0' onSubmit={(e)=>handleSubmit(e)}>
+        <div className="row">
+          <div className="col">
+            <label>
+              Username:
+              <input type="text" placeholder='Enter Username...'
+              onChange={(e)=>setUsername(e.target.value)}
+              value={username}/>
+            </label>
+          </div>
+          <div className="col">
+            <label>
+              Password:
+              <input type="password" placeholder='Enter Password...'
+              onChange={(e)=>setPassword(e.target.value)}
+              value={password}/>
+            </label>
+          </div>
+        </div>
+        <button type="submit" className="btn btn-primary btn-lg">Log In</button>
         <br/>
-        <label>
-          Password:
-          <input type="password" placeholder='Enter Password...'
-          onChange={(e)=>setPassword(e.target.value)}
-          value={password}/>
-        </label>
-        <br />
-        <button type="submit">Log In</button>
-        </form>
-        
-      
+        <div className="row mt-3">
+          <div className="col">
+            <Link to="/signup" className="btn btn-danger">Register</Link>
+          </div>
+          <div className="col">
+            <Link to="/forgot-password" className="btn btn-link">Forgot Password?</Link>
+          </div>
+        </div>
+      </form>
     </div>
   );
 }
