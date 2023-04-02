@@ -1,0 +1,19 @@
+.login-btn-primary {
+    background-color: #007bff;
+    color: #fff;
+  }
+  
+  .login-btn-secondary {
+    background-color: #6c757d;
+    color: #fff;
+  }
+  
+  .login-btn-link {
+    color: #007bff;
+    text-decoration: none;
+  }
+  
+  .login-btn-link:hover {
+    text-decoration: underline;
+  }
+  

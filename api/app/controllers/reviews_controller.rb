@@ -6,7 +6,8 @@ class ReviewsController < ApplicationController
     def create
       @flight = Flight.find_by(id: params[:flight_id])
       @review = @flight.reviews.new(review_params)
-#       @review.user = current_user
+      # @review.user = current_user
+
       if @review.save
         render json: @review, status: :created
       else
