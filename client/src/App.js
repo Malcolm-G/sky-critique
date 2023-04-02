@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import Login from './components/loginpage';
 import Signup from './components/signup';
 import Home from './components/home';
@@ -12,9 +12,13 @@ import './App.css'
 import ReactDOM from 'react-dom'
 import { Routes, Route } from 'react-router-dom';
 import CreateReview from './components/CreateReview';
+import ProtectedRoute from './components/ProtectedRoute';
+import { UserContext } from './components/UserDataProvider';
+import { PropsRoute, PublicRoute, PrivateRoute } from 'react-router-with-props';
 
 
 function App() {
+  const [user] = useContext(UserContext)
   return (
           <div>
           <NavBar />
@@ -38,23 +42,23 @@ function App() {
               />
               <Route
               path ="/my-bookings"
-              element = {<MyBookings />}
+              element = {<ProtectedRoute to ="/my-bookings" outlet={<MyBookings />} />}
               />
               <Route
               path ="/flights"
-              element = {<Flights />}
+              element = {<ProtectedRoute to ="/my-bookings" outlet={<Flights />} />}
               />
               <Route
               path ="/flight/:id"
-              element = {<FlightInfo />}
+              element = {<ProtectedRoute to ="/my-bookings" outlet={<FlightInfo />} />}
               />
               <Route
               path ="/review/:flightId"
-              element = {<CreateReview />}
+              element = {<ProtectedRoute to ="/my-bookings" outlet={<CreateReview />} />}
               />
               <Route
               path ="/booking/:flightId"
-              element = {<BookingForm />}
+              element = {<ProtectedRoute to ="/my-bookings" outlet={<BookingForm />} />}
               />
               {/* <Route
               path ="/"
