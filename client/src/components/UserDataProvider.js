@@ -29,7 +29,19 @@ function UserDataProvider({ children }) {
         }
     }, []);
 
-    console.log(user)
+    useEffect(()=>{
+        if (user){
+            fetch(`/users/${user.id}/bookings`)
+            .then(resp=>resp.json())
+            .then(data=>{
+                if(!data.errors){
+                    setMyBookings(data)
+                }
+            })
+        }
+    },[user])
+
+    console.log(myBookings)
 
     // useEffect(()=>{
     //     if(user){

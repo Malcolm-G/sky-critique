@@ -1,46 +1,60 @@
-import React, { useState } from 'react';
+import React, { useContext, useState } from 'react';
+import { useNavigate, useParams } from 'react-router-dom';
+import { UserContext } from './UserDataProvider';
 
 function BookingForm() {
-  const [date, setDate] = useState('');
-  const [time, setTime] = useState('');
+  const [email, setEmail] = useState('');
+  const [name, setName] = useState('');
+
+  const [user, setUser, myBookings, setMyBookings] = useContext(UserContext)
+  const params = useParams()
+  const navigate = useNavigate()
+
+  const input = {"flight_id":params.flightId, "passenger_name":name, "passenger_email":email, "user_id":user.id}
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    console.log(`Date: ${date}, Time: ${time}`);
+    fetch('/bookings',{
+      method:'POST',
+      headers:{
+        "Content-Type":"application/json"
+      },
+      body:JSON.stringify(input)
+    })
+    .then(resp=>resp.json())
+    .then(data=>{
+      console.log(data)
+      if(!data.errors){
+        setMyBookings([...myBookings,data])
+        navigate('/my-bookings');
+      }
+    })
+    console.log(`Email: ${email}, Name: ${name}`);
   };
-
-  const timeOptions = [
-    '12:00 AM', '2:00 AM', '4:00 AM', '6:00 AM', '8:00 AM', '10:00 AM',
-    '12:00 PM', '2:00 PM', '4:00 PM', '6:00 PM', '8:00 PM', '10:00 PM'
-  ];
 
   return (
     <div className="row justify-content-center">
       <div className="col-md-6">
         <form onSubmit={handleSubmit}>
           <div className="form-group">
-            <label htmlFor="date">Date:</label>
+            <label htmlFor="email">Passenger Email:</label>
             <input
-              type="date"
+              type="email"
               className="form-control"
-              id="date"
-              value={date}
-              onChange={(event) => setDate(event.target.value)}
+              id="email"
+              onChange={(event) => setEmail(event.target.value)}
+              value={email}
             />
           </div>
           <div className="form-group">
-            <label htmlFor="time">Time:</label>
-            <select
+            <label htmlFor="name">Passenger Name:</label>
+            <input
+              type="text"
               className="form-control"
-              id="time"
-              value={time}
-              onChange={(event) => setTime(event.target.value)}
-            >
-              <option value="">Select a time</option>
-              {timeOptions.map((timeOption, index) => (
-                <option key={index} value={timeOption}>{timeOption}</option>
-              ))}
-            </select>
+              id="name"
+              onChange={(event) => setName(event.target.value)}
+              value={name}            
+            />
           </div>
           <button type="submit" className="btn btn-primary">Book Flight</button>
         </form>
