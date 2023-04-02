@@ -37,11 +37,7 @@ const CustomButton = ({
   }));
 
   return (
-<Link to="/login">
-  <CustomButton>{buttonText}
-  
-  </CustomButton>
-  </Link>
+  <CustomButton>{buttonText}</CustomButton>
   )
 };
 

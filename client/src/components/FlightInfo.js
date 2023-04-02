@@ -1,12 +1,17 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, useContext } from 'react';
 import { useParams } from 'react-router-dom';
 import Review from './Review';
 import CreateReview from './CreateReview';
+import { UserContext } from './UserDataProvider';
+import defaultImage from '../images/default-flightinfo.jpg'
 
 function FlightInfo({ departureAirport, arrivalAirport, imageSrc }) {
   const [reviews, setReviews] = useState([]);
   const [flightInfo, setFlightInfo] = useState({});
+  const [image, setImage] = useState('');
   const params = useParams();
+  const [user,setUser] = useContext(UserContext)
+  console.log(reviews)
 
   useEffect(() => {
     fetch(`/flights/${params.id}`)
@@ -24,17 +29,43 @@ function FlightInfo({ departureAirport, arrivalAirport, imageSrc }) {
         console.log(data);
         setReviews(data);
       });
+
+      // Get plane image
+      fetch('https://api.unsplash.com/photos/random/?client_id=pzUByb_qT79wmbadQlfQUv4amrtqffHGxBmMvcjkNSQ&query=aeroplane&orientation=landscape',{
+        method:'GET',
+        headers:{
+          "Accept-Version": "v1",
+        }
+      })
+      .then(resp=>(resp.json()))
+      .then(data=>{
+        console.log(data)
+        setImage(data.urls.raw)
+      })
   }, []);
 
   const handleReviewSubmit = (review) => {
-    setReviews([...reviews, review]);
+    fetch(`/flights/${params.id}/reviews`,{
+      method:'POST',
+      headers:{
+        "Content-Type":"application/json"
+      },
+      body:JSON.stringify({comment:review.comment, rating:review.rating, user_id:user.id})
+    })
+    .then(resp=>resp.json())
+    .then(data=>{
+      console.log(data)
+      if(!data.errors){
+        setReviews([...reviews, data]);
+      }
+    })
   };
 
   return (
-    <div className="container-75 mt-3">
+    <div className="container-75 mt-0">
       <div className="row justify-content-center">
         <div className="col-md-6">
-          <img src={flightInfo.image_url} className="img-fluid" alt="Flight" />
+          <img src={image?image:defaultImage} className="img-fluid img-thumbnail mx-auto" alt="Flight" />
           <h2>{flightInfo.origin} to {flightInfo.destination}</h2>
           <button className="btn btn-primary mb-3">Make Booking</button>
           <ul className="list-group border p-3 rounded shadow-lg bg-light">

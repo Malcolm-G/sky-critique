@@ -12,20 +12,24 @@ function UserDataProvider({ children }) {
 
     const navigate = useNavigate()
 
+    
+
     useEffect(() => {
         let loggedInUser;
         fetch('/me')
         .then(resp=>resp.json())
         .then(data=>{
             if(!data.errors){
-                loggedInUser = data
+                loggedInUser = data 
+                setUser(data)
             }
         })
-        if (loggedInUser) {
-          setUser(loggedInUser);
+        if (loggedInUser) {;
           navigate('/home');
         }
     }, []);
+
+    console.log(user)
 
     // useEffect(()=>{
     //     if(user){

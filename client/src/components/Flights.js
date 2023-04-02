@@ -1,10 +1,12 @@
 import React, { useEffect, useState } from 'react';
 import Flight from './Flight';
+import defaultImage from '../images/default-plane.jpg'
 
 function Flights() {
   const [search, setSearch] = useState('');
   const [filter, setFilter] = useState('Departure');
   const [flights, setFlights] = useState([]);
+  const [image, setImage] = useState('');
 
   useEffect(()=>{
     fetch('/flights')
@@ -14,6 +16,21 @@ function Flights() {
       setFlights([...data])
     })
   },[])
+
+  useEffect(() => {
+    // Get plane image
+    fetch('https://api.unsplash.com/photos/random/?client_id=pzUByb_qT79wmbadQlfQUv4amrtqffHGxBmMvcjkNSQ&query=aeroplane&orientation=landscape',{
+      method:'GET',
+      headers:{
+        "Accept-Version": "v1",
+      }
+    })
+    .then(resp=>(resp.json()))
+    .then(data=>{
+      console.log(data)
+      setImage(data.urls.raw)
+    })
+  }, []);
 
   const handleSearchChange = (event) => {
     setSearch(event.target.value);
@@ -63,7 +80,7 @@ function Flights() {
               flight_id = {flight.id}
               departureAirport={flight.origin}
               arrivalAirport={flight.destination}
-              flightImage = {flight.image_url}
+              flightImage = {image?image:defaultImage}
             />
           </div>
         ))}
