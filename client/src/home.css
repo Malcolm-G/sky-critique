@@ -1,0 +1,83 @@
+body{
+    /* background: #1D1E23; */
+    background: #00e0fe;
+}
+.home-page{
+    /* position: absolute; */
+    width: auto;
+    height: 91vh;
+
+    background: #00e0fe;
+    /* background: #1D1E23; */
+}
+
+.home-img{
+    /* position: absolute; */
+    /* object-fit: contain; */
+    width: 1180px;
+    height: 800px;
+    background-image: url('./media/hero_illustration.jpg');
+    z-index: 1;
+}
+
+.home-img-2{
+    /* position: absolute; */
+    /* object-fit: contain; */
+    width: 1200px;
+    height: 650px;
+    /* background-image: url('./media/hero_illustration.jpg'); */
+    z-index: 0;
+}
+
+.text-cont{
+    z-index: 1;
+    /* background: #1D1E23; */
+    background: #00e0fe;
+
+}
+
+.home-h1{
+    /* position: absolute; */
+    /* width: 590px;
+    height: 189px; */
+
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 64px;
+    line-height: 77px;
+
+    color: #FFFFFF;
+}
+
+.home-h2{
+    /* position: absolute; */
+    /* width: 804px;
+    height: 176px; */
+
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 36px;
+    line-height: 44px;
+
+    color: #FFFFFF;
+}
+
+.home-sign{
+    /* position: absolute; */
+    width: 215px;
+    height: 60px;
+
+    /* background: #8FFF5A; */
+    background: #f5b921;
+}
+
+.home-log{
+    /* position: absolute; */
+    width: 208px;
+    height: 60px;
+
+    /* background: #8FFF5A; */
+    background: #f5b921;
+}

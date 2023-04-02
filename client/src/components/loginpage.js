@@ -57,8 +57,8 @@ function Login() {
         <button type="submit" className="btn btn-primary btn-lg">Log In</button>
         <br/>
         <div className="row mt-3">
-          <div className="col">
-            <Link to="/signup" className="btn btn-danger">Register</Link>
+          <div className="col d-flex justify-content-center">
+            <Link to="/signup" className="btn btn-danger my-auto">Register</Link>
           </div>
           <div className="col">
             <Link to="/forgot-password" className="btn btn-link">Forgot Password?</Link>

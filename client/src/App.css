@@ -1,9 +1,9 @@
-h1 {
+/* h1 {
   text-align: center;
 }
 h2{
   text-align: center;
-}
+} */
 p{
   font-size: 50px ;
 }
@@ -236,7 +236,8 @@ p{
     }
   }
   .navbar {
-    background-color: #0c2123;
+    background-color: #172d43;
+    /* background-color: #002848; */
     height: 80px;
     display: flex;
     justify-content: center;

@@ -21,7 +21,7 @@ function App() {
             <Routes>
               <Route
               exact path ="/"
-              element = {<LandingPage />}
+              element = {<Home />}
               />
             
               <Route
