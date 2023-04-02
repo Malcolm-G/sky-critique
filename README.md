@@ -62,7 +62,7 @@ finally, run rails s to start up the server
     run npm install to install dependancies
 
     npm start to start the client side web app
-## Author
+## Authors
 Mark Trevor 
 marktreva@gmail.com
 
