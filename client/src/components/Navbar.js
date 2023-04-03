@@ -5,7 +5,7 @@ import { UserContext } from "./UserDataProvider";
 
 function NavBar() {
   const [click, setClick] = useState(false);
-  const [user,setUser] = useContext(UserContext);
+  const [API, user, setUser,myBookings,setMyBookings] = useContext(UserContext);
   const navigate = useNavigate()
 
   const handleClick = () => setClick(!click);

@@ -8,7 +8,7 @@ function Booking(props) {
   const [updatedName, setUpdatedName] = useState(passengerName);
   const [updatedEmail, setUpdatedEmail] = useState(passengerEmail);
 
-  const [user, setUser, myBookings, setMyBookings] = useContext(UserContext)
+  const [API, user, setUser,myBookings,setMyBookings] = useContext(UserContext)
 
   const handleUpdateClick = () => {
     setIsEditing(true);

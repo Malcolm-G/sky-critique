@@ -6,7 +6,7 @@ function ResetPassword() {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
 
-  const [user,setUser] = useContext(UserContext)
+  const [API, user, setUser,myBookings,setMyBookings] = useContext(UserContext)
   const navigate = useNavigate()
   const input = {email:email, password:password}
 

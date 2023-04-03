@@ -6,7 +6,7 @@ function BookingForm() {
   const [email, setEmail] = useState('');
   const [name, setName] = useState('');
 
-  const [user, setUser, myBookings, setMyBookings] = useContext(UserContext)
+  const [API, user, setUser,myBookings,setMyBookings] = useContext(UserContext)
   const params = useParams()
   const navigate = useNavigate()
   let departureAirport;

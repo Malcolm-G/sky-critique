@@ -9,13 +9,13 @@ function Login() {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
   const navigate = useNavigate();
-  const [user,setUser] = useContext(UserContext)
+  const [API, user, setUser,myBookings,setMyBookings] = useContext(UserContext)
 
   const input = {"name":username, "password":password}
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    fetch('/login',{
+    fetch(`${API}/login`,{
       method:'POST',
       headers:{
         "Content-Type":"application/json"

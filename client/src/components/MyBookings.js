@@ -3,7 +3,7 @@ import { UserContext } from './UserDataProvider';
 import Booking from './Booking';
 
 function MyBookings() {
-  const [user, setUser, myBookings, setMyBookings] = useContext(UserContext);
+  const [API, user, setUser,myBookings,setMyBookings] = useContext(UserContext);
 
   return (
     <div className='my-5 container text-bg-light'>

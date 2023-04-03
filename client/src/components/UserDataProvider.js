@@ -3,7 +3,7 @@ import { useNavigate } from "react-router-dom"
 
 // create the context object
 const UserContext = createContext()
-// const API = 'https://malcolm-p3-project-app.onrender.com'
+const API = 'https://sky-critique-backend.onrender.com/'
 
 // create the context provider (component)
 function UserDataProvider({ children }) {
@@ -55,7 +55,7 @@ function UserDataProvider({ children }) {
     //     }
     // },[user])
 
-    const value = [user, setUser,myBookings,setMyBookings]
+    const value = [API, user, setUser,myBookings,setMyBookings]
     
     return (
         <UserContext.Provider value={value}>

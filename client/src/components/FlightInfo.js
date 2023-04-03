@@ -10,7 +10,7 @@ function FlightInfo({ departureAirport, arrivalAirport, imageSrc }) {
   const [flightInfo, setFlightInfo] = useState({});
   const [image, setImage] = useState('');
   const params = useParams();
-  const [user,setUser] = useContext(UserContext)
+  const [API, user, setUser,myBookings,setMyBookings] = useContext(UserContext)
   console.log(reviews)
 
   useEffect(() => {

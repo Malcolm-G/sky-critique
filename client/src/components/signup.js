@@ -9,7 +9,7 @@ function Signup() {
     const [confirmPassword, setConfirmPassword] = useState('');
     // const navigate = useNavigate();
 
-    const [user,setUser] = useContext(UserContext)
+    const [API, user, setUser,myBookings,setMyBookings] = useContext(UserContext)
     const navigate = useNavigate()
     const input = {"name":userName, "email":email, "password":password, "password_confirmation":confirmPassword}
     console.log(input)

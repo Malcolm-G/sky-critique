@@ -26,12 +26,18 @@ module Api
     config.api_only = true
 
 
-     # Adding back cookies and session middleware
-     config.middleware.use ActionDispatch::Cookies
-     config.middleware.use ActionDispatch::Session::CookieStore
+    #  # Adding back cookies and session middleware
+    #  config.middleware.use ActionDispatch::Cookies
+    #  config.middleware.use ActionDispatch::Session::CookieStore
 
-    # Use SameSite=Strict for all cookies to help protect against CSRF
-    config.action_dispatch.cookies_same_site_protection = :strict
+    # # Use SameSite=Strict for all cookies to help protect against CSRF
+    # config.action_dispatch.cookies_same_site_protection = :lax
+
+    Rails::Application.config.session_store :cookie_store, key: '_base_session', domain: :all, same_site: :none, secure: true
+
+    Rails.application.config.action_dispatch.cookies_same_site_protection = :none
+
+    Rails.application.config.force_ssl = true
 
     # Configuration for the application, engines, and railties goes here.
     #
