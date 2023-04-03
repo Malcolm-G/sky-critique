@@ -11321,3 +11321,108 @@ Processing by UsersController#bookings as */*
 Completed 200 OK in 60ms (Views: 0.3ms | ActiveRecord: 5.2ms | Allocations: 32100)
 
 
+Started GET "/flights" for 127.0.0.1 at 2023-04-02 21:48:50 +0300
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by FlightsController#index as */*
+  [1m[36mFlight Load (0.4ms)[0m  [1m[34mSELECT "flights".* FROM "flights"[0m
+  ↳ app/controllers/flights_controller.rb:9:in `map'
+  [1m[36mAirport Load (0.3ms)[0m  [1m[34mSELECT "airports".* FROM "airports" WHERE "airports"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/flights_controller.rb:13:in `block in index'
+  [1m[36mAirport Load (0.1ms)[0m  [1m[34mSELECT "airports".* FROM "airports" WHERE "airports"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/flights_controller.rb:14:in `block in index'
+  [1m[36mCACHE Airport Load (0.0ms)[0m  [1m[34mSELECT "airports".* FROM "airports" WHERE "airports"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/flights_controller.rb:13:in `block in index'
+  [1m[36mCACHE Airport Load (0.0ms)[0m  [1m[34mSELECT "airports".* FROM "airports" WHERE "airports"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/flights_controller.rb:14:in `block in index'
+  [1m[36mCACHE Airport Load (0.0ms)[0m  [1m[34mSELECT "airports".* FROM "airports" WHERE "airports"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/flights_controller.rb:13:in `block in index'
+  [1m[36mAirport Load (0.1ms)[0m  [1m[34mSELECT "airports".* FROM "airports" WHERE "airports"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/flights_controller.rb:14:in `block in index'
+  [1m[36mCACHE Airport Load (0.0ms)[0m  [1m[34mSELECT "airports".* FROM "airports" WHERE "airports"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/flights_controller.rb:13:in `block in index'
+  [1m[36mCACHE Airport Load (0.0ms)[0m  [1m[34mSELECT "airports".* FROM "airports" WHERE "airports"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/flights_controller.rb:14:in `block in index'
+  [1m[36mCACHE Airport Load (0.0ms)[0m  [1m[34mSELECT "airports".* FROM "airports" WHERE "airports"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/flights_controller.rb:13:in `block in index'
+  [1m[36mAirport Load (0.1ms)[0m  [1m[34mSELECT "airports".* FROM "airports" WHERE "airports"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/flights_controller.rb:14:in `block in index'
+  [1m[36mCACHE Airport Load (0.0ms)[0m  [1m[34mSELECT "airports".* FROM "airports" WHERE "airports"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/flights_controller.rb:13:in `block in index'
+  [1m[36mCACHE Airport Load (0.0ms)[0m  [1m[34mSELECT "airports".* FROM "airports" WHERE "airports"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/flights_controller.rb:14:in `block in index'
+  [1m[36mCACHE Airport Load (0.0ms)[0m  [1m[34mSELECT "airports".* FROM "airports" WHERE "airports"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/flights_controller.rb:13:in `block in index'
+  [1m[36mAirport Load (0.1ms)[0m  [1m[34mSELECT "airports".* FROM "airports" WHERE "airports"."id" = ? LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/controllers/flights_controller.rb:14:in `block in index'
+  [1m[36mCACHE Airport Load (0.0ms)[0m  [1m[34mSELECT "airports".* FROM "airports" WHERE "airports"."id" = ? LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/controllers/flights_controller.rb:13:in `block in index'
+  [1m[36mCACHE Airport Load (0.0ms)[0m  [1m[34mSELECT "airports".* FROM "airports" WHERE "airports"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/flights_controller.rb:14:in `block in index'
+  [1m[36mCACHE Airport Load (0.0ms)[0m  [1m[34mSELECT "airports".* FROM "airports" WHERE "airports"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/flights_controller.rb:13:in `block in index'
+  [1m[36mCACHE Airport Load (0.0ms)[0m  [1m[34mSELECT "airports".* FROM "airports" WHERE "airports"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/flights_controller.rb:14:in `block in index'
+Completed 200 OK in 181ms (Views: 1.3ms | ActiveRecord: 3.1ms | Allocations: 80677)
+
+
+Started GET "/users" for 127.0.0.1 at 2023-04-02 21:49:12 +0300
+Processing by UsersController#index as */*
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/controllers/users_controller.rb:9:in `index'
+Completed 200 OK in 122ms (Views: 40.8ms | ActiveRecord: 0.8ms | Allocations: 21247)
+
+
+Started GET "/users1/bookings" for 127.0.0.1 at 2023-04-02 22:00:25 +0300
+  
+ActionController::RoutingError (No route matches [GET] "/users1/bookings"):
+  
+Started GET "/users/1/bookings" for 127.0.0.1 at 2023-04-02 22:00:34 +0300
+Processing by UsersController#bookings as */*
+  Parameters: {"user_id"=>"1"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:19:in `bookings'
+  [1m[36mBooking Load (0.3ms)[0m  [1m[34mSELECT "bookings".* FROM "bookings" WHERE "bookings"."user_id" = ?[0m  [["user_id", 1]]
+  ↳ app/controllers/users_controller.rb:21:in `bookings'
+  [1m[36mFlight Load (0.5ms)[0m  [1m[34mSELECT "flights".* FROM "flights" WHERE "flights"."id" = ?[0m  [["id", 1]]
+  ↳ app/controllers/users_controller.rb:21:in `bookings'
+  [1m[36mAirport Load (0.5ms)[0m  [1m[34mSELECT "airports".* FROM "airports" WHERE "airports"."id" IN (?, ?)[0m  [["id", 1], ["id", 2]]
+  ↳ app/controllers/users_controller.rb:21:in `bookings'
+Completed 200 OK in 61ms (Views: 0.4ms | ActiveRecord: 3.5ms | Allocations: 29399)
+
+
+Started POST "/booking" for 127.0.0.1 at 2023-04-02 22:27:49 +0300
+  
+ActionController::RoutingError (No route matches [POST] "/booking"):
+  
+Error occurred while parsing request parameters.
+Contents:
+
+{
+  "flight_id": 2,
+  "user_id": 1,
+   "passenger_email": "iska.doe@example.com",
+       "passenger_name": "Smith",
+
+  
+}
+Started POST "/bookings" for 127.0.0.1 at 2023-04-02 22:28:16 +0300
+Error occurred while parsing request parameters.
+Contents:
+
+{
+  "flight_id": 2,
+  "user_id": 1,
+   "passenger_email": "iska.doe@example.com",
+       "passenger_name": "Smith",
+
+  
+}
+Processing by BookingsController#create as */*
+Completed 400 Bad Request in 1ms (Allocations: 484)
+
+
+  
+ActionDispatch::Http::Parameters::ParseError (Error occurred while parsing request parameters):
+  
+app/controllers/bookings_controller.rb:45:in `booking_params'
+app/controllers/bookings_controller.rb:26:in `create'
