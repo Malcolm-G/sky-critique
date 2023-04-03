@@ -1,6 +1,7 @@
-import React, { useEffect, useState } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import Flight from './Flight';
 import defaultImage from '../images/default-plane.jpg'
+import { UserContext } from './UserDataProvider';
 
 function Flights() {
   const [search, setSearch] = useState('');
@@ -8,8 +9,13 @@ function Flights() {
   const [flights, setFlights] = useState([]);
   const [image, setImage] = useState('');
 
+  const [API, user, setUser,myBookings,setMyBookings] = useContext(UserContext)
+
   useEffect(()=>{
-    fetch('/flights')
+    fetch(`${API}/flights`,{
+      credentials: 'include',
+      mode: 'cors',
+    })
     .then(resp=>resp.json())
     .then(data=>{
       console.log(data)

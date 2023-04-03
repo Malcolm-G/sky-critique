@@ -3,7 +3,7 @@ import { useNavigate } from "react-router-dom"
 
 // create the context object
 const UserContext = createContext()
-// const API = 'https://malcolm-p3-project-app.onrender.com'
+const API = 'https://sky-critique-backend.onrender.com/'
 
 // create the context provider (component)
 function UserDataProvider({ children }) {
@@ -16,7 +16,10 @@ function UserDataProvider({ children }) {
 
     useEffect(() => {
         let loggedInUser;
-        fetch('/me')
+        fetch(`${API}/me`,{
+            credentials: 'include',
+            mode: 'cors',
+        })
         .then(resp=>resp.json())
         .then(data=>{
             if(!data.errors){
@@ -31,7 +34,10 @@ function UserDataProvider({ children }) {
 
     useEffect(()=>{
         if (user){
-            fetch(`/users/${user.id}/bookings`)
+            fetch(`${API}/users/${user.id}/bookings`,{
+                credentials: 'include',
+                mode: 'cors',
+            })
             .then(resp=>resp.json())
             .then(data=>{
                 if(!data.errors){
@@ -55,7 +61,7 @@ function UserDataProvider({ children }) {
     //     }
     // },[user])
 
-    const value = [user, setUser,myBookings,setMyBookings]
+    const value = [API, user, setUser,myBookings,setMyBookings]
     
     return (
         <UserContext.Provider value={value}>

@@ -3,7 +3,7 @@ import { UserContext } from './UserDataProvider';
 import { Navigate, Route, useNavigate, Redirect } from 'react-router-dom';
 
 function ProtectedRoute(props) {
-    const [user] = useContext(UserContext)
+    const [API, user, setUser,myBookings,setMyBookings] = useContext(UserContext)
     // const navigate = useNavigate()
     return (
         user 

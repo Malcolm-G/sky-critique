@@ -9,18 +9,20 @@ function Signup() {
     const [confirmPassword, setConfirmPassword] = useState('');
     // const navigate = useNavigate();
 
-    const [user,setUser] = useContext(UserContext)
+    const [API, user, setUser,myBookings,setMyBookings] = useContext(UserContext)
     const navigate = useNavigate()
     const input = {"name":userName, "email":email, "password":password, "password_confirmation":confirmPassword}
     console.log(input)
 
   function handleSubmit (event) {
     event.preventDefault();
-    fetch('/signup',{
+    fetch(`${API}/signup`,{
       method:'POST',
       headers:{
         "Content-Type":"application/json"
       },
+      credentials: 'include',
+      mode: 'cors',
       body:JSON.stringify(input)
     })
     .then(resp=>resp.json())

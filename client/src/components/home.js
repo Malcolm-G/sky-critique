@@ -8,7 +8,7 @@ import { UserContext } from "./UserDataProvider";
 
 function Home(){
   const navigate = useNavigate()
-  const [user] = useContext(UserContext)
+  const [API, user, setUser,myBookings,setMyBookings] = useContext(UserContext)
 
     return(
       <div className="home-page container-fluid gx-0 main-div">

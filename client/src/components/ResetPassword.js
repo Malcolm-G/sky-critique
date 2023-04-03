@@ -6,18 +6,20 @@ function ResetPassword() {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
 
-  const [user,setUser] = useContext(UserContext)
+  const [API, user, setUser,myBookings,setMyBookings] = useContext(UserContext)
   const navigate = useNavigate()
   const input = {email:email, password:password}
 
   const handleSubmit = (event) => {
     event.preventDefault();
     console.log(`Email: ${email}, Password: ${password}`);
-    fetch('/reset_password',{
+    fetch(`${API}/reset_password`,{
         method:'PATCH',
         headers:{
           "Content-Type":"application/json"
         },
+        credentials: 'include',
+        mode: 'cors',
         body:JSON.stringify(input)
       })
       .then(resp=>resp.json())
