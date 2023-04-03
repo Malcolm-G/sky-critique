@@ -46,19 +46,19 @@ function App() {
               />
               <Route
               path ="/flights"
-              element = {<ProtectedRoute to ="/my-bookings" outlet={<Flights />} />}
+              element = {<ProtectedRoute to ="/flights" outlet={<Flights />} />}
               />
               <Route
               path ="/flight/:id"
-              element = {<ProtectedRoute to ="/my-bookings" outlet={<FlightInfo />} />}
+              element = {<ProtectedRoute to ="/flight/:id" outlet={<FlightInfo />} />}
               />
               <Route
               path ="/review/:flightId"
-              element = {<ProtectedRoute to ="/my-bookings" outlet={<CreateReview />} />}
+              element = {<ProtectedRoute to ="/review/:flightId" outlet={<CreateReview />} />}
               />
               <Route
               path ="/booking/:flightId"
-              element = {<ProtectedRoute to ="/my-bookings" outlet={<BookingForm />} />}
+              element = {<ProtectedRoute to ="/booking/:flightId" outlet={<BookingForm />} />}
               />
               {/* <Route
               path ="/"

@@ -1,4 +1,4 @@
-import React, { useContext, useState } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
 import { UserContext } from './UserDataProvider';
 
@@ -9,6 +9,18 @@ function BookingForm() {
   const [user, setUser, myBookings, setMyBookings] = useContext(UserContext)
   const params = useParams()
   const navigate = useNavigate()
+  let departureAirport;
+  let arrivalAirport;
+
+  useEffect(()=>{
+    fetch(`/flights/${params.flightId}`)
+    .then(resp=>resp.json())
+    .then(data=>{
+      console.log(data)
+      departureAirport = data.origin
+      arrivalAirport = data.destination
+    })
+  },[])
 
   const input = {"flight_id":params.flightId, "passenger_name":name, "passenger_email":email, "user_id":user.id}
 
@@ -25,8 +37,15 @@ function BookingForm() {
     .then(data=>{
       console.log(data)
       if(!data.errors){
-        setMyBookings([...myBookings,data])
-        navigate('/my-bookings');
+        console.log([...myBookings,data])
+        fetch(`/users/${user.id}/bookings`)
+            .then(resp=>resp.json())
+            .then(data=>{
+                if(!data.errors){
+                    setMyBookings(data)
+                    navigate('/my-bookings')
+                }
+            })
       }
     })
     console.log(`Email: ${email}, Name: ${name}`);

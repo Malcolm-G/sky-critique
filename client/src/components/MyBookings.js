@@ -26,9 +26,9 @@ function MyBookings() {
             <Booking key={booking?.id}
             number={index+1}
             bookingId={booking?.id}
-            flight={booking?.flight.name}
-            departureAirport={booking?.flight.origin.name}
-            arrivalAirport={booking?.flight.destination.name}
+            flight={booking?.flight?.name}
+            departureAirport={booking?.flight?.origin?.name}
+            arrivalAirport={booking?.flight?.destination?.name}
             passengerName={booking?.passenger_name}
             passengerEmail={booking?.passenger_email}
             />
