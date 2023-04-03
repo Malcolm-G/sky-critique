@@ -79,6 +79,37 @@ To run Sky-Critique locally, you must have the following installed:
 4. To book a flight, select the number of seats and click the "Book" button.
 5. To leave a review, click on the "Leave a Review" button and fill out the form.
 
+# Some Screenshots
+* Homepage
+
+![Homepage Image](client/src/assets/Homepage.png)
+<br />
+
+* Flights
+
+![Flights Image](client/src/assets/Flights.png)
+<br />
+
+* Flight Reviews
+
+![Review Image](client/src/assets/Review.png)
+<br />
+
+* Booking
+
+![Review Image](client/src/assets/Booking.png)
+<br />
+
+* Signup Page
+
+![Signup Page Image](client/src/assets/Signup.png)
+<br/>
+
+* Login Page
+
+![Login Page Image](client/src/assets/Login.png)
+<br/>
+
 ## Contributing
 This project was contributed to by:
 
