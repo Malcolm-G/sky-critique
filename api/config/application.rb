@@ -33,6 +33,7 @@ module Api
     # Use SameSite=Strict for all cookies to help protect against CSRF
       config.action_dispatch.cookies_same_site_protection = :none
 
+
     # Configuration for the application, engines, and railties goes here.
     #
     # These settings can be overridden in specific environments using the files
