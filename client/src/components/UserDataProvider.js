@@ -36,7 +36,7 @@ function UserDataProvider({ children }) {
         if (user){
             fetch(`${API}/users/${user.id}/bookings`,{
                 credentials: 'include',
-                mode: 'cors',
+                mode: 'no-cors',
             })
             .then(resp=>resp.json())
             .then(data=>{
