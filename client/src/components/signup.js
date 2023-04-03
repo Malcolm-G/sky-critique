@@ -16,11 +16,13 @@ function Signup() {
 
   function handleSubmit (event) {
     event.preventDefault();
-    fetch('/signup',{
+    fetch(`${API}/signup`,{
       method:'POST',
       headers:{
         "Content-Type":"application/json"
       },
+      credentials: 'include',
+      mode: 'cors',
       body:JSON.stringify(input)
     })
     .then(resp=>resp.json())

@@ -15,11 +15,13 @@ function Booking(props) {
   };
 
   const handleSaveClick = () => {
-    fetch(`/bookings/${bookingId}`,{
+    fetch(`${API}/bookings/${bookingId}`,{
       method:'PUT',
       headers:{
         "Content-Type":"application/json"
       },
+      credentials: 'include',
+      mode: 'cors',
       body:JSON.stringify({passenger_name:updatedName, passenger_email:updatedEmail})
     })
     .then(resp=>resp.json())
@@ -43,11 +45,13 @@ function Booking(props) {
   };
 
   function handleDeleteClick(){
-    fetch(`/bookings/${bookingId}`,{
+    fetch(`${API}/bookings/${bookingId}`,{
       method:'DELETE',
       headers:{
         "Content-Type":"application/json"
       },
+      credentials: 'include',
+      mode: 'cors',
     })
     .then(data=>{
       console.log(data, 'deleted')

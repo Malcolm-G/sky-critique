@@ -13,7 +13,10 @@ function BookingForm() {
   let arrivalAirport;
 
   useEffect(()=>{
-    fetch(`/flights/${params.flightId}`)
+    fetch(`${API}/flights/${params.flightId}`,{
+      credentials: 'include',
+      mode: 'cors',
+    })
     .then(resp=>resp.json())
     .then(data=>{
       console.log(data)
@@ -26,11 +29,13 @@ function BookingForm() {
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    fetch('/bookings',{
+    fetch(`${API}/bookings`,{
       method:'POST',
       headers:{
         "Content-Type":"application/json"
       },
+      credentials: 'include',
+      mode: 'cors',
       body:JSON.stringify(input)
     })
     .then(resp=>resp.json())
@@ -38,7 +43,10 @@ function BookingForm() {
       console.log(data)
       if(!data.errors){
         console.log([...myBookings,data])
-        fetch(`/users/${user.id}/bookings`)
+        fetch(`${API}/users/${user.id}/bookings`,{
+          credentials: 'include',
+          mode: 'cors',
+        })
             .then(resp=>resp.json())
             .then(data=>{
                 if(!data.errors){

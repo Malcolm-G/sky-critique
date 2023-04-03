@@ -14,7 +14,10 @@ function FlightInfo({ departureAirport, arrivalAirport, imageSrc }) {
   console.log(reviews)
 
   useEffect(() => {
-    fetch(`/flights/${params.id}`)
+    fetch(`${API}/flights/${params.id}`,{
+      credentials: 'include',
+      mode: 'cors',
+    })
       .then((resp) => resp.json())
       .then((data) => {
         console.log(data);
@@ -23,7 +26,10 @@ function FlightInfo({ departureAirport, arrivalAirport, imageSrc }) {
   }, []);
 
   useEffect(() => {
-    fetch(`/flights/${params.id}/reviews`)
+    fetch(`${API}/flights/${params.id}/reviews`,{
+      credentials: 'include',
+      mode: 'cors',
+    })
       .then((resp) => resp.json())
       .then((data) => {
         console.log(data);
@@ -45,11 +51,13 @@ function FlightInfo({ departureAirport, arrivalAirport, imageSrc }) {
   }, []);
 
   const handleReviewSubmit = (review) => {
-    fetch(`/flights/${params.id}/reviews`,{
+    fetch(`${API}/flights/${params.id}/reviews`,{
       method:'POST',
       headers:{
         "Content-Type":"application/json"
       },
+      credentials: 'include',
+      mode: 'cors',
       body:JSON.stringify({comment:review.comment, rating:review.rating, user_id:user.id})
     })
     .then(resp=>resp.json())

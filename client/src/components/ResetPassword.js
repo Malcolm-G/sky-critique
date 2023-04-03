@@ -13,11 +13,13 @@ function ResetPassword() {
   const handleSubmit = (event) => {
     event.preventDefault();
     console.log(`Email: ${email}, Password: ${password}`);
-    fetch('/reset_password',{
+    fetch(`${API}/reset_password`,{
         method:'PATCH',
         headers:{
           "Content-Type":"application/json"
         },
+        credentials: 'include',
+        mode: 'cors',
         body:JSON.stringify(input)
       })
       .then(resp=>resp.json())

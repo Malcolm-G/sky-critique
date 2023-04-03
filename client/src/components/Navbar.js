@@ -11,8 +11,10 @@ function NavBar() {
   const handleClick = () => setClick(!click);
   function nameClicked(){
     if(window.confirm('Do you wish to Sign out?')){
-      fetch('/logout',{
-        method:'DELETE'
+      fetch(`${API}/logout`,{
+        method:'DELETE',
+        credentials: 'include',
+        mode: 'cors',
       })
       .then(data=>{
         setUser(null)

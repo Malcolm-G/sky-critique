@@ -16,7 +16,10 @@ function UserDataProvider({ children }) {
 
     useEffect(() => {
         let loggedInUser;
-        fetch('/me')
+        fetch(`${API}/me`,{
+            credentials: 'include',
+            mode: 'cors',
+        })
         .then(resp=>resp.json())
         .then(data=>{
             if(!data.errors){
@@ -31,7 +34,10 @@ function UserDataProvider({ children }) {
 
     useEffect(()=>{
         if (user){
-            fetch(`/users/${user.id}/bookings`)
+            fetch(`${API}/users/${user.id}/bookings`,{
+                credentials: 'include',
+                mode: 'cors',
+            })
             .then(resp=>resp.json())
             .then(data=>{
                 if(!data.errors){
