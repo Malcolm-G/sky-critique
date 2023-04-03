@@ -15,6 +15,7 @@ import CreateReview from './components/CreateReview';
 import ProtectedRoute from './components/ProtectedRoute';
 import { UserContext } from './components/UserDataProvider';
 import { PropsRoute, PublicRoute, PrivateRoute } from 'react-router-with-props';
+import ResetPassword from './components/ResetPassword';
 
 
 function App() {
@@ -39,6 +40,10 @@ function App() {
               <Route
               path ="/signup"
               element = {<Signup />}
+              />
+              <Route
+              path ="/reset-password"
+              element = {<ResetPassword />}
               />
               <Route
               path ="/my-bookings"

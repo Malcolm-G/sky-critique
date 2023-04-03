@@ -20,7 +20,8 @@ function Home(){
             />
           </div>
           <div className="text-cont col-6 mt-5">
-            <h1 className="home-h1 text-left mt-5">DISCOVER THE FLIGHT FOR YOU</h1>
+            <h1 className="home-h1 text-left mt-5">DISCOVER THE FLIGHT</h1>
+            <h1 className="home-h1 text-center mt-0 mb-5 pb-4">FOR YOU</h1>
             <h2 className="home-h2 text-left my-5">Sky-Critique is your home of all available flights. View other fliers' reviews and make an informed decision on your next booking.</h2>
             <div className="btn-holder d-flex">
               {!user?<button onClick={()=>navigate('/signup')} className="home-sign ms-5">SIGN UP</button>:null}
