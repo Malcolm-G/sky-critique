@@ -36,13 +36,7 @@ Airport.create([
 # Booking.create(user: user2, flight: flight2, passenger_name: 'Ray Alan', passenger_email: 'ray.alan@example.com')
 # Booking.create(user: user3, flight: flight3, passenger_name: 'Mary Smith', passenger_email: 'mary.smith@example.com')
 
-# Associate some reviews with the flights
-Review.create(rating: 4, comment: 'Great flight!', user_id: 1, flight_id: 1)
-Review.create(rating: 2, comment: 'Bad experience.', user_id: 2, flight_id: 1)
-Review.create(rating: 3, comment: 'Average flight.', user_id: 1, flight_id: 2)
-Review.create(rating: 5, comment: 'Amazing!', user_id: 2, flight_id: 2)
-Review.create(rating: 1, comment: 'Terrible.', user_id: 1, flight_id: 3)
-Review.create(rating: 4, comment: 'Good service.', user_id: 2, flight_id: 3)
+
 
 # create some flights
 
@@ -57,6 +51,16 @@ Flight.create([
   { name: 'Flight 108', origin_id: 5, destination_id: 1, departure_time: DateTime.new(2023, 4, 8, 15, 0), duration: 180, image_url: 'https://via.placeholder.com/150' },
   { name: 'Flight 109', origin_id: 2, destination_id: 3, departure_time: DateTime.new(2023, 4, 9, 16, 0), duration: 240, image_url: 'https://via.placeholder.com/150' }
  ])
+ Booking.create([{flight_id: 1, user_id: 1, passenger_name: "John Doe", passenger_email: "john.doe@example.com"}, {flight_id: 2, user_id: 2, passenger_name: "Jane Smith", passenger_email: "jane.smith@example.com"}, {flight_id: 3, user_id: 3, passenger_name: "Bob Johnson", passenger_email: "bob.johnson@example.com"}])
+
+ # Associate some reviews with the flights
+Review.create(rating: 4, comment: 'Great flight!', user_id: 1, flight_id: 1)
+Review.create(rating: 2, comment: 'Bad experience.', user_id: 2, flight_id: 1)
+Review.create(rating: 3, comment: 'Average flight.', user_id: 1, flight_id: 2)
+Review.create(rating: 5, comment: 'Amazing!', user_id: 2, flight_id: 2)
+Review.create(rating: 1, comment: 'Terrible.', user_id: 1, flight_id: 3)
+Review.create(rating: 4, comment: 'Good service.', user_id: 2, flight_id: 3)
+
 
 
 puts "seed created successfully!"
