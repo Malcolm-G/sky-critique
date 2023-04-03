@@ -13,6 +13,7 @@ Rails.application.routes.draw do
   resources :bookings, only: [:index, :create, :destroy]
   # get '/flights', to: 'flights#index'
   # get '/flights/:id', to: 'flights#show'
+  patch '/reset_password', to: 'users#reset_password'
   get '/bookings', to: 'bookings#index'
   post '/bookings', to: 'bookings#create'
   delete '/bookings/:id', to: 'bookings#destroy'
