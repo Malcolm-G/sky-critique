@@ -32,6 +32,10 @@ function Login() {
     })
   };
 
+  function resetClicked(){
+    window.alert('New Feature Coming Soon!')
+  }
+
   return (
     <div className='card my-5'>
       <h1>Log In</h1>
@@ -55,13 +59,12 @@ function Login() {
           </div>
         </div>
         <button type="submit" className="btn btn-primary btn-lg">Log In</button>
-        <br/>
         <div className="row mt-3">
-          <div className="col d-flex justify-content-center">
+          <div className="col d-flex justify-content-center ">
             <Link to="/signup" className="btn btn-danger my-auto">Register</Link>
           </div>
           <div className="col">
-            <Link to="/forgot-password" className="btn btn-link">Forgot Password?</Link>
+            <button onClick={resetClicked} /*to='/reset-password'*/ type='button' className="btn btn-link">Reset Password</button>
           </div>
         </div>
       </form>
