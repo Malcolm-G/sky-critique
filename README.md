@@ -1,5 +1,5 @@
 # SkyCritique
-https://
+https://sky-critique.vercel.app/
 
 - This is a full stack web app that uses CRUD methods to book flights, review flights and check flight info. 
 - Also has a login/registration and logout where a user has to login or signup to access information and book flights, review flights and check flight details.
