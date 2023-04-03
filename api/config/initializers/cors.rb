@@ -7,7 +7,7 @@
 
 Rails.application.config.middleware.insert_before 0, Rack::Cors do
   allow do
-    origins "http://localhost:4000", "https://sky-critique.vercel.app/"
+    origins "http://localhost:4000","https://sky-critique-git-malcolm-frontend-malcolm-g.vercel.app/", "https://sky-critique-git-development-malcolm-g.vercel.app/"
 
     resource "*",
       headers: :any,
