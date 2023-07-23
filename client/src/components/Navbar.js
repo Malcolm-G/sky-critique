@@ -18,6 +18,7 @@ function NavBar() {
       })
       .then(data=>{
         setUser(null)
+        localStorage.removeItem("user");
       })
       navigate('/');
   }
