@@ -5,8 +5,9 @@ import { Navigate, Route, useNavigate, Redirect } from 'react-router-dom';
 function ProtectedRoute(props) {
     const [API, user, setUser,myBookings,setMyBookings] = useContext(UserContext)
     // const navigate = useNavigate()
+    const storedUser = JSON.parse(localStorage.getItem("user"))
     return (
-        user 
+        storedUser 
         ? props.outlet
         : <Navigate to='/login' />
     );

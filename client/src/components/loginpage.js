@@ -28,6 +28,7 @@ function Login() {
     .then(data=>{
       console.log(data)
       if(!data.errors){
+        localStorage.setItem("user", JSON.stringify(data));
         setUser(data)
         navigate('/');
       }
